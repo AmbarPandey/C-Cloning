@@ -1,0 +1,194 @@
+# ============================================================================
+# C-Cloning - Runtime Manifest
+# ----------------------------------------------------------------------------
+# Root bootstrap configuration for the C-Cloning Master Runtime.
+#
+# This file is the ENTRY POINT to the Runtime Configuration System. Every
+# runtime module resolves its behavior starting from this manifest. It defines
+# ONLY global runtime configuration: identity, repository layout, references to
+# other configuration files, execution policies, global state gates, and
+# version / compatibility metadata.
+#
+# It intentionally contains NO business knowledge and NO module logic:
+#   - no viral formula / comedy / narrative / scenario / psychology
+#   - no business strategy
+#   - no idea / script / production logic
+# Those live in the knowledge base (Markdown) and in stage/module components.
+#
+# Human documentation stays in Markdown. Runtime configuration stays in YAML.
+# This manifest is human-readable and machine-readable (Claude, Python,
+# LangGraph, n8n, GitHub Actions).
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# manifest: metadata about THIS configuration object.
+# Consumed first, before any other section, so a reader can decide whether it
+# understands this manifest at all (schema) and how to treat version drift.
+# ----------------------------------------------------------------------------
+manifest:
+  # Version of the manifest CONTENT (data). Bump when field values change.
+  manifest_version: "1.0.0"
+  # Version of the manifest STRUCTURE (keys/shape). Bump when the schema changes.
+  # A consumer validates against this before reading any other field.
+  schema_version: "1.0"
+  # How consumers must react to version differences. Locked, fail-closed policy.
+  compatibility_policy:
+    # Semantic-versioning contract for schema_version.
+    strategy: "semver"
+    # Same MAJOR schema_version is required; consumers must refuse otherwise.
+    require_same_major: true
+    # A newer MINOR/PATCH is allowed (additive, backward compatible).
+    allow_newer_minor: true
+    # Unknown keys are preserved but ignored, enabling forward extension.
+    unknown_keys: "ignore"
+    # If compatibility cannot be established, do not run.
+    on_incompatible: "fail_closed"
+
+# ----------------------------------------------------------------------------
+# project_identity: WHO this runtime is and WHAT architecture it executes.
+# Used by Module 1 to verify project identity and version compatibility.
+# ----------------------------------------------------------------------------
+project_identity:
+  project_name: "C-Cloning"
+  repository_name: "C-Cloning"
+  runtime_name: "C-Cloning Master Runtime"
+  # Version of the runtime engine itself.
+  runtime_version: "1.1.0"
+  # Version of the LOCKED Master Runtime Architecture this runtime implements.
+  # Module 1 fails closed if this does not match the runtime's expectation.
+  architecture_version: "1.1"
+
+# ----------------------------------------------------------------------------
+# repository: WHERE things live. Bootstrap layout of the repository.
+# This is the ONLY place repository paths/branches are declared, so no module
+# hardcodes them. All roots are repository-root-relative POSIX paths.
+# ----------------------------------------------------------------------------
+repository:
+  # The code default branch. Runtime is developed on feature branches off this.
+  default_branch: "main"
+  # The branch that holds the authoritative, LOCKED knowledge base.
+  documentation_branch: "docs/project-architecture"
+  # Root of the authoritative project documentation (on documentation_branch).
+  documentation_root: "docs"
+  # Home of the runnable runtime and its configuration (this file's directory).
+  runtime_root: "master-runtime/runtime"
+  # Home of per-module contracts / specifications.
+  module_root: "master-runtime/modules"
+  # Home of executable module prompts.
+  prompt_root: "master-runtime/prompts"
+
+# ----------------------------------------------------------------------------
+# configuration_references: the rest of the Runtime Configuration System.
+# The manifest REFERENCES these files; it never embeds their content. Each is
+# resolved relative to repository.runtime_root. They are declared here so the
+# manifest remains the single entry point, and are marked required/optional and
+# with a load phase so modules know when to read them.
+# ----------------------------------------------------------------------------
+configuration_references:
+  # Logical-document -> physical-path map. Used by the Context Loader (Module 2)
+  # to resolve documents without hardcoded paths.
+  repository_map:
+    path: "repository_map.yaml"
+    relative_to: "runtime_root"
+    required: true
+    load_phase: "context_loading"
+  # Enumerates modules, order, responsibilities, and contracts. Drives the
+  # module chain and module validation.
+  module_registry:
+    path: "module_registry.yaml"
+    relative_to: "runtime_root"
+    required: true
+    load_phase: "initialization"
+  # Declared, closed set of execution objectives (e.g. idea/script/production).
+  # Consumed by the Decision Engine.
+  execution_modes:
+    path: "execution_modes.yaml"
+    relative_to: "runtime_root"
+    required: true
+    load_phase: "decision"
+  # Compatible runtime/architecture/schema versions for explicit checks.
+  runtime_versions:
+    path: "runtime_versions.yaml"
+    relative_to: "runtime_root"
+    required: true
+    load_phase: "initialization"
+
+# ----------------------------------------------------------------------------
+# execution_policies: HOW the runtime behaves globally. These are the locked
+# operating rules every module inherits.
+# ----------------------------------------------------------------------------
+execution_policies:
+  # Any validation failure stops execution; no partial/degraded runs.
+  fail_closed:
+    enabled: true
+    # No module attempts recovery on failure; it returns a failure report.
+    attempt_recovery: false
+    # On failure, stop the whole chain rather than continuing.
+    on_failure: "terminate"
+    # Missing required inputs/docs are never guessed or substituted.
+    substitute_missing: false
+
+  # What must be checked, and how strictly, before/around execution.
+  validation:
+    # Verify project identity, repo availability, structure, locked artifacts.
+    validate_on_startup: true
+    # Verify the configuration files referenced above are present/readable.
+    validate_configuration: true
+    # Verify the module chain against module_registry.yaml.
+    validate_modules: true
+    # Treat validation warnings as hard failures (strict, fail-closed).
+    strict: true
+
+  # Observability. Format chosen so Python/LangGraph/n8n/Actions can parse it.
+  logging:
+    level: "info"                 # one of: debug | info | warn | error
+    format: "structured_json"     # machine-parseable log records
+    emit_initialization_report: true
+    emit_context_report: true
+    # Never log secrets or full environment dumps.
+    redact_secrets: true
+
+  # How the runtime stops - cleanly on success, hard on failure.
+  shutdown:
+    # Flush logs/reports before exiting.
+    graceful: true
+    # Distinct exit codes so orchestrators (Actions/n8n) can branch.
+    exit_code_success: 0
+    exit_code_failure: 1
+    # Release any transient context/state at shutdown.
+    release_context: true
+
+  # Permanent context is always loaded up front (v1.1 Base Runtime Context).
+  context_loading:
+    strategy: "minimum_necessary"
+    # Load only permanent context during loading phase.
+    load_permanent_context: true
+    # Never bulk-load the whole repository.
+    load_entire_repository: false
+    # Source of physical paths for logical documents.
+    source: "repository_map.yaml"
+
+  # Task-specific documents are DEFERRED until the Decision Engine picks a mode.
+  context_expansion:
+    strategy: "deferred"
+    # The loader defines the plan; it does not execute it.
+    define_only: true
+    # Expansion is triggered after an execution mode is selected.
+    trigger: "decision_engine"
+    # The closed set of modes that gate expansion.
+    modes_source: "execution_modes.yaml"
+
+# ----------------------------------------------------------------------------
+# global_runtime_state: the gates that must be satisfied for a valid run.
+# These are declarative REQUIREMENTS (not live status). Module 1 reads them to
+# know which validations are mandatory before control advances.
+# ----------------------------------------------------------------------------
+global_runtime_state:
+  # The runtime must be explicitly initialized before any workload.
+  initialization_required: true
+  # The repository must be verified (available, correct structure, locked docs).
+  repository_validation_required: true
+  # The referenced configuration files must be validated before use.
+  configuration_validation_required: true
+  # The module chain must be validated against the registry before execution.
+  module_validation_required: true
