@@ -1,0 +1,176 @@
+# ============================================================================
+# C-Cloning - Runtime Versions
+# ----------------------------------------------------------------------------
+# Fifth and FINAL component of the Runtime Configuration System. Referenced by
+# runtime_manifest.yaml (configuration_references.runtime_versions).
+#
+# RESPONSIBILITY: be the authoritative compatibility registry for the Master
+# Runtime. It records the versions of every runtime component and the rules
+# that decide whether a given combination is compatible. Nothing else.
+#
+# It contains:
+#   - no business knowledge
+#   - no runtime execution logic
+#   - no module implementations
+#   - no repository paths
+#
+# It does NOT duplicate any other configuration: components are referenced by
+# LOGICAL NAME and VERSION only. This file exists solely to validate
+# compatibility across the Runtime Configuration System.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# runtime_versions: metadata about THIS configuration object.
+# ----------------------------------------------------------------------------
+runtime_versions:
+  versions_version: "1.0.0"     # version of this compatibility registry (data)
+  schema_version: "1.0"         # version of the structure (keys/shape)
+  compatibility_policy:
+    strategy: "semver"
+    require_same_major: true
+    allow_newer_minor: true
+    unknown_keys: "ignore"
+    on_incompatible: "fail_closed"
+
+# ----------------------------------------------------------------------------
+# version_formats: the accepted string shapes. Consumers validate every version
+# value against the format assigned to its field (see `fields`).
+# ----------------------------------------------------------------------------
+version_formats:
+  semver: "^[0-9]+\\.[0-9]+\\.[0-9]+$"    # MAJOR.MINOR.PATCH  (e.g. 1.0.0)
+  short:  "^[0-9]+\\.[0-9]+$"             # MAJOR.MINOR        (e.g. 1.1)
+  # Assignment of format -> field.
+  fields:
+    runtime_version: "semver"
+    architecture_version: "short"
+    configuration_schema_version: "short"
+    component_version: "semver"
+    component_schema_version: "short"
+    module_version: "semver"
+
+# ----------------------------------------------------------------------------
+# runtime: the two pinned identities the whole system is built around. These
+# are stated here (by version) as the authoritative compatibility anchors; the
+# manifest remains their source of truth.
+# ----------------------------------------------------------------------------
+runtime:
+  runtime_version: "1.1.0"
+  architecture_version: "1.1"
+
+# ----------------------------------------------------------------------------
+# configuration_schema: the shared schema line that all config components track.
+# Every component's schema_version must satisfy the rule below.
+# ----------------------------------------------------------------------------
+configuration_schema:
+  version: "1.0"
+  # All config components must share the SAME MAJOR schema line.
+  rule: "require_same_major"
+
+# ----------------------------------------------------------------------------
+# components: authoritative version record for each config component, by logical
+# name only (no paths, no embedded content). `supported` gives the accepted
+# range; `deprecated` lists versions that still load but warn.
+# ----------------------------------------------------------------------------
+components:
+  manifest:
+    version: "1.0.0"
+    schema_version: "1.0"
+    supported: { min: "1.0.0", max_major: 1 }
+    deprecated: []
+  repository_map:
+    version: "1.0.0"
+    schema_version: "1.0"
+    supported: { min: "1.0.0", max_major: 1 }
+    deprecated: []
+  module_registry:
+    version: "1.0.0"
+    schema_version: "1.0"
+    supported: { min: "1.0.0", max_major: 1 }
+    deprecated: []
+  execution_modes:
+    version: "1.0.0"
+    schema_version: "1.0"
+    supported: { min: "1.0.0", max_major: 1 }
+    deprecated: []
+
+# ----------------------------------------------------------------------------
+# module_compatibility_rules: how an individual module's version relates to the
+# runtime. Modules are referenced by version only (identities live in the
+# module_registry). Kept as declarative rules - no module logic.
+# ----------------------------------------------------------------------------
+module_compatibility_rules:
+  # A module is compatible only if its MAJOR matches the runtime MAJOR.
+  require_same_major_as_runtime: true
+  # A module MINOR newer than the runtime MINOR is rejected (module needs a
+  # newer runtime than is present).
+  allow_module_minor_gt_runtime: false
+  # Accepted module version range for the current runtime line.
+  supported: { min: "1.0.0", max_major: 1 }
+
+# ----------------------------------------------------------------------------
+# configuration_compatibility_rules: cross-component rules for the config set.
+# ----------------------------------------------------------------------------
+configuration_compatibility_rules:
+  # Every component.schema_version must share the configuration_schema MAJOR.
+  require_uniform_schema_major: true
+  # Every component.version must fall within its `supported` range.
+  require_component_in_supported_range: true
+  # The manifest's declared runtime/architecture versions must equal the
+  # anchors in `runtime` above (single, consistent truth).
+  require_runtime_anchor_match: true
+
+# ----------------------------------------------------------------------------
+# policies: how version changes are handled. Behavior only, fail-closed.
+# ----------------------------------------------------------------------------
+upgrade_policy:
+  # PATCH/MINOR upgrades are additive + backward compatible -> auto-accepted.
+  minor_patch: "auto_accept"
+  # MAJOR upgrades require an explicit, coordinated bump + migration.
+  major: "require_migration"
+  # Dependent components must be re-validated after any upgrade.
+  revalidate_dependents: true
+  on_incompatible: "fail_closed"
+
+downgrade_policy:
+  # Downgrades are allowed only within the same MAJOR and to a supported,
+  # non-deprecated version.
+  same_major_only: true
+  to_deprecated: "forbid"
+  cross_major: "forbid"
+  on_violation: "fail_closed"
+
+deprecation_policy:
+  # Deprecated versions still load but MUST emit a warning.
+  on_deprecated: "warn"
+  # A version past its sunset (removed from `supported`) fails closed.
+  on_removed: "fail_closed"
+  # Deprecations are announced at least one MINOR ahead of removal.
+  notice_period: "one_minor_ahead"
+
+version_validation_policy:
+  # All versions are validated during runtime initialization.
+  validate_on: "initialization"
+  # Treat warnings as hard failures (strict).
+  strict: true
+  # No unversioned component may participate.
+  require_all_components_versioned: true
+  on_failure: "fail_closed"
+
+# ----------------------------------------------------------------------------
+# validation: the rule set a consumer MUST enforce. Fail-closed throughout.
+# ----------------------------------------------------------------------------
+validation:
+  # A declared version disagrees with the value in its owning config file.
+  on_version_mismatch: "fail_closed"
+  # runtime_version outside the supported runtime line.
+  on_unsupported_runtime_version: "fail_closed"
+  # architecture_version not equal to the pinned anchor.
+  on_unsupported_architecture_version: "fail_closed"
+  # Any component.version outside its supported range or wrong schema MAJOR.
+  on_unsupported_configuration_version: "fail_closed"
+  # A version listed in a component's `deprecated` set.
+  on_deprecated_version: "warn"
+  # A version greater than the current supported max (a "future" version).
+  on_future_version: "fail_closed"
+  # A version string that does not match its assigned version_formats pattern.
+  on_invalid_semver_format: "fail_closed"
