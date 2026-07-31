@@ -1,0 +1,56 @@
+# Documentation Index
+
+Complete map of every document in the C-Cloning repository.
+
+## Project foundations
+| # | Document | Purpose |
+|---|---|---|
+| 01 | [Project Vision](01-project-vision.md) | Why the project exists; mission & vision |
+| 02 | [Objectives](02-objectives.md) | Concrete, measurable goals |
+| 03 | [Locked Roadmap](03-locked-roadmap.md) | The immutable execution order |
+
+## Architecture
+| # | Document | Purpose |
+|---|---|---|
+| 04 | [System Architecture](04-system-architecture.md) | End-to-end technical design |
+| 05 | [Knowledge Layer](05-knowledge-layer.md) | How discovered knowledge is structured |
+| 06 | [Generation Layer](06-generation-layer.md) | How ideas → scripts are produced |
+| 07 | [Production Layer](07-production-layer.md) | How scripts → assets are produced |
+
+## Stage documentation
+| # | Document | Purpose |
+|---|---|---|
+| 10 | [Stage 1 — Competitor Intelligence](10-stage-1-competitor-intelligence.md) | Reverse engineering |
+| 11 | [Stage 1.5 — Business Decisions](11-stage-1_5-business-decisions.md) | Founder-level strategy |
+| 12 | [Stage 2 — Channel Operating System](12-stage-2-channel-operating-system.md) | Daily SOPs |
+| 13 | [Stage 4 — Infinite Idea Generator](13-stage-4-idea-generator.md) | Deterministic idea pipeline |
+| 14 | [Stage 5 — Script Compiler](14-stage-5-script-compiler.md) | Idea → script |
+| 15 | [Stage 6 — Production Compiler](15-stage-6-production-compiler.md) | Script → production package |
+
+## Intelligence libraries
+See [`intelligence/README.md`](../intelligence/README.md) for the full library index (Libraries 1–8).
+
+## Business & governance
+| # | Document | Purpose |
+|---|---|---|
+| 20 | [Business Strategy](20-business-strategy.md) | Model, positioning, monetization |
+| 21 | [Decision Log](21-decision-log.md) | Every major decision + rationale |
+
+## Operations
+| # | Document | Purpose |
+|---|---|---|
+| 30 | [Daily Workflow](30-daily-workflow.md) | How to operate the system today |
+| 31 | [Future Runtime Workflow](31-future-runtime-workflow.md) | The automated future pipeline |
+| 32 | [Future Expansion](32-future-expansion.md) | Scaling roadmap (Phase 2+) |
+
+## Reference
+| # | Document | Purpose |
+|---|---|---|
+| 40 | [Glossary](40-glossary.md) | Definitions of every term |
+| 41 | [FAQ](41-faq.md) | Common questions |
+
+## Diagrams
+See [`diagrams/README.md`](../diagrams/README.md) for all architecture and dependency diagrams.
+
+## Prompts
+See [`prompts/README.md`](../prompts/README.md) for the reusable stage prompt contracts.
