@@ -1,0 +1,276 @@
+# ============================================================================
+# C-Cloning - Execution Modes
+# ----------------------------------------------------------------------------
+# Fourth component of the Runtime Configuration System. Referenced by
+# runtime_manifest.yaml (configuration_references.execution_modes).
+#
+# RESPONSIBILITY: define the supported RUNTIME OPERATING MODES (lifecycle
+# phases) of the Master Runtime and the policies bound to each. Nothing else.
+#
+# These are RUNTIME behavior modes (Initialization, Context Preparation,
+# Execution, Validation, Shutdown) - NOT business objectives. This file contains:
+#   - no business strategy / idea / script / production logic
+#   - no execution logic (it describes modes; it does not run them)
+#   - no module implementations
+#   - no repository paths
+#
+# References only:
+#   - policies      -> manifest keys (manifest.execution_policies.*)  [not duplicated]
+#   - required_configuration / supported modules -> logical ids
+#     (config.* and module.identifiers from module_registry / repository_map)
+# It EXTENDS the manifest, repository map, and module registry; never duplicates.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# execution_modes: metadata about THIS configuration object (same gate as manifest).
+# ----------------------------------------------------------------------------
+execution_modes:
+  modes_version: "1.0.0"        # version of the modes data (values)
+  schema_version: "1.0"         # version of the structure (keys/shape)
+  extends:
+    - "runtime_manifest.yaml"
+    - "repository_map.yaml"
+    - "module_registry.yaml"
+  compatibility_policy:
+    strategy: "semver"
+    require_same_major: true
+    allow_newer_minor: true
+    unknown_keys: "ignore"
+    on_incompatible: "fail_closed"
+
+# ----------------------------------------------------------------------------
+# lifecycle: global properties of the mode sequence (not per-mode data).
+# ----------------------------------------------------------------------------
+lifecycle:
+  entry_mode: "mode.initialization"
+  terminal_mode: "mode.shutdown"
+  # Modes proceed by `next_mode`; a failure never advances (fail-closed).
+  transition_strategy: "linear_forward_only"
+
+# ----------------------------------------------------------------------------
+# policy_sources: single source of truth for policy VALUES lives in the
+# manifest. Modes REFERENCE these keys and only select behavior; they never
+# copy the values. This is how "no duplication" is preserved.
+# ----------------------------------------------------------------------------
+policy_sources:
+  context_loading: "manifest.execution_policies.context_loading"
+  context_expansion: "manifest.execution_policies.context_expansion"
+  validation: "manifest.execution_policies.validation"
+  logging: "manifest.execution_policies.logging"
+  failure: "manifest.execution_policies.fail_closed"
+  shutdown: "manifest.execution_policies.shutdown"
+
+# ----------------------------------------------------------------------------
+# defaults: applied to every mode unless overridden. Enables adding future
+# modes with minimal keys and NO schema change.
+# ----------------------------------------------------------------------------
+defaults:
+  # Every mode inherits fail-closed behavior; failures halt (no recovery).
+  failure_policy:
+    source: "failure"           # -> policy_sources.failure
+    on_failure: "halt"
+  # Logging is always active and inherits the manifest logging policy.
+  logging_policy:
+    source: "logging"
+    active: true
+  # Validation is active by default and inherits the manifest validation policy.
+  validation_policy:
+    source: "validation"
+    active: true
+  # By default a mode neither loads nor expands context; each mode opts in.
+  context_loading_policy:
+    source: "context_loading"
+    behavior: "none"            # none | permanent | expanded
+  context_expansion_policy:
+    source: "context_expansion"
+    behavior: "none"            # none | define_only | active
+
+# ----------------------------------------------------------------------------
+# modes: the registry of runtime operating modes. Each mode has ONE purpose.
+#   allowed_entry_module / allowed_exit_module -> module identifiers (registry)
+#   supported_modules                          -> module identifiers (registry)
+#   required_configuration                     -> config.* logical ids (repo map)
+#   *_policy                                    -> select + reference policy_sources
+#   next_mode                                  -> mode identifier (or null)
+# ----------------------------------------------------------------------------
+modes:
+
+  - identifier: "mode.initialization"
+    name: "Initialization"
+    description: "Validate and prepare the execution environment before any workload."
+    allowed_entry_module: "runtime.module.initialization"
+    allowed_exit_module: "runtime.module.initialization"
+    supported_modules:
+      - "runtime.module.initialization"
+    required_configuration:
+      - "config.manifest"
+      - "config.runtime_versions"
+      - "config.module_registry"
+    context_loading_policy:
+      source: "context_loading"
+      behavior: "none"
+    context_expansion_policy:
+      source: "context_expansion"
+      behavior: "none"
+    validation_policy:
+      source: "validation"
+      active: true
+    logging_policy:
+      source: "logging"
+      active: true
+    failure_policy:
+      source: "failure"
+      on_failure: "halt"
+    expected_outputs:
+      - "runtime_state.ready"
+      - "initialization_report"
+    next_mode: "mode.context_preparation"
+
+  - identifier: "mode.context_preparation"
+    name: "Context Preparation"
+    description: "Build the Base Runtime Context, define the expansion plan, and load current state."
+    allowed_entry_module: "runtime.module.context_loader"
+    allowed_exit_module: "runtime.module.state_loader"
+    supported_modules:
+      - "runtime.module.context_loader"
+      - "runtime.module.state_loader"
+    required_configuration:
+      - "config.manifest"
+      - "config.repository_map"
+      - "config.module_registry"
+    context_loading_policy:
+      source: "context_loading"
+      behavior: "permanent"
+    context_expansion_policy:
+      source: "context_expansion"
+      behavior: "define_only"
+    validation_policy:
+      source: "validation"
+      active: true
+    logging_policy:
+      source: "logging"
+      active: true
+    failure_policy:
+      source: "failure"
+      on_failure: "halt"
+    expected_outputs:
+      - "base_runtime_context"
+      - "context_expansion_plan"
+      - "current_state"
+    next_mode: "mode.execution"
+
+  - identifier: "mode.execution"
+    name: "Execution"
+    description: "Select the operating objective and orchestrate the corresponding locked pipeline stage."
+    allowed_entry_module: "runtime.module.decision_engine"
+    allowed_exit_module: "runtime.module.execution_engine"
+    supported_modules:
+      - "runtime.module.decision_engine"
+      - "runtime.module.execution_engine"
+    required_configuration:
+      - "config.execution_modes"
+      - "config.repository_map"
+      - "config.module_registry"
+    context_loading_policy:
+      source: "context_loading"
+      behavior: "expanded"
+    context_expansion_policy:
+      source: "context_expansion"
+      behavior: "active"
+    validation_policy:
+      source: "validation"
+      active: true
+    logging_policy:
+      source: "logging"
+      active: true
+    failure_policy:
+      source: "failure"
+      on_failure: "halt"
+    expected_outputs:
+      - "selected_execution_mode"
+      - "expanded_context"
+      - "stage_output"
+    next_mode: "mode.validation"
+
+  - identifier: "mode.validation"
+    name: "Validation"
+    description: "Validate the stage output against its contract and assemble the final runtime output."
+    allowed_entry_module: "runtime.module.quality_gate"
+    allowed_exit_module: "runtime.module.output_builder"
+    supported_modules:
+      - "runtime.module.quality_gate"
+      - "runtime.module.output_builder"
+    required_configuration:
+      - "config.module_registry"
+      - "config.repository_map"
+    context_loading_policy:
+      source: "context_loading"
+      behavior: "none"
+    context_expansion_policy:
+      source: "context_expansion"
+      behavior: "none"
+    validation_policy:
+      source: "validation"
+      active: true
+    logging_policy:
+      source: "logging"
+      active: true
+    failure_policy:
+      source: "failure"
+      on_failure: "halt"
+    expected_outputs:
+      - "validated_output"
+      - "quality_report"
+      - "runtime_output"
+    next_mode: "mode.shutdown"
+
+  - identifier: "mode.shutdown"
+    name: "Shutdown"
+    description: "Finalize the run: flush reports and logs, release context, and exit deterministically."
+    allowed_entry_module: "runtime.module.shutdown"
+    allowed_exit_module: "runtime.module.shutdown"
+    supported_modules:
+      - "runtime.module.shutdown"
+    required_configuration:
+      - "config.manifest"
+    context_loading_policy:
+      source: "context_loading"
+      behavior: "none"
+    context_expansion_policy:
+      source: "context_expansion"
+      behavior: "none"
+    validation_policy:
+      source: "validation"
+      active: false
+    logging_policy:
+      source: "logging"
+      active: true
+    failure_policy:
+      source: "failure"
+      on_failure: "halt"
+    expected_outputs:
+      - "shutdown_report"
+    next_mode: null
+
+# ----------------------------------------------------------------------------
+# validation: rules a consumer MUST enforce before trusting the modes config.
+# Fail-closed, inheriting execution_policies.fail_closed from the manifest.
+# ----------------------------------------------------------------------------
+validation:
+  # `identifier` values must be unique across all modes.
+  on_duplicate_mode_id: "fail_closed"
+  # allowed_entry_module must be a registered module id AND in supported_modules.
+  on_invalid_entry_module: "fail_closed"
+  # allowed_exit_module must be a registered module id AND in supported_modules.
+  on_invalid_exit_module: "fail_closed"
+  # Every required_configuration id must resolve in repository_map.
+  on_missing_required_configuration: "fail_closed"
+  # Every supported_modules id must resolve in module_registry.
+  on_unsupported_module: "fail_closed"
+  # `next_mode` graph must terminate at terminal_mode without cycles.
+  on_circular_mode_transition: "fail_closed"
+  # Every *_policy.source must resolve to a defined key in policy_sources, and
+  # each selected behavior must be a permitted enum value.
+  on_invalid_policy: "fail_closed"
+  # Enforce one purpose per mode: exactly one `description`.
+  require_single_purpose: true
