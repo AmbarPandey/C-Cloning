@@ -1,0 +1,261 @@
+# ============================================================================
+# C-Cloning - Module Registry
+# ----------------------------------------------------------------------------
+# Third component of the Runtime Configuration System. Referenced by
+# runtime_manifest.yaml (configuration_references.module_registry).
+#
+# RESPONSIBILITY: be the authoritative registry of every Runtime module and the
+# relationships between them (order, dependencies, contracts, prompts, config
+# dependencies, failure policy, next module). Nothing else.
+#
+# This file contains:
+#   - no business knowledge (formula/comedy/narrative/scenario/psychology/strategy)
+#   - no execution logic (it describes modules; it does not run them)
+#   - no hardcoded repository paths
+#
+# All file references are LOGICAL IDS resolved through repository_map.yaml.
+# All roots/branches/versions live in the manifest. This file EXTENDS both and
+# never DUPLICATES them.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# registry: metadata about THIS configuration object (same gate as manifest).
+# ----------------------------------------------------------------------------
+registry:
+  registry_version: "1.0.0"     # version of the registry data (values)
+  schema_version: "1.0"         # version of the structure (keys/shape)
+  # Builds on both prior config components (roots/versions from manifest;
+  # logical resource ids from repository_map).
+  extends:
+    - "runtime_manifest.yaml"
+    - "repository_map.yaml"
+  compatibility_policy:
+    strategy: "semver"
+    require_same_major: true
+    allow_newer_minor: true
+    unknown_keys: "ignore"
+    on_incompatible: "fail_closed"
+
+# ----------------------------------------------------------------------------
+# chain: global properties of the module chain (not per-module data).
+# ----------------------------------------------------------------------------
+chain:
+  # The first module control enters. Must resolve to a registered identifier.
+  entry_point: "runtime.module.initialization"
+  # The last module in normal execution. Its `next` is null.
+  terminal: "runtime.module.shutdown"
+  # Execution proceeds strictly by ascending `order` unless a module fails.
+  order_strategy: "ascending_contiguous_from_1"
+
+# ----------------------------------------------------------------------------
+# defaults: values applied to every module UNLESS the module overrides them.
+# This is what lets future modules be added with minimal keys (no schema change).
+# ----------------------------------------------------------------------------
+defaults:
+  version: "1.0.0"
+  status: "planned"                 # planned | contract_approved | implemented | deprecated
+  failure_policy: "fail_closed"     # inherited from manifest execution_policies.fail_closed
+  # Standard per-module validation requirements (see top-level `validation`).
+  validation_requirements:
+    - "inputs_present"              # all declared required inputs are available
+    - "config_dependencies_resolvable"  # every config_dependency logical id exists
+    - "contract_resolvable_when_required"  # contract_ref resolves if status requires it
+    - "prompt_resolvable_when_required"    # prompt_ref resolves if status requires it
+  # Contracts/prompts are only MANDATORY once a module reaches these statuses.
+  references_required_for_status:
+    - "contract_approved"
+    - "implemented"
+
+# ----------------------------------------------------------------------------
+# modules: the registry. Each entry describes ONE module with ONE responsibility.
+# References:
+#   contract_ref / prompt_ref / config_dependencies -> logical ids in
+#   repository_map.yaml (NOT paths). depends_on / next -> module identifiers.
+# Planned modules may name their intended (not-yet-registered) logical ids;
+# validation only enforces resolvability once status requires references.
+# ----------------------------------------------------------------------------
+modules:
+
+  - identifier: "runtime.module.initialization"
+    name: "Runtime Initialization"
+    version: "1.1.0"
+    status: "contract_approved"
+    order: 1
+    responsibility: "Validate and prepare the execution environment to a known, valid, deterministic state."
+    depends_on: []
+    inputs:
+      - "runtime_invocation"
+      - "project_identifier"
+      - "repository_connection"
+      - "runtime_version"
+    outputs:
+      - "initialization_report"
+      - "runtime_state.ready"
+    contract_ref: "module.runtime_initialization"   # logical id in repository_map
+    prompt_ref: "prompt.module_01"                    # logical id in repository_map
+    config_dependencies:
+      - "config.manifest"
+      - "config.runtime_versions"
+      - "config.module_registry"
+    next: "runtime.module.context_loader"
+
+  - identifier: "runtime.module.context_loader"
+    name: "Repository Context Loader"
+    version: "1.1.0"
+    status: "planned"
+    order: 2
+    responsibility: "Build the Base Runtime Context and define the Context Expansion Plan (define only)."
+    depends_on:
+      - "runtime.module.initialization"
+    inputs:
+      - "runtime_state.ready"
+      - "config.manifest"
+    outputs:
+      - "base_runtime_context"
+      - "context_expansion_plan"
+    contract_ref: "module.repository_context_loader"  # planned logical id
+    prompt_ref: "prompt.module_02"                     # planned logical id
+    config_dependencies:
+      - "config.manifest"
+      - "config.repository_map"
+    next: "runtime.module.state_loader"
+
+  - identifier: "runtime.module.state_loader"
+    name: "Current State Loader"
+    version: "1.0.0"
+    status: "planned"
+    order: 3
+    responsibility: "Load the current persistent runtime/project state required for this execution."
+    depends_on:
+      - "runtime.module.context_loader"
+    inputs:
+      - "base_runtime_context"
+    outputs:
+      - "current_state"
+    contract_ref: "module.current_state_loader"        # planned logical id
+    prompt_ref: "prompt.module_03"                      # planned logical id
+    config_dependencies:
+      - "config.repository_map"
+    next: "runtime.module.decision_engine"
+
+  - identifier: "runtime.module.decision_engine"
+    name: "Decision Engine"
+    version: "1.0.0"
+    status: "planned"
+    order: 4
+    responsibility: "Select the execution mode/objective and trigger the matching context expansion."
+    depends_on:
+      - "runtime.module.context_loader"
+      - "runtime.module.state_loader"
+    inputs:
+      - "base_runtime_context"
+      - "current_state"
+      - "context_expansion_plan"
+    outputs:
+      - "selected_execution_mode"
+      - "expanded_context"
+    contract_ref: "module.decision_engine"             # planned logical id
+    prompt_ref: "prompt.module_04"                      # planned logical id
+    config_dependencies:
+      - "config.execution_modes"
+    next: "runtime.module.execution_engine"
+
+  - identifier: "runtime.module.execution_engine"
+    name: "Execution Engine"
+    version: "1.0.0"
+    status: "planned"
+    order: 5
+    responsibility: "Orchestrate the locked pipeline stage that corresponds to the selected execution mode."
+    depends_on:
+      - "runtime.module.decision_engine"
+    inputs:
+      - "selected_execution_mode"
+      - "expanded_context"
+    outputs:
+      - "stage_output"
+    contract_ref: "module.execution_engine"            # planned logical id
+    prompt_ref: "prompt.module_05"                      # planned logical id
+    config_dependencies:
+      - "config.repository_map"
+      - "config.execution_modes"
+    next: "runtime.module.quality_gate"
+
+  - identifier: "runtime.module.quality_gate"
+    name: "Quality Gate"
+    version: "1.0.0"
+    status: "planned"
+    order: 6
+    responsibility: "Validate the stage output against its contract and runtime constraints."
+    depends_on:
+      - "runtime.module.execution_engine"
+    inputs:
+      - "stage_output"
+    outputs:
+      - "validated_output"
+      - "quality_report"
+    contract_ref: "module.quality_gate"                # planned logical id
+    prompt_ref: "prompt.module_06"                      # planned logical id
+    config_dependencies:
+      - "config.repository_map"
+    next: "runtime.module.output_builder"
+
+  - identifier: "runtime.module.output_builder"
+    name: "Output Builder"
+    version: "1.0.0"
+    status: "planned"
+    order: 7
+    responsibility: "Assemble the final runtime output artifact from the validated output."
+    depends_on:
+      - "runtime.module.quality_gate"
+    inputs:
+      - "validated_output"
+    outputs:
+      - "runtime_output"
+    contract_ref: "module.output_builder"              # planned logical id
+    prompt_ref: "prompt.module_07"                      # planned logical id
+    config_dependencies:
+      - "config.repository_map"
+    next: "runtime.module.shutdown"
+
+  - identifier: "runtime.module.shutdown"
+    name: "Runtime Shutdown"
+    version: "1.0.0"
+    status: "planned"
+    order: 8
+    responsibility: "Finalize the run: flush reports/logs, release context, and exit deterministically."
+    depends_on:
+      - "runtime.module.output_builder"
+    inputs:
+      - "runtime_output"
+    outputs:
+      - "shutdown_report"
+    contract_ref: "module.runtime_shutdown"            # planned logical id
+    prompt_ref: "prompt.module_08"                      # planned logical id
+    config_dependencies:
+      - "config.manifest"
+    next: null                                          # terminal module
+
+# ----------------------------------------------------------------------------
+# validation: rules a consumer MUST enforce before trusting the registry.
+# Fail-closed, inheriting execution_policies.fail_closed from the manifest.
+# ----------------------------------------------------------------------------
+validation:
+  # chain.entry_point / chain.terminal / every `next` / every depends_on must
+  # resolve to a registered identifier.
+  on_missing_module: "fail_closed"
+  # `identifier` values must be unique across the registry.
+  on_duplicate_id: "fail_closed"
+  # depends_on must form a Directed Acyclic Graph (no dependency cycles).
+  on_circular_dependency: "fail_closed"
+  # `order` must be unique, start at 1, be contiguous, and every depends_on
+  # must have a strictly lower order than the dependent module.
+  on_invalid_execution_order: "fail_closed"
+  # contract_ref must resolve in repository_map when status is in
+  # defaults.references_required_for_status; otherwise it may be unresolved.
+  on_missing_contract: "fail_closed"
+  # prompt_ref must resolve in repository_map under the same status condition.
+  on_missing_prompt: "fail_closed"
+  # module.version must satisfy the manifest/runtime_versions compatibility gate.
+  on_version_incompatibility: "fail_closed"
+  # Enforce the one-responsibility rule: exactly one `responsibility` per module.
+  require_single_responsibility: true
