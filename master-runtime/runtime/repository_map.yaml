@@ -1,0 +1,230 @@
+# ============================================================================
+# C-Cloning - Repository Map
+# ----------------------------------------------------------------------------
+# Second component of the Runtime Configuration System. Referenced by
+# runtime_manifest.yaml (configuration_references.repository_map).
+#
+# RESPONSIBILITY: map LOGICAL runtime resources to their PHYSICAL repository
+# locations. Nothing else.
+#
+# This file is ONLY location configuration. It contains:
+#   - no documentation prose
+#   - no business knowledge (formula/comedy/narrative/scenario/psychology/strategy)
+#   - no execution logic and no module logic
+#
+# It EXTENDS the manifest and never DUPLICATES it: physical root paths and
+# branches declared by the manifest are referenced here by manifest key
+# (source: manifest), never re-typed. Modules resolve documents by logical id,
+# so the repository can be restructured by editing roots here - not module code.
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# map: metadata about THIS configuration object (mirrors the manifest style so
+# the same schema/compatibility gate applies across the config system).
+# ----------------------------------------------------------------------------
+map:
+  map_version: "1.0.0"          # version of the mapping data (values)
+  schema_version: "1.0"         # version of the structure (keys/shape)
+  # Declares that this file builds on the manifest and inherits its roots.
+  extends: "runtime_manifest.yaml"
+  compatibility_policy:
+    strategy: "semver"
+    require_same_major: true
+    allow_newer_minor: true
+    unknown_keys: "ignore"
+    on_incompatible: "fail_closed"
+
+# ----------------------------------------------------------------------------
+# resolution: HOW a logical id is turned into a physical path.
+# Pure rules, no data. resolve(resource) =
+#   root_of(resource.root).resolved_path + separator + resource.path
+# ----------------------------------------------------------------------------
+resolution:
+  # All paths are resolved from the repository root, POSIX-style.
+  base: "repository_root"
+  path_style: "posix"
+  separator: "/"
+  # Paths must be repository-root-relative; absolute paths are rejected.
+  allow_absolute_paths: false
+  # ".." segments are forbidden so no resource can escape its declared root.
+  allow_parent_traversal: false
+  # A resource with no explicit branch inherits its root's branch;
+  # a root with no branch inherits repository.default_branch (from manifest).
+  branch_inheritance: "resource -> root -> manifest.repository.default_branch"
+  # Case-sensitive matching (Git/Linux semantics).
+  case_sensitive: true
+
+# ----------------------------------------------------------------------------
+# roots: logical root identifiers. Two kinds:
+#   source: manifest  -> value comes FROM the manifest key (NO duplication)
+#   source: map       -> a NEW root this file introduces (extension)
+# A root may declare a `parent` (another logical root id) to compose paths;
+# the parent chain must terminate at repository_root without cycles.
+# ----------------------------------------------------------------------------
+roots:
+  # The implicit repository root. Terminal node of every parent chain.
+  repository_root:
+    source: "implicit"
+    description: "Repository top level."
+
+  # ---- Roots owned by the manifest (referenced, never re-typed) ----
+  documentation_root:
+    source: "manifest"
+    manifest_key: "repository.documentation_root"
+    branch_manifest_key: "repository.documentation_branch"
+    description: "Authoritative locked knowledge base root."
+
+  runtime_root:
+    source: "manifest"
+    manifest_key: "repository.runtime_root"
+    description: "Runtime configuration + execution home."
+
+  module_root:
+    source: "manifest"
+    manifest_key: "repository.module_root"
+    description: "Per-module contracts."
+
+  prompt_root:
+    source: "manifest"
+    manifest_key: "repository.prompt_root"
+    description: "Executable module prompts."
+
+  # ---- New roots introduced by the map (extension; not in the manifest) ----
+  runtime_docs_root:
+    source: "map"
+    path: "master-runtime/docs"
+    description: "Runtime architecture documentation (Markdown)."
+
+  intelligence_root:
+    source: "map"
+    path: "intelligence"
+    branch_manifest_key: "repository.documentation_branch"
+    description: "Knowledge/intelligence library location."
+
+  diagrams_root:
+    source: "map"
+    path: "diagrams"
+    branch_manifest_key: "repository.documentation_branch"
+    description: "Architecture/pipeline diagram location."
+
+  knowledge_prompts_root:
+    source: "map"
+    path: "prompts"
+    branch_manifest_key: "repository.documentation_branch"
+    description: "Knowledge-base stage prompts (distinct from runtime prompt_root)."
+
+  # ---- Reserved future location (declared now, unpopulated) ----
+  assets_root:
+    source: "map"
+    path: "master-runtime/assets"
+    status: "reserved"
+    required: false
+    description: "Future runtime assets (schemas, templates, fixtures)."
+
+# ----------------------------------------------------------------------------
+# resources: logical id -> { root, path, type, required }.
+# `root` is a logical root id above; `path` is relative to that root.
+# Logical ids are stable; physical paths may change by editing this file only.
+# Grouping keys (documentation/runtime_config/...) are organizational only.
+# ----------------------------------------------------------------------------
+resources:
+
+  # ---- Runtime configuration files (under runtime_root) ----
+  runtime_config:
+    config.manifest:
+      root: "runtime_root"
+      path: "runtime_manifest.yaml"
+      type: "yaml"
+      required: true
+    config.repository_map:
+      root: "runtime_root"
+      path: "repository_map.yaml"
+      type: "yaml"
+      required: true
+    config.module_registry:
+      root: "runtime_root"
+      path: "module_registry.yaml"
+      type: "yaml"
+      required: false          # not yet created; see manifest load phases
+    config.execution_modes:
+      root: "runtime_root"
+      path: "execution_modes.yaml"
+      type: "yaml"
+      required: false
+    config.runtime_versions:
+      root: "runtime_root"
+      path: "runtime_versions.yaml"
+      type: "yaml"
+      required: false
+
+  # ---- Core knowledge-base documents (under documentation_root) ----
+  documentation:
+    doc.index:               { root: "documentation_root", path: "00-index.md",             type: "markdown", required: true }
+    doc.project_vision:      { root: "documentation_root", path: "01-project-vision.md",     type: "markdown", required: true }
+    doc.objectives:          { root: "documentation_root", path: "02-objectives.md",         type: "markdown", required: true }
+    doc.locked_roadmap:      { root: "documentation_root", path: "03-locked-roadmap.md",     type: "markdown", required: true }
+    doc.system_architecture: { root: "documentation_root", path: "04-system-architecture.md",type: "markdown", required: true }
+    doc.knowledge_layer:     { root: "documentation_root", path: "05-knowledge-layer.md",    type: "markdown", required: false }
+    doc.generation_layer:    { root: "documentation_root", path: "06-generation-layer.md",   type: "markdown", required: false }
+    doc.production_layer:    { root: "documentation_root", path: "07-production-layer.md",    type: "markdown", required: false }
+
+  # ---- Stage documentation (under documentation_root) ----
+  stage_documentation:
+    stage.competitor_intelligence: { root: "documentation_root", path: "10-stage-1-competitor-intelligence.md", type: "markdown", required: false }
+    stage.business_decisions:      { root: "documentation_root", path: "11-stage-1_5-business-decisions.md",    type: "markdown", required: false }
+    stage.operating_system:        { root: "documentation_root", path: "12-stage-2-channel-operating-system.md",type: "markdown", required: false }
+    stage.idea_generator:          { root: "documentation_root", path: "13-stage-4-idea-generator.md",          type: "markdown", required: false }
+    stage.script_compiler:         { root: "documentation_root", path: "14-stage-5-script-compiler.md",         type: "markdown", required: false }
+    stage.production_compiler:     { root: "documentation_root", path: "15-stage-6-production-compiler.md",      type: "markdown", required: false }
+
+  # ---- Intelligence libraries (under intelligence_root) ----
+  intelligence_libraries:
+    library.viral_formula:          { root: "intelligence_root", path: "01-viral-formula-library.md",       type: "markdown", required: false }
+    library.comedy_mechanics:       { root: "intelligence_root", path: "02-comedy-mechanics-library.md",    type: "markdown", required: false }
+    library.narrative_twist:        { root: "intelligence_root", path: "03-narrative-twist-library.md",     type: "markdown", required: false }
+    library.scenario_intelligence:  { root: "intelligence_root", path: "04-scenario-intelligence-library.md",type: "markdown", required: false }
+    library.viewer_psychology:      { root: "intelligence_root", path: "05-viewer-psychology-library.md",   type: "markdown", required: false }
+    library.narrative_pattern:      { root: "intelligence_root", path: "06-narrative-pattern-library.md",   type: "markdown", required: false }
+    library.virality_database:      { root: "intelligence_root", path: "07-virality-intelligence-database.md",type: "markdown", required: false }
+    library.content_matrix:         { root: "intelligence_root", path: "08-content-matrix.md",              type: "markdown", required: false }
+
+  # ---- Diagrams (under diagrams_root) ----
+  diagrams:
+    diagram.architecture:      { root: "diagrams_root", path: "architecture.md",      type: "markdown", required: false }
+    diagram.dependency_graph:  { root: "diagrams_root", path: "dependency-graph.md",  type: "markdown", required: false }
+    diagram.pipeline:          { root: "diagrams_root", path: "pipeline.md",          type: "markdown", required: false }
+
+  # ---- Knowledge-base stage prompts (under knowledge_prompts_root) ----
+  knowledge_prompts:
+    kb_prompt.idea_generation:      { root: "knowledge_prompts_root", path: "idea-generation.md",      type: "markdown", required: false }
+    kb_prompt.script_compilation:   { root: "knowledge_prompts_root", path: "script-compilation.md",   type: "markdown", required: false }
+    kb_prompt.production_compilation: { root: "knowledge_prompts_root", path: "production-compilation.md", type: "markdown", required: false }
+
+  # ---- Runtime module contracts (under module_root) ----
+  runtime_modules:
+    module.runtime_initialization: { root: "module_root", path: "Module_01_Runtime_Initialization.md", type: "markdown", required: true }
+
+  # ---- Runtime module prompts (under prompt_root) ----
+  runtime_prompts:
+    prompt.module_01: { root: "prompt_root", path: "Module_01.md", type: "markdown", required: true }
+
+# ----------------------------------------------------------------------------
+# validation: rules a consumer MUST enforce before using the map. Fail-closed,
+# inheriting execution_policies.fail_closed from the manifest.
+# ----------------------------------------------------------------------------
+validation:
+  # A resource marked required: true whose resolved path does not exist -> fail.
+  on_missing_required_path: "fail_closed"
+  # An optional resource that is absent -> allowed (skip), but recorded.
+  on_missing_optional_path: "skip_and_record"
+  # A path that violates resolution rules (absolute, contains "..", wrong type) -> fail.
+  on_invalid_path: "fail_closed"
+  # Two logical ids resolving to the same physical path, or a duplicated id -> fail.
+  on_duplicate_mapping: "fail_closed"
+  # A root whose parent chain does not terminate at repository_root, or forms a
+  # loop -> fail (no circular references).
+  on_circular_reference: "fail_closed"
+  # A resource referencing a root id (or a lookup of an id) that is not defined -> fail.
+  on_unknown_logical_identifier: "fail_closed"
+  # Every source: manifest root MUST resolve against an existing manifest key.
+  require_manifest_keys_resolvable: true
