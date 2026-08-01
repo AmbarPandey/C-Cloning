@@ -13,7 +13,7 @@
 
 ## 0. Preface — Nature and Boundaries of This Document
 
-This document is an **architecture-phase artifact** and the **final module of Stage A**. It
+This document is an **architecture-phase artifact** within **Stage A** (module A6). It
 establishes the **canonical overview of all Stage B modules**: the complete list, each module's
 purpose and ownership, their boundaries, dependencies, interactions, execution sequence, and
 governance. It is a **map of Stage B**, not the content of Stage B.
@@ -40,8 +40,8 @@ Stage B into implementation; it establishes the stable module map that later Sta
 
 **Design basis:** Stage B is a **one-to-one design deepening of the A2 architecture**. Each A2
 layer and concern becomes a Stage B design module, plus an integration-deepening module and a
-consolidation module. This guarantees the module set is **complete** (covers all of A2) and
-**non-overlapping** (each module owns exactly one A2 element).
+consolidation module. This guarantees the A2-deepening module set (B1–B8) is **complete** (covers
+all of A2) and **non-overlapping** (each module owns exactly one A2 element).
 
 ---
 
@@ -58,9 +58,13 @@ consolidation module. This guarantees the module set is **complete** (covers all
 | **B7** | Integration & Boundary Contract Design | Runtime / VPS / Publishing boundaries (deepens A5) |
 | **B8** | Stage B Consolidation & Readiness | Stage-wide coherence, closeout, handoff-readiness |
 
-This list is **canonical and closed for Stage B**: B1–B8 cover every A2 layer, every cross-cutting
-concern, every integration boundary, plus consolidation — with no element left uncovered and no
-element owned by two modules.
+Per the **locked Project 5 roadmap, Stage B consists of modules B1–B10.** The eight modules listed
+above (B1–B8) are the A2-architecture deepening detailed in this overview; together they cover
+every A2 layer, every cross-cutting concern, every integration boundary, plus consolidation — with
+no A2 element left uncovered and no A2 element owned by two modules. Modules **B9 and B10** are
+additionally locked in the roadmap and are elaborated in their own Stage B modules; they are
+referenced here solely for roadmap synchronization and are intentionally **not** designed,
+scoped, or redesigned in this document.
 
 ---
 
@@ -233,7 +237,7 @@ Stage B grows by **addition within the fixed map**, never by redesigning it:
 
 | Readiness Criterion | Status | Notes |
 |---------------------|--------|-------|
-| Complete Stage B module list | ✅ Ready | §1; B1–B8, canonical and closed. |
+| Complete Stage B module list | ✅ Ready | §1; Stage B = B1–B10 (locked); B1–B8 A2-deepening detailed here, B9–B10 in their own modules. |
 | Purpose of each module | ✅ Ready | §2. |
 | Ownership of each module | ✅ Ready | §3; single-owner per A2 element. |
 | Module boundaries | ✅ Ready | §3; each owns exactly one A2 element. |
@@ -255,9 +259,10 @@ Stage B grows by **addition within the fixed map**, never by redesigning it:
 | No Runtime/VPS redesign | ✅ Ready | Treated as fixed authorities. |
 | Aligns with A1–A5 and Projects 1–4 | ✅ Ready | One-to-one deepening of A2. |
 
-**Overall verdict:** ✅ **Stage B is architecture-ready.** The B1–B8 module map is complete,
-non-overlapping, dependency-consistent, and preserves all locked invariants — ready for Stage B
-design work to begin on `feature/production-tool-stack`.
+**Overall verdict:** ✅ **Stage B is architecture-ready.** The A2-deepening module map (B1–B8) is
+complete, non-overlapping, dependency-consistent, and preserves all locked invariants; together
+with the additionally locked B9–B10 (detailed in their own modules), the locked Stage B roadmap
+(B1–B10) is architecture-ready for design work to begin on `feature/production-tool-stack`.
 
 ---
 
@@ -281,18 +286,21 @@ Inconsistencies found: none. Document ready for commit on `feature/production-to
 
 ---
 
-## 11. Stage A Closeout Note
+## 11. Stage A Progression Note
 
-With A6, all defined Stage A foundation modules (A1–A6) are authored:
+Per the **locked Project 5 roadmap, Stage A consists of modules A1–A10.** Authored to date:
 
-- A1 — Production Vision & Philosophy
-- A2 — Production System Architecture
-- A3 — Repository Structure
-- A4 — Production Data Flow
-- A5 — Runtime & VPS Integration
-- A6 — Module Overview (this document)
+- A1 — Production Vision & Philosophy ✅
+- A2 — Production System Architecture ✅
+- A3 — Repository Structure ✅
+- A4 — Production Data Flow ✅
+- A5 — Runtime & VPS Integration ✅
+- A6 — Module Overview (this document) ✅
 
-Stage A establishes the vision, structure, repository, data flow, integration, and the canonical
-Stage B module map. Pending confirmation against the locked roadmap, **Stage A is positioned for
-closeout**, and Stage B (modules B1–B8) is architecture-ready to begin — all on
-`feature/production-tool-stack`, with no merge.
+**Remaining Stage A modules: A7, A8, A9, A10** — locked in the roadmap and not yet authored.
+Stage A is therefore **not yet complete and not positioned for closeout**; modules A7–A10 remain
+before Stage A can be closed.
+
+Per the locked roadmap, **Stage B consists of modules B1–B10.** The A2-architecture deepening is
+captured by B1–B8 in this overview; B9–B10 are additionally locked and are detailed in their own
+Stage B modules. All continued work remains on `feature/production-tool-stack`, with no merge.
