@@ -54,3 +54,8 @@ See [`diagrams/README.md`](../diagrams/README.md) for all architecture and depen
 
 ## Prompts
 See [`prompts/README.md`](../prompts/README.md) for the reusable stage prompt contracts.
+
+## Production (first-video artifacts)
+See [`production/README.md`](../production/README.md) for the concrete, filled production
+artifacts — character model sheets, the complete [Idea A1 package](../production/A1-first-video/README.md)
+(script → storyboard → assets → audio → edit → publish), reusable templates, and tool usage guides.

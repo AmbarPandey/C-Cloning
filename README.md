@@ -77,7 +77,9 @@ C-Cloning/
 ├── docs/                         ← project, architecture, stages, strategy, workflows
 ├── intelligence/                 ← the 8 knowledge/computation libraries
 ├── diagrams/                     ← Mermaid architecture & dependency diagrams
-└── prompts/                      ← reusable stage prompt contracts
+├── prompts/                      ← reusable stage prompt contracts
+└── production/                   ← first-video artifacts: cast sheets, the Idea A1 package,
+                                     templates & tool guides (build a real Short end-to-end)
 ```
 
 A complete index of every document is maintained in [`docs/00-index.md`](docs/00-index.md).
@@ -92,6 +94,7 @@ A complete index of every document is maintained in [`docs/00-index.md`](docs/00
 | Intelligence Layer (Library 7) | ✅ Locked |
 | Computation Layer (Library 8) | ✅ Locked |
 | Generation → Production (Stages 4–6) | ✅ Locked & demonstrated (Idea `A1`) |
+| First-video production artifacts | ✅ Delivered ([`production/`](production/README.md): cast, full A1 package, templates, tool guides) |
 | Phase 1 (Shorts → monetization) | ▶ Ready to execute |
 | Phase 2 (long-form expansion) | ⏳ Post-monetization |
 
