@@ -30,12 +30,18 @@ inherits from — plus the channel-wide standards that grow beneath them. It is 
   standards, per-character overrides (full PIP), expression asset IDs, prompt standards, and
   reuse/approval rules. Inherits from the two roots + the Character Bible; feeds the Pose Library,
   Animation Language, Wallpaper/Prompt Framework, and shot generation.
+- **[POSE_LIBRARY.md](POSE_LIBRARY.md)** — the canonical **body-language system**: the pose taxonomy +
+  controlled pose-name vocabulary, three intensity levels, universal body-language rules (line of
+  action, weight, balance, silhouette), pose+expression pairing, per-character overrides (full PIP),
+  pose asset IDs, prompt standards, and reuse/approval rules. Inherits from the two roots + the
+  Character Bible + the Expression Library; owns the *static pose* and defers motion/timing to the
+  future Animation Language. The Expression Library explains the face; this explains the body.
 
 ## Planned children (each inherits from the roots + Character Bible where characters apply; not yet created)
-Pose Library · Prop Library · Environment Bible · Camera Language · Animation Language · Prompt
-Framework · Image/Wallpaper prompt sets. Each must open with an inheritance banner referencing the
-Brand Bible (meaning/story/voice), the Visual Identity Lock (appearance), and — for character-scoped
-docs — the Character Bible and Expression Library. See
+Prop Library · Environment Bible · Camera Language · Animation Language · Prompt Framework ·
+Image/Wallpaper prompt sets. Each must open with an inheritance banner referencing the Brand Bible
+(meaning/story/voice), the Visual Identity Lock (appearance), and — for character-scoped docs — the
+Character Bible, Expression Library, and Pose Library. See
 [Character Bible → future documents](CHARACTER_BIBLE.md#relationship-with-existing-documents),
 [Expression Library → future integration](EXPRESSION_LIBRARY.md#future-integration),
 [Brand Bible → future documents](BRAND_BIBLE.md#relationship-with-existing-documents), and

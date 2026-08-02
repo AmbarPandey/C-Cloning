@@ -81,5 +81,9 @@ Built on the Identity Core:
   language**: emotion taxonomy + expression-name vocabulary, three intensity levels, facial-acting
   standards, per-character overrides, and expression asset IDs. Generation picks an expression from
   here instead of inventing one.
+- [`POSE_LIBRARY.md`](../production/design/POSE_LIBRARY.md) — the canonical **body-language system**:
+  pose taxonomy + pose-name vocabulary, three intensity levels, universal body-language rules,
+  pose+expression pairing, per-character overrides, and pose asset IDs. The Expression Library explains
+  the face; the Pose Library explains the body.
 
 See [`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.

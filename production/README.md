@@ -19,7 +19,8 @@ production/
 │   ├── BRAND_BIBLE.md            ← who the channel is: purpose, story, personality, voice
 │   ├── VISUAL_IDENTITY_LOCK.md   ← how everything looks: the locked visual language
 │   ├── CHARACTER_BIBLE.md        ← the character system + full PIP profile + future template
-│   └── EXPRESSION_LIBRARY.md     ← the canonical emotional language (taxonomy, intensity, per-char)
+│   ├── EXPRESSION_LIBRARY.md     ← the canonical emotional language (taxonomy, intensity, per-char)
+│   └── POSE_LIBRARY.md           ← the canonical body-language system (poses, pairing, per-char)
 ├── characters/                   ← model sheets for the fixed cast + style guide  (fills F2)
 │   ├── README.md
 │   ├── cast-style-guide.md
@@ -81,6 +82,7 @@ production/
 | Brand identity (story/voice) | [Brand Bible](design/BRAND_BIBLE.md) → operationalizes [Project Vision](../docs/01-project-vision.md) + [Stage 1.5 Channel DNA](../docs/11-stage-1_5-business-decisions.md) + [Libraries 1–6](../intelligence/README.md) |
 | Character system + cast | [Character Bible](design/CHARACTER_BIBLE.md) → implemented by the [model sheets](characters/README.md) (PIP, CHIEF) |
 | Expressions / emotional language | [Expression Library](design/EXPRESSION_LIBRARY.md) → canonical emotion taxonomy + per-character packs |
+| Poses / body language | [Pose Library](design/POSE_LIBRARY.md) → canonical pose taxonomy + pose+expression pairing + per-character sets |
 | Visual style (all assets) | [Visual Identity Lock](design/VISUAL_IDENTITY_LOCK.md) → derived from [Stage 1.5 art direction](../docs/11-stage-1_5-business-decisions.md) |
 | Asset IDs / reuse | [Stage 2 asset library](../docs/12-stage-2-channel-operating-system.md) |
 | Publish gate | [Stage 2 Publish Gate](../docs/12-stage-2-channel-operating-system.md) |
