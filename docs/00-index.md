@@ -60,9 +60,15 @@ See [`production/README.md`](../production/README.md) for the concrete, filled p
 artifacts — character model sheets, the complete [Idea A1 package](../production/A1-first-video/README.md)
 (script → storyboard → assets → audio → edit → publish), reusable templates, and tool usage guides.
 
-## Design standards
-The **single source of truth for every visual asset** lives in
-[`production/design/VISUAL_IDENTITY_LOCK.md`](../production/design/VISUAL_IDENTITY_LOCK.md) — the locked
-visual language (shape, line, color, lighting, composition, rendering, brand-recognition and
-consistency rules + a pre-approval quality checklist). Nothing visual is created without following it.
-See [`production/design/README.md`](../production/design/README.md) for the design-standards index.
+## Design standards — the Identity Core
+The **Identity Core** lives in [`production/design/`](../production/design/README.md) — two locked root
+documents every creative asset inherits from:
+- [`BRAND_BIBLE.md`](../production/design/BRAND_BIBLE.md) — *who the channel is*: purpose, mission,
+  vision, values, personality, audience, emotional design, storytelling philosophy, content pillars,
+  brand recognition, voice, and the creative decision framework.
+- [`VISUAL_IDENTITY_LOCK.md`](../production/design/VISUAL_IDENTITY_LOCK.md) — *how everything looks*:
+  the locked visual language (shape, line, color, lighting, composition, rendering, brand-recognition
+  and consistency rules + a pre-approval quality checklist).
+
+Nothing visual is created without the Lock; nothing strategic without the Bible. See
+[`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.

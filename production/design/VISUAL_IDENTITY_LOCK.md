@@ -8,6 +8,11 @@
 > generated, rendered, or published unless it obeys this document. If any other document
 > disagrees with this one on a *visual* rule, **this document wins** and the other document
 > must be corrected (see [Repository Integration](#repository-integration)).
+>
+> **Paired with the [Brand Bible](BRAND_BIBLE.md).** Together they are the **Identity Core**: this
+> document governs *how everything looks*; the Brand Bible governs *who the channel is* (purpose,
+> story, personality, voice). On a visual question, this document wins; on a brand/story/voice
+> question, the Brand Bible wins.
 
 This lock formalizes and elevates the art direction that was decided in
 [Stage 1.5 — Business Decisions](../../docs/11-stage-1_5-business-decisions.md) ("clean flat-color
