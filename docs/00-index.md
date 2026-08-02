@@ -77,5 +77,9 @@ Built on the Identity Core:
   (taxonomy, lifecycle, asset/naming/prompt standards, validation) + the full **PIP** profile and a
   reusable future-character template. Implemented by the model sheets in
   [`production/characters/`](../production/characters/README.md).
+- [`EXPRESSION_LIBRARY.md`](../production/design/EXPRESSION_LIBRARY.md) — the canonical **emotional
+  language**: emotion taxonomy + expression-name vocabulary, three intensity levels, facial-acting
+  standards, per-character overrides, and expression asset IDs. Generation picks an expression from
+  here instead of inventing one.
 
 See [`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.

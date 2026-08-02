@@ -209,9 +209,9 @@ sheets list different packs. The system rule:
 - Every character has a **default resting expression** and a **core pack of ≥6 expressions** covering:
   *neutral, a "status" face (smug/worried), a peak-emotion face, a shock/turn face, a payoff face,* and
   *a signature button.* The exact names are tailored to the character.
-- The forthcoming **Expression Library** (a child of this Bible) will canonicalize the universal
-  emotional-beat taxonomy and map each character's pack onto it. Until then, each model sheet's pack is
-  authoritative for that character.
+- The **[Expression Library](EXPRESSION_LIBRARY.md)** (a child of this Bible) canonicalizes the
+  universal emotional-beat taxonomy and maps each character's pack onto it — it is the authoritative
+  source for expression names, intensity, and per-character emotional vocabulary.
 
 **Variants** must preserve the locked silhouette and palette roles; a variant that changes the
 silhouette is a **new version**, not a variant.
@@ -596,7 +596,7 @@ The character is then implemented as a model sheet in [characters/](../character
 
 | Future document | Inherits from this Bible | Also inherits |
 |---|---|---|
-| **Expression Library** | The expression system, per-character packs, default resting faces | Visual Identity Lock (rendering) · Brand Bible (emotional design) |
+| **[Expression Library](EXPRESSION_LIBRARY.md)** ✅ | The expression system, per-character packs, default resting faces | Visual Identity Lock (rendering) · Brand Bible (emotional design) |
 | **Pose Library** | The pose system, per-character `pose_[name]` sets, pose philosophy | Visual Identity Lock · Brand Bible |
 | **Prop Library** | Character-owned signature props + reuse rules | Visual Identity Lock · Stage 2 naming |
 | **Environment Bible** | How characters read against backgrounds; crowd/background rules | Visual Identity Lock (backgrounds) · Brand Bible (settings-as-variables) |

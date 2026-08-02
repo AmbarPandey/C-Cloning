@@ -47,6 +47,11 @@ Full palette is style-locked so every image-gen and Anijam render matches. See t
 `neutral · smug · shocked · gleeful · panicked · deadpan`
 Each expression is a separate exported asset (`CHAR_[NAME]_expr_[name]`) so scenes are assembled by swapping, not redrawing.
 
+> This is the *generic default sheet*. The canonical emotion taxonomy, intensity levels, and each
+> character's tailored pack are defined in the
+> [Expression Library](../design/EXPRESSION_LIBRARY.md) — the single source of truth for the cast's
+> emotional language.
+
 ## Consistency checklist (used by the Animation QC role)
 - [ ] Silhouette matches the model sheet at a glance.
 - [ ] Palette tokens exact (no drifted hues).

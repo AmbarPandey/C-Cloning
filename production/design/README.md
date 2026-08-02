@@ -25,13 +25,19 @@ inherits from — plus the channel-wide standards that grow beneath them. It is 
   full **PIP** profile (first implementation), and a reusable future-character template. Inherits from
   **both** roots; parents the character-scoped libraries below. Implemented by the model sheets in
   [`../characters/`](../characters/README.md).
+- **[EXPRESSION_LIBRARY.md](EXPRESSION_LIBRARY.md)** — the canonical **emotional language**: the emotion
+  taxonomy + controlled expression-name vocabulary, three intensity levels, universal facial-acting
+  standards, per-character overrides (full PIP), expression asset IDs, prompt standards, and
+  reuse/approval rules. Inherits from the two roots + the Character Bible; feeds the Pose Library,
+  Animation Language, Wallpaper/Prompt Framework, and shot generation.
 
 ## Planned children (each inherits from the roots + Character Bible where characters apply; not yet created)
-Expression Library · Pose Library · Prop Library · Environment Bible · Camera Language · Animation
-Language · Prompt Framework · Image/Wallpaper prompt sets. Each must open with an inheritance banner
-referencing the Brand Bible (meaning/story/voice), the Visual Identity Lock (appearance), and — for
-character-scoped docs — the Character Bible. See
+Pose Library · Prop Library · Environment Bible · Camera Language · Animation Language · Prompt
+Framework · Image/Wallpaper prompt sets. Each must open with an inheritance banner referencing the
+Brand Bible (meaning/story/voice), the Visual Identity Lock (appearance), and — for character-scoped
+docs — the Character Bible and Expression Library. See
 [Character Bible → future documents](CHARACTER_BIBLE.md#relationship-with-existing-documents),
+[Expression Library → future integration](EXPRESSION_LIBRARY.md#future-integration),
 [Brand Bible → future documents](BRAND_BIBLE.md#relationship-with-existing-documents), and
 [Visual Identity Lock → Future Compatibility](VISUAL_IDENTITY_LOCK.md#future-compatibility).
 

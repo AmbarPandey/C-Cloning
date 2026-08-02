@@ -36,7 +36,8 @@ official" even in black silhouette at thumbnail size.
 
 ## Expression pack
 `CHAR_CHIEF_expr_neutral · _smug · _gloating · _shocked · _panicked · _deadpan`
-(default resting face = **smug**).
+(default resting face = **smug**; adds `_triumphant` at the L3 peak). Canonical emotions, intensity
+levels, and the pride ladder: [Expression Library → CHIEF](../design/EXPRESSION_LIBRARY.md#character-overrides).
 
 ## Personality (for pose/timing, not dialogue)
 Vain, petty, drunk on small power, oblivious to his own hypocrisy. He never speaks in A1 — all

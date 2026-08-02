@@ -30,8 +30,9 @@ stub limbs. Reads as "small and harmless" in silhouette so the power imbalance i
 | Coin purse | `PROP_pip_coins_v1` | Fumbles coins at the meter in the hook (establishes innocence) |
 
 ## Expression pack
-`CHAR_PIP_expr_neutral · _worried · _teary · _hopeful · _relieved · _wave`
-(default resting face = **worried**; ends on **relieved/wave**).
+`CHAR_PIP_expr_neutral · _worried · _teary · _hopeful · _gleeful · _relieved · _wave`
+(default resting face = **worried**; ends on **relieved/wave**). Canonical emotions, intensity levels,
+and descriptors: [Expression Library → PIP](../design/EXPRESSION_LIBRARY.md#character-overrides).
 
 ## Personality (for pose/timing, not dialogue)
 Gentle, law-abiding, easily bullied but not pathetic — quietly dignified. PIP never retaliates;
