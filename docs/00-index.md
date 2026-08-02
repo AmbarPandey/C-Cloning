@@ -59,3 +59,10 @@ See [`prompts/README.md`](../prompts/README.md) for the reusable stage prompt co
 See [`production/README.md`](../production/README.md) for the concrete, filled production
 artifacts — character model sheets, the complete [Idea A1 package](../production/A1-first-video/README.md)
 (script → storyboard → assets → audio → edit → publish), reusable templates, and tool usage guides.
+
+## Design standards
+The **single source of truth for every visual asset** lives in
+[`production/design/VISUAL_IDENTITY_LOCK.md`](../production/design/VISUAL_IDENTITY_LOCK.md) — the locked
+visual language (shape, line, color, lighting, composition, rendering, brand-recognition and
+consistency rules + a pre-approval quality checklist). Nothing visual is created without following it.
+See [`production/design/README.md`](../production/design/README.md) for the design-standards index.

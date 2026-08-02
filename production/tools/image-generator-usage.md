@@ -4,6 +4,8 @@ Generate the flat-2D characters, props, and backgrounds. The generator is the to
 chosen in [Stage 1.5](../../docs/11-stage-1_5-business-decisions.md) ("style-locked flat art").
 
 ## Inputs
+- The [Visual Identity Lock](../design/VISUAL_IDENTITY_LOCK.md) — the master visual standard every
+  output must pass (see its [Quality Checklist](../design/VISUAL_IDENTITY_LOCK.md#quality-checklist)).
 - The [visual-prompt template](../templates/visual-prompt-template.md) (style prefix + slots).
 - The [cast style guide](../characters/cast-style-guide.md) palette tokens.
 - Character [model sheets](../characters/README.md).

@@ -1,5 +1,11 @@
 # Cast Style Guide
 
+> **Governed by the [Visual Identity Lock](../design/VISUAL_IDENTITY_LOCK.md).** That document is the
+> channel-wide single source of truth for all shape, line, color, lighting, composition, and rendering
+> rules. This guide is its **cast-scoped** child: it applies the lock to the recurring characters
+> (proportions, expression packs, per-character consistency). If anything here disagrees with the lock
+> on a visual rule, the lock wins.
+
 The shared visual grammar for **every** character and asset. Locked to match the art direction
 decided in [Stage 1.5](../../docs/11-stage-1_5-business-decisions.md): *clean flat-color 2D,
 thick outlines, minimal shading, expression-first characters.*

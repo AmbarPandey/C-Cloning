@@ -4,6 +4,11 @@ Reusable prompt structure for generating any character, prop, background, or sce
 locked flat-2D style. Fills audit finding **F3**. See a filled example in the
 [A1 storyboard](../A1-first-video/03-storyboard.md).
 
+> **The style prefix and palette below encode the [Visual Identity Lock](../design/VISUAL_IDENTITY_LOCK.md).**
+> This template is the *how-to-prompt* surface of that standard — do not diverge from the lock's
+> [Color System](../design/VISUAL_IDENTITY_LOCK.md#color-system) or
+> [Rendering Rules](../design/VISUAL_IDENTITY_LOCK.md#rendering-rules) here.
+
 ## 1. Style prefix (always prepend — do not edit)
 ```
 Flat-color 2D cartoon, thick uniform black outlines, no gradients, minimal single-tone shading,

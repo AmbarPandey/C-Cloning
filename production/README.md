@@ -14,6 +14,9 @@ needs to actually build, review, and publish **Idea A1**.
 ```
 production/
 ├── README.md                     ← you are here
+├── design/                       ← channel-wide visual standards (single source of truth)
+│   ├── README.md
+│   └── VISUAL_IDENTITY_LOCK.md   ← the locked visual language every asset must obey
 ├── characters/                   ← model sheets for the fixed cast + style guide  (fills F2)
 │   ├── README.md
 │   ├── cast-style-guide.md
@@ -48,7 +51,8 @@ production/
 
 ## How to produce the first video (operator quickstart)
 
-1. Read the [cast style guide](characters/cast-style-guide.md) and the two model sheets.
+1. Read the [Visual Identity Lock](design/VISUAL_IDENTITY_LOCK.md) (the master visual standard), then
+   the [cast style guide](characters/cast-style-guide.md) and the two model sheets.
 2. Generate the character + background assets using the
    [image generator guide](tools/image-generator-usage.md) and the prompts in the
    [storyboard](A1-first-video/03-storyboard.md).
@@ -70,6 +74,7 @@ production/
 | Idea brief | [Stage 4](../docs/13-stage-4-idea-generator.md) + [Idea-Generation contract](../prompts/idea-generation.md) |
 | Script | [Stage 5](../docs/14-stage-5-script-compiler.md) + [Script-Compilation contract](../prompts/script-compilation.md) |
 | Storyboard → editing | [Stage 6](../docs/15-stage-6-production-compiler.md) + [Production-Compilation contract](../prompts/production-compilation.md) |
+| Visual style (all assets) | [Visual Identity Lock](design/VISUAL_IDENTITY_LOCK.md) → derived from [Stage 1.5 art direction](../docs/11-stage-1_5-business-decisions.md) |
 | Asset IDs / reuse | [Stage 2 asset library](../docs/12-stage-2-channel-operating-system.md) |
 | Publish gate | [Stage 2 Publish Gate](../docs/12-stage-2-channel-operating-system.md) |
 | Tool choices | [Stage 1.5 tool stack](../docs/11-stage-1_5-business-decisions.md) · [D-20](../docs/21-decision-log.md) |
