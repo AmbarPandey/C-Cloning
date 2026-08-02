@@ -70,5 +70,12 @@ documents every creative asset inherits from:
   the locked visual language (shape, line, color, lighting, composition, rendering, brand-recognition
   and consistency rules + a pre-approval quality checklist).
 
-Nothing visual is created without the Lock; nothing strategic without the Bible. See
-[`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.
+Nothing visual is created without the Lock; nothing strategic without the Bible.
+
+Built on the Identity Core:
+- [`CHARACTER_BIBLE.md`](../production/design/CHARACTER_BIBLE.md) — the permanent **character system**
+  (taxonomy, lifecycle, asset/naming/prompt standards, validation) + the full **PIP** profile and a
+  reusable future-character template. Implemented by the model sheets in
+  [`production/characters/`](../production/characters/README.md).
+
+See [`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.

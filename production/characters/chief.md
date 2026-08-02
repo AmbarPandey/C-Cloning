@@ -1,5 +1,10 @@
 # Model Sheet — CHIEF
 
+> **This is CHIEF's locked visual spec.** The channel-wide character system that governs CHIEF (class,
+> lifecycle, asset/naming standards, validation) lives in the
+> [Character Bible](../design/CHARACTER_BIBLE.md); CHIEF is a **Bully / Antagonist** in its
+> [taxonomy](../design/CHARACTER_BIBLE.md#character-taxonomy). This sheet owns the exact design values.
+
 - **Asset ID:** `CHAR_CHIEF_v1`
 - **Role archetype:** Pompous authority figure / antagonist (the "power-abuser" whose own
   overconfidence triggers his comeuppance).

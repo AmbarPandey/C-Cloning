@@ -1,5 +1,10 @@
 # Model Sheet — PIP
 
+> **This is PIP's locked visual spec.** PIP's full character profile (purpose, narrative role,
+> personality, movement/gesture/pose/expression philosophy, boundaries, evolution rules) lives in the
+> [Character Bible → PIP](../design/CHARACTER_BIBLE.md#pip). This sheet is the authoritative source for
+> the exact design values below.
+
 - **Asset ID:** `CHAR_PIP_v1`
 - **Role archetype:** Small, kind underdog / protagonist (the sympathetic Pal the audience roots
   for; the victim of CHIEF's power abuse who is vindicated by the twist).

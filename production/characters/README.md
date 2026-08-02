@@ -1,5 +1,11 @@
 # Characters — Fixed Cast
 
+> **Governed by the [Character Bible](../design/CHARACTER_BIBLE.md).** That document defines the
+> channel-wide character *system* (taxonomy, lifecycle, asset/naming/prompt standards, validation) and
+> holds each character's full narrative profile. The model sheets in this folder are its
+> **implementations** — the exact locked visual spec per character. On a character-system question, the
+> Character Bible wins; the model sheets own the precise hexes/measurements.
+
 Model sheets and the shared visual grammar for the recurring cast. These artifacts fill the
 gap where [Stage 2](../../docs/12-stage-2-channel-operating-system.md) mandated character
 *consistency* and a versioning convention but no visual reference existed.

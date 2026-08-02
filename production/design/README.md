@@ -19,12 +19,21 @@ inherits from — plus the channel-wide standards that grow beneath them. It is 
 > Bible wins. The Brand Bible inherits its visual layer from the Lock — see the
 > [dependency graph](BRAND_BIBLE.md#relationship-with-existing-documents).
 
-## Planned children (each inherits from BOTH roots; not yet created)
-Character Bible · Expression Library · Pose Library · Prop Library · Environment Bible · Camera
-Language · Animation Language · Prompt Framework · Image/Wallpaper prompt sets. Each must open with an
-inheritance banner referencing the Brand Bible (meaning/story/voice) and the Visual Identity Lock
-(appearance). See [Brand Bible → future documents](BRAND_BIBLE.md#relationship-with-existing-documents)
-and [Visual Identity Lock → Future Compatibility](VISUAL_IDENTITY_LOCK.md#future-compatibility).
+## Standards built on the Identity Core
+- **[CHARACTER_BIBLE.md](CHARACTER_BIBLE.md)** — the permanent **character system**: taxonomy,
+  lifecycle, asset & naming standards, prompt standards, quality checklist, validation workflow, the
+  full **PIP** profile (first implementation), and a reusable future-character template. Inherits from
+  **both** roots; parents the character-scoped libraries below. Implemented by the model sheets in
+  [`../characters/`](../characters/README.md).
+
+## Planned children (each inherits from the roots + Character Bible where characters apply; not yet created)
+Expression Library · Pose Library · Prop Library · Environment Bible · Camera Language · Animation
+Language · Prompt Framework · Image/Wallpaper prompt sets. Each must open with an inheritance banner
+referencing the Brand Bible (meaning/story/voice), the Visual Identity Lock (appearance), and — for
+character-scoped docs — the Character Bible. See
+[Character Bible → future documents](CHARACTER_BIBLE.md#relationship-with-existing-documents),
+[Brand Bible → future documents](BRAND_BIBLE.md#relationship-with-existing-documents), and
+[Visual Identity Lock → Future Compatibility](VISUAL_IDENTITY_LOCK.md#future-compatibility).
 
 ## Relationship to the rest of the repo
 - The Brand Bible **operationalizes** the [Project Vision](../../docs/01-project-vision.md),
