@@ -52,7 +52,7 @@ It also **defers to** (references, never restates):
 >    (walls, the parking-lot ground, the sky, the no-parking zone marking) belongs to the future
 >    **Environment Bible** and lives in the `BG_[name]_v#` namespace. Likewise, **on-frame text** (the
 >    "TOWED" mark, `UI_towed_stamp_v1`) is the `UI_` namespace, and **prop *motion*** (a thrown arc, the
->    tow-hook swing) belongs to the future **Animation Language**. This library owns the *static object
+>    tow-hook swing) belongs to the [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md). This library owns the *static object
 >    + how it is held/scaled*.
 
 ---
@@ -159,7 +159,7 @@ The canonical **prop categories** and the **controlled catalog** of prop names. 
   category; the same scooter is a **Vehicle** and the **seed**.
 - **Costume is not a prop** ([boundary](#inheritance-banner)): medals, cap, sash, scarf, gloves belong
   to the character asset, not this catalog.
-- **Fixed set dressing is not a prop**: it belongs to the future **Environment Bible** (`BG_` namespace).
+- **Fixed set dressing is not a prop**: it belongs to the [Environment Bible](ENVIRONMENT_BIBLE.md) (`BG_` namespace).
 
 ---
 
@@ -263,7 +263,7 @@ this library is the catalog those declarations point to. Shared/world props are 
 
 How characters physically engage props. This library owns the **object + contact rules**; the
 **body pose** is owned by the [Pose Library](POSE_LIBRARY.md) (a `pose + prop` composite) and the
-**motion** by the future Animation Language.
+**motion** by the [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md).
 
 | Interaction | Rule |
 |---|---|
@@ -423,8 +423,8 @@ are recommendations to avoid over-editing locked docs.
   and the [twist](../../intelligence/03-narrative-twist-library.md)/[pattern](../../intelligence/06-narrative-pattern-library.md)
   libraries; referenced.
 - **The body holding the prop** → owned by the [Pose Library](POSE_LIBRARY.md) (pose + prop composite).
-- **Prop motion / timing** → will be owned by the future **Animation Language**.
-- **Fixed set dressing / backgrounds** → will be owned by the future **Environment Bible** (`BG_`).
+- **Prop motion / timing** → owned by the [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md).
+- **Fixed set dressing / backgrounds** → owned by the [Environment Bible](ENVIRONMENT_BIBLE.md) (`BG_`).
 - **On-frame text** (`UI_`) and **worn costume** (part of `CHAR_`) → owned by the
   [Visual Identity Lock](VISUAL_IDENTITY_LOCK.md#rendering-rules) / [Character Bible](CHARACTER_BIBLE.md).
 - **Character build, lifecycle, naming base** → owned by the [Character Bible](CHARACTER_BIBLE.md).

@@ -50,9 +50,9 @@ It also **defers to** (references, never restates):
 >   interactable objects** (the stamp, boot, scooters, tow truck) are the
 >   [Prop Library](PROP_LIBRARY.md)'s (`PROP_`). This mirrors the boundary the Prop Library already set.
 > - **Space vs. camera.** This Bible owns the *space* and its layout; **how the camera frames and moves
->   through it** (shot grammar, angles) belongs to the future **Camera Language**.
+>   through it** (shot grammar, angles) belongs to the [Camera & Cinematography Bible](CAMERA_CINEMATOGRAPHY_BIBLE.md).
 > - **Static world vs. motion.** This Bible owns the *static* location and its atmospheric *state*;
->   **ambient motion, parallax, and weather animation** belong to the future **Animation Language**.
+>   **ambient motion, parallax, and weather animation** belong to the [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md).
 > - **Palette registry.** New Environment palette tokens are **registered in the
 >   [Visual Identity Lock Color System](VISUAL_IDENTITY_LOCK.md#color-system)** via
 >   [Change Control](#change-control); this Bible *documents which tokens each location uses* and
@@ -575,8 +575,8 @@ are recommendations to avoid over-editing locked docs.
   within* that law.
 - **The palette token registry** → owned by the [Color System](VISUAL_IDENTITY_LOCK.md#color-system);
   this Bible documents per-location usage and proposes new tokens through Change Control.
-- **Camera framing/angles** → future **Camera Language**. **Ambient/weather motion & parallax** →
-  future **Animation Language**.
+- **Camera framing/angles** → [Camera & Cinematography Bible](CAMERA_CINEMATOGRAPHY_BIBLE.md). **Ambient/weather motion & parallax** →
+  [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md).
 - **Movable objects** → [Prop Library](PROP_LIBRARY.md). **Characters** → [Character Bible](CHARACTER_BIBLE.md).
 - **Settings-as-variables / seeds / tone** → [Brand Bible](BRAND_BIBLE.md) and the
   [twist library](../../intelligence/03-narrative-twist-library.md).

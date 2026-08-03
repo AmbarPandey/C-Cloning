@@ -55,7 +55,7 @@ It also **defers to** (references, never restates):
 >   / [Stage 6](../../docs/15-stage-6-production-compiler.md)).
 > - **Shot vocabulary vs. motion execution.** This Bible owns the **shot grammar** — *which* move,
 >   *why*, and *how it frames the beat*. The **timing, easing, and physical execution** of that move
->   (and all character/prop/ambient motion) belong to the future **Animation Language**.
+>   (and all character/prop/ambient motion) belong to the [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md).
 > - **Optical vs. compositional lens.** The Lock forbids depth-of-field blur, bokeh, and perspective
 >   gradients. [Lens Language](#lens-language) here is therefore **compositional intent** (crop, subject
 >   scale, negative space), **never** a simulated real lens.
@@ -520,7 +520,7 @@ are recommendations to avoid over-editing locked docs.
   [Library 6](../../intelligence/06-narrative-pattern-library.md); this Bible owns the *camera coverage*.
 - **Cuts, transitions, freezes, speed-ramps, captions** → owned by the
   [Editing workflow](../A1-first-video/07-editing-spec.md) / [Stage 6](../../docs/15-stage-6-production-compiler.md).
-- **Move timing/easing & all motion** → future **Animation Language**.
+- **Move timing/easing & all motion** → [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md).
 - **What is in the frame** (characters, expressions, poses, props, locations) → their respective
   libraries.
 

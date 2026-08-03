@@ -467,19 +467,21 @@ or library must **inherit from and reference** it rather than restating rules.
 - If a future document needs a rule that conflicts with this lock, it must **not** override locally —
   it must propose an update here first via [Change Control](#change-control).
 
-**Planned children that will inherit from this lock** (each is a future, separate document):
+**Planned children that will inherit from this lock** (each is now a sibling document in
+[`production/design/`](README.md) — all ✅ created):
 
-| Future document | Scope it adds (inherits everything else from this lock) |
+| Document | Status |
 |---|---|
-| Character Bible | Full roster, per-character locked designs, versioning, relationships |
-| Expression Library | Standard expression packs per character (`CHAR_[NAME]_expr_[name]`) |
-| Pose Library | Reusable pose set per character (`CHAR_[NAME]_pose_[name]`) |
-| Prop Library | Reusable props catalog (`PROP_[name]_v#`) |
-| Environment Bible | Per-setting background kits + Environment palette tokens |
-| Camera Language | Locked shot grammar, angles, framing vocabulary |
-| Animation Language | Motion feel, timing, transitions, loop rules |
-| Prompt Framework | The generation contracts that encode all of the above into prompts |
-| Image / Wallpaper prompt sets | Concrete per-asset prompts (scene stills, wallpapers, channel art) |
+| [Brand Bible](BRAND_BIBLE.md) | ✅ |
+| [Character Bible](CHARACTER_BIBLE.md) | ✅ |
+| [Expression Library](EXPRESSION_LIBRARY.md) | ✅ |
+| [Pose Library](POSE_LIBRARY.md) | ✅ |
+| [Prop Library](PROP_LIBRARY.md) | ✅ |
+| [Environment Bible](ENVIRONMENT_BIBLE.md) | ✅ |
+| [Camera & Cinematography Bible](CAMERA_CINEMATOGRAPHY_BIBLE.md) | ✅ |
+| [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md) | ✅ |
+| [Production Prompt Framework & Runtime Orchestration](PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md) | ✅ |
+| Image / Wallpaper prompt sets (concrete generated prompts) | planned |
 
 <a id="asset-id-naming"></a>
 **Asset-ID naming (inherited channel-wide, from [Stage 2](../../docs/12-stage-2-channel-operating-system.md))**

@@ -64,6 +64,7 @@ See the [System Architecture](docs/04-system-architecture.md) for the full pictu
 | Understand the business strategy | [Business Strategy](docs/20-business-strategy.md) |
 | See why each decision was made | [Decision Log](docs/21-decision-log.md) |
 | Operate the system day-to-day | [Daily Workflow](docs/30-daily-workflow.md) |
+| See the creative + runtime design standards | [Production Design](production/design/README.md) |
 | Look up a term | [Glossary](docs/40-glossary.md) |
 | Get quick answers | [FAQ](docs/41-faq.md) |
 
@@ -79,7 +80,8 @@ C-Cloning/
 ├── diagrams/                     ← Mermaid architecture & dependency diagrams
 ├── prompts/                      ← reusable stage prompt contracts
 └── production/                   ← first-video artifacts: cast sheets, the Idea A1 package,
-                                     templates & tool guides (build a real Short end-to-end)
+                                     templates, tool guides, and the Production Design system
+                                     (10-doc creative + runtime standard in design/)
 ```
 
 A complete index of every document is maintained in [`docs/00-index.md`](docs/00-index.md).
@@ -95,6 +97,7 @@ A complete index of every document is maintained in [`docs/00-index.md`](docs/00
 | Computation Layer (Library 8) | ✅ Locked |
 | Generation → Production (Stages 4–6) | ✅ Locked & demonstrated (Idea `A1`) |
 | First-video production artifacts | ✅ Delivered ([`production/`](production/README.md): cast, full A1 package, templates, tool guides) |
+| Production Design system | ✅ Delivered ([`production/design/`](production/design/README.md): 10-doc creative + runtime standard) |
 | Phase 1 (Shorts → monetization) | ▶ Ready to execute |
 | Phase 2 (long-form expansion) | ⏳ Post-monetization |
 

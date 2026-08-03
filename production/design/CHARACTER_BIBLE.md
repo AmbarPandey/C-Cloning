@@ -633,7 +633,7 @@ flowchart TD
     CHB -. consumed by .-> EN[Environment Bible]
     CHB -. consumed by .-> CAM[Camera Language]
     CHB -. consumed by .-> ANI[Animation Language]
-    CHB --> PF[Prompt Framework]
+    CHB --> PF[Production Prompt Framework<br/>& Runtime Orchestration]
 
     VIL -. visuals .-> EX & PO & PR & EN & CAM & ANI & PF
     classDef root fill:#FFD400,stroke:#1A1A1A,color:#1A1A1A;

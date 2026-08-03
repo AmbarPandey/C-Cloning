@@ -495,7 +495,7 @@ flowchart TD
     BB --> EN[Environment Bible]
     BB --> CAM[Camera Language]
     BB --> ANI[Animation Language]
-    BB --> PF[Prompt Framework]
+    BB --> PF[Production Prompt Framework<br/>& Runtime Orchestration]
 
     VIL -. visuals .-> CB
     VIL -. visuals .-> EX

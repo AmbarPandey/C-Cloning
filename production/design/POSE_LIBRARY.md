@@ -46,7 +46,7 @@ It also **defers to** (references, never restates):
 
 > **Ownership boundary (important).** This library owns the **static pose** — the body's *shape at a
 > single beat*. **Motion, timing, and the transitions between poses** (easing, the pose-to-pose snap,
-> holds, the loop) belong to the future **Animation Language** doc; they are referenced here, not
+> holds, the loop) belong to the [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md); they are referenced here, not
 > claimed. A pose is a *frame*; animation is the *change between frames*.
 
 ---
@@ -460,7 +460,7 @@ are recommendations to avoid over-editing locked docs.
 - **Advertiser-safe acting & emotional design** → owned by the [Brand Bible](BRAND_BIBLE.md); referenced.
 - **The face / emotion** → owned by the [Expression Library](EXPRESSION_LIBRARY.md); this library owns
   the **body** and the pairing.
-- **Motion, timing, transitions, the loop** → will be owned by the future **Animation Language**; this
+- **Motion, timing, transitions, the loop** → owned by the [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md); this
   library owns only the **static pose** and defers motion.
 - **Character build/stance, lifecycle, naming base** → owned by the [Character Bible](CHARACTER_BIBLE.md)
   and model sheets; referenced.

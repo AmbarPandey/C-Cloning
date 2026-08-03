@@ -236,8 +236,8 @@ soft, sympathetic, benign — sadness is *cute*, joy is *warm*, never manic.
 | `CHAR_PIP_expr_wave` | Relief + gesture (**signature button**) | L2 | `relieved` face **paired with** a small friendly hand wave | Closing beat / loop seam |
 
 > **Note on `wave`.** `CHAR_PIP_expr_wave` is PIP's *signature button*: the `relieved` face combined
-> with a wave gesture. The **arm/hand gesture** itself is a pose owned by the future
-> [Pose Library](#future-integration) (`CHAR_PIP_pose_wave`); this asset is the paired face+button.
+> with a wave gesture. The **arm/hand gesture** itself is a pose owned by the
+> [Pose Library](POSE_LIBRARY.md) (`CHAR_PIP_pose_wave`); this asset is the paired face+button.
 > Descriptors for all PIP expressions are the paste-ready ones in
 > [V1 characters-and-reactions](../../V1/02-characters-and-reactions.md).
 
