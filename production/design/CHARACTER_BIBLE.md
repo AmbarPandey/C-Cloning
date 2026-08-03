@@ -599,7 +599,7 @@ The character is then implemented as a model sheet in [characters/](../character
 | **[Expression Library](EXPRESSION_LIBRARY.md)** ✅ | The expression system, per-character packs, default resting faces | Visual Identity Lock (rendering) · Brand Bible (emotional design) |
 | **[Pose Library](POSE_LIBRARY.md)** ✅ | The pose system, per-character `pose_[name]` sets, pose philosophy | Visual Identity Lock · Brand Bible · Expression Library |
 | **[Prop Library](PROP_LIBRARY.md)** ✅ | Character-owned signature props + reuse rules | Visual Identity Lock · Stage 2 naming · Pose Library |
-| **Environment Bible** | How characters read against backgrounds; crowd/background rules | Visual Identity Lock (backgrounds) · Brand Bible (settings-as-variables) |
+| **[Environment Bible](ENVIRONMENT_BIBLE.md)** ✅ | How characters read against backgrounds; crowd/background rules | Visual Identity Lock (backgrounds) · Brand Bible (settings-as-variables) |
 | **Camera Language** | How the camera frames each class (hero angle on the flex, punch-in on the turn) | Visual Identity Lock · Brand Bible |
 | **Animation Language** | Per-character movement/gesture amplitude, timing, the mascot wave | Visual Identity Lock · Brand Bible |
 | **Prompt Framework** | The [character prompt standards](#character-prompt-standards) encoded into reusable prompts | Visual Identity Lock · Brand Bible |

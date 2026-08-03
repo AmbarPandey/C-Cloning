@@ -28,6 +28,9 @@ convention. Target: ~70% reusable at scale; for the *first* build most assets ar
 | Medals (on sash) | part of `CHAR_CHIEF_v1` | new | all |
 
 ## Backgrounds
+Catalogued in the [Environment Bible](../design/ENVIRONMENT_BIBLE.md#location-profile--parking-lot)
+(location profiles, depth layers, weather/time, `BG_` naming); this manifest lists the A1 usage.
+
 | Asset | ID | Status | Scenes |
 |---|---|---|---|
 | Parking-lot wide | `BG_parkinglot_v1` | new | 1,6,7,8 |

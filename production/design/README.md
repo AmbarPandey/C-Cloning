@@ -41,14 +41,21 @@ inherits from — plus the channel-wide standards that grow beneath them. It is 
   character ownership of objects, interaction rules (holding/using/driving/hand placement/scale
   consistency/pose compatibility), prop asset IDs, prompt standards, and reuse/approval rules. Inherits
   from the two roots + the Character Bible + the Pose Library; owns the *static object + interaction*
-  and defers set dressing to the future Environment Bible and prop motion to the future Animation
+  and defers set dressing to the Environment Bible and prop motion to the future Animation
   Language. The Pose Library explains the body; this explains the objects it holds.
+- **[ENVIRONMENT_BIBLE.md](ENVIRONMENT_BIBLE.md)** — the canonical **world system**: the environment
+  taxonomy + classification, depth-layering standard, environmental assets & `BG_` naming, the weather
+  and time systems (expressed within the flat no-gradient law), environmental storytelling, character/
+  prop/vehicle interaction with the world, a worked **Parking Lot** location profile, and a Future
+  Location Template. Inherits from all six foundation docs; owns *fixed set dressing / locations* and
+  defers movable objects to the Prop Library, shot grammar to the future Camera Language, and motion to
+  the future Animation Language. Treats every location as a reusable production asset.
 
 ## Planned children (each inherits from the roots + Character Bible where characters apply; not yet created)
-Environment Bible · Camera Language · Animation Language · Prompt Framework · Image/Wallpaper prompt
-sets. Each must open with an inheritance banner referencing the Brand Bible (meaning/story/voice), the
-Visual Identity Lock (appearance), and — for character-scoped docs — the Character Bible, Expression
-Library, Pose Library, and Prop Library. See
+Camera Language · Animation Language · Prompt Framework · Image/Wallpaper prompt sets. Each must open
+with an inheritance banner referencing the Brand Bible (meaning/story/voice), the Visual Identity Lock
+(appearance), and — where they apply — the Character Bible, Expression Library, Pose Library, Prop
+Library, and Environment Bible. See
 [Character Bible → future documents](CHARACTER_BIBLE.md#relationship-with-existing-documents),
 [Expression Library → future integration](EXPRESSION_LIBRARY.md#future-integration),
 [Brand Bible → future documents](BRAND_BIBLE.md#relationship-with-existing-documents), and

@@ -211,7 +211,8 @@ the [V1 Series Bible](../../V1/08-series-bible.md) anticipates, without ever dil
 > New settings may introduce **additional desaturated environment tokens** (e.g. `SAND`, `OFFICE_WALL`),
 > registered here first, so the palette grows in a controlled way. Environment tokens must always be
 > **lower saturation and lower contrast than the Brand Core**, so characters and hero props remain the
-> most vivid things on screen.
+> most vivid things on screen. Per-location token usage (which tokens each setting uses) is documented
+> in the [Environment Bible](ENVIRONMENT_BIBLE.md); this Color System remains the single registry.
 
 ### Color hierarchy
 

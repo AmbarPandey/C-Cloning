@@ -21,7 +21,8 @@ production/
 │   ├── CHARACTER_BIBLE.md        ← the character system + full PIP profile + future template
 │   ├── EXPRESSION_LIBRARY.md     ← the canonical emotional language (taxonomy, intensity, per-char)
 │   ├── POSE_LIBRARY.md           ← the canonical body-language system (poses, pairing, per-char)
-│   └── PROP_LIBRARY.md           ← the canonical object system (props, ownership, interaction)
+│   ├── PROP_LIBRARY.md           ← the canonical object system (props, ownership, interaction)
+│   └── ENVIRONMENT_BIBLE.md      ← the canonical world system (locations, weather, time, BG_ assets)
 ├── characters/                   ← model sheets for the fixed cast + style guide  (fills F2)
 │   ├── README.md
 │   ├── cast-style-guide.md
@@ -85,6 +86,7 @@ production/
 | Expressions / emotional language | [Expression Library](design/EXPRESSION_LIBRARY.md) → canonical emotion taxonomy + per-character packs |
 | Poses / body language | [Pose Library](design/POSE_LIBRARY.md) → canonical pose taxonomy + pose+expression pairing + per-character sets |
 | Props / objects | [Prop Library](design/PROP_LIBRARY.md) → canonical object catalog + ownership + interaction rules |
+| Environments / world | [Environment Bible](design/ENVIRONMENT_BIBLE.md) → canonical location catalog + weather/time + `BG_` assets |
 | Visual style (all assets) | [Visual Identity Lock](design/VISUAL_IDENTITY_LOCK.md) → derived from [Stage 1.5 art direction](../docs/11-stage-1_5-business-decisions.md) |
 | Asset IDs / reuse | [Stage 2 asset library](../docs/12-stage-2-channel-operating-system.md) |
 | Publish gate | [Stage 2 Publish Gate](../docs/12-stage-2-channel-operating-system.md) |

@@ -88,5 +88,9 @@ Built on the Identity Core:
 - [`PROP_LIBRARY.md`](../production/design/PROP_LIBRARY.md) — the canonical **object system**: prop
   taxonomy + classification, object-design standards, character ownership of objects, interaction rules,
   and prop asset IDs. Generation picks a prop from here instead of inventing objects.
+- [`ENVIRONMENT_BIBLE.md`](../production/design/ENVIRONMENT_BIBLE.md) — the canonical **world system**:
+  environment taxonomy + classification, depth-layering, `BG_` assets, the weather & time systems,
+  environmental storytelling, and a worked Parking Lot location profile. Every recurring location is a
+  reusable asset; scenes pick a location from here instead of inventing a background.
 
 See [`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.
