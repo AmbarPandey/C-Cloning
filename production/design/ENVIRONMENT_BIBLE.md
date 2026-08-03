@@ -540,7 +540,7 @@ reference a location by its canonical `BG_` ID rather than describing a backgrou
 | Consumer (future doc / stage) | How it uses this Bible |
 |---|---|
 | **[Camera & Cinematography Bible](CAMERA_CINEMATOGRAPHY_BIBLE.md)** ✅ | Frames and moves *through* the locations this Bible builds (the low hero angle on the podium spot; the punch-in that keeps the seed in frame); this Bible owns the space, the Camera Bible owns the shot grammar. |
-| **Animation Language** | Owns **ambient motion, parallax, and weather/time animation** (drifting clouds, falling rain, the mood-shadow creep) using this Bible's static locations and states as the things it animates. |
+| **[Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md)** ✅ | Owns **ambient motion, parallax, and weather/time animation** (drifting clouds, falling rain, the mood-shadow creep) using this Bible's static locations and states as the things it animates. |
 | **Wallpaper Prompt Framework** | Selects a location (or the [Abstract void](#environment-taxonomy)) + hero cast/pose/prop for channel art, thumbnails, and wallpapers per the [thumbnail spec](../templates/thumbnail-spec.md). |
 | **Shot Generation** | Each shot names the `BG_` location + time/weather state, driving the [visual-prompt template](../templates/visual-prompt-template.md) `BACKGROUND` slot; seed set-elements flagged for continuity. |
 | **Storyboard generation** | The [storyboard](../A1-first-video/03-storyboard.md) location column is expressed as canonical `BG_` IDs, making sets reusable and machine-selectable. |

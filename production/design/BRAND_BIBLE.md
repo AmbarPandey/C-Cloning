@@ -467,7 +467,7 @@ story, voice) **and** the Visual Identity Lock (appearance).
 | Prop Library | Which props serve the pillars & seeds (power objects, karma devices) | Visual Identity Lock |
 | Environment Bible | Setting-as-variable rules; global, non-region-locked worlds | Visual Identity Lock |
 | Camera Language | Shot grammar that serves the emotional rhythm & twist reveal | Visual Identity Lock |
-| Animation Language | Timing, the silent beat, snappy pacing, the loop | Visual Identity Lock |
+| [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md) ✅ | Timing, the silent beat, snappy pacing, the loop | Visual Identity Lock |
 | Prompt Framework | Encodes brand tone + story rules + visual law into generation prompts | Visual Identity Lock |
 
 ### Dependency graph

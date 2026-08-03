@@ -96,5 +96,9 @@ Built on the Identity Core:
   **visual storytelling language**: shot-type + camera-movement taxonomies, composition extensions, a
   compositional lens language, shot sequencing/coverage, camera-to-subject framing, and a shot-descriptor
   notation. Storyboards and shot prompts describe framing in its vocabulary instead of inventing it.
+- [`ANIMATION_LANGUAGE_MOTION_SYSTEM.md`](../production/design/ANIMATION_LANGUAGE_MOTION_SYSTEM.md) — the
+  canonical **motion language** (convergence of all eight design docs): motion taxonomy, timing/holds/loop
+  logic, per-domain motion, transition language, the Wallpaper Motion System, and the runtime-semantics
+  motion vocabulary. The motion spec for future AI video-generation and live-wallpaper systems.
 
 See [`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.

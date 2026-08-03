@@ -3,6 +3,10 @@
 Motion, camera, timing, and loop spec for rendering A1 in [Anijam](../tools/anijam-usage.md).
 Compiled 1:1 from the [script](02-script.md) and [storyboard](03-storyboard.md). No new beats.
 
+> Motion timing, holds, transitions, and loop logic follow the
+> [Animation Language & Motion System](../design/ANIMATION_LANGUAGE_MOTION_SYSTEM.md) (the canonical
+> motion vocabulary and [runtime semantics](../design/ANIMATION_LANGUAGE_MOTION_SYSTEM.md#runtime-semantics)).
+
 ## Global
 - **Resolution / fps:** 1080×1920, 30 fps. **Total:** ~32 s (≈960 frames).
 - **Animation style:** snappy pose-to-pose, strong holds on comedy beats; limited in-betweens (flat 2D).

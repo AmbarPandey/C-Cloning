@@ -56,13 +56,21 @@ inherits from — plus the channel-wide standards that grow beneath them. It is 
   compositional (non-optical) lens language, shot sequencing/coverage of the beat arc, camera-to-
   character/environment/prop framing rules, and a shot-descriptor notation. Inherits from all seven
   foundation docs; owns the *within-shot framing + move vocabulary* and defers cuts/transitions to the
-  Editing workflow and move timing/motion to the future Animation Language.
+  Editing workflow and move timing/motion to the Animation Language.
+- **[ANIMATION_LANGUAGE_MOTION_SYSTEM.md](ANIMATION_LANGUAGE_MOTION_SYSTEM.md)** — the canonical **motion
+  language** and the **convergence** of all eight foundation docs: motion philosophy, classical
+  principles adapted for flat-2D + AI generation, the motion taxonomy, motion timing/holds/loop logic,
+  per-domain motion (character/camera/prop/environment), transition (motion-level) language, the
+  **Wallpaper Motion System**, and the **runtime-semantics** motion vocabulary. Owns the *change between
+  frames* (every prior library defers its motion here); defers cuts to the Editing workflow and audio to
+  the audio package. The **motion specification for future AI video-generation and live-wallpaper
+  systems** — every future motion/video/wallpaper prompt inherits from it.
 
-## Planned children (each inherits from the roots + Character Bible where characters apply; not yet created)
-Animation Language · Prompt Framework · Image/Wallpaper prompt sets. Each must open with an inheritance
-banner referencing the Brand Bible (meaning/story/voice), the Visual Identity Lock (appearance), and —
-where they apply — the Character Bible, Expression Library, Pose Library, Prop Library, Environment
-Bible, and Camera & Cinematography Bible. See
+## Planned children (each inherits from the roots + the relevant libraries; not yet created)
+Prompt Framework · Image/Wallpaper prompt sets. Each must open with an inheritance banner referencing the
+Brand Bible (meaning/story/voice), the Visual Identity Lock (appearance), and — where they apply — the
+Character Bible, Expression Library, Pose Library, Prop Library, Environment Bible, Camera &
+Cinematography Bible, and Animation Language & Motion System. See
 [Character Bible → future documents](CHARACTER_BIBLE.md#relationship-with-existing-documents),
 [Expression Library → future integration](EXPRESSION_LIBRARY.md#future-integration),
 [Brand Bible → future documents](BRAND_BIBLE.md#relationship-with-existing-documents), and
