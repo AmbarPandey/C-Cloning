@@ -48,14 +48,21 @@ inherits from — plus the channel-wide standards that grow beneath them. It is 
   and time systems (expressed within the flat no-gradient law), environmental storytelling, character/
   prop/vehicle interaction with the world, a worked **Parking Lot** location profile, and a Future
   Location Template. Inherits from all six foundation docs; owns *fixed set dressing / locations* and
-  defers movable objects to the Prop Library, shot grammar to the future Camera Language, and motion to
+  defers movable objects to the Prop Library, shot grammar to the Camera Bible, and motion to
   the future Animation Language. Treats every location as a reusable production asset.
+- **[CAMERA_CINEMATOGRAPHY_BIBLE.md](CAMERA_CINEMATOGRAPHY_BIBLE.md)** — the canonical **visual
+  storytelling language**: the camera (shot-type) taxonomy, the camera-movement taxonomy, cinematographic
+  composition extensions (rule of thirds, headroom, look/lead room, eye-line, depth staging), a
+  compositional (non-optical) lens language, shot sequencing/coverage of the beat arc, camera-to-
+  character/environment/prop framing rules, and a shot-descriptor notation. Inherits from all seven
+  foundation docs; owns the *within-shot framing + move vocabulary* and defers cuts/transitions to the
+  Editing workflow and move timing/motion to the future Animation Language.
 
 ## Planned children (each inherits from the roots + Character Bible where characters apply; not yet created)
-Camera Language · Animation Language · Prompt Framework · Image/Wallpaper prompt sets. Each must open
-with an inheritance banner referencing the Brand Bible (meaning/story/voice), the Visual Identity Lock
-(appearance), and — where they apply — the Character Bible, Expression Library, Pose Library, Prop
-Library, and Environment Bible. See
+Animation Language · Prompt Framework · Image/Wallpaper prompt sets. Each must open with an inheritance
+banner referencing the Brand Bible (meaning/story/voice), the Visual Identity Lock (appearance), and —
+where they apply — the Character Bible, Expression Library, Pose Library, Prop Library, Environment
+Bible, and Camera & Cinematography Bible. See
 [Character Bible → future documents](CHARACTER_BIBLE.md#relationship-with-existing-documents),
 [Expression Library → future integration](EXPRESSION_LIBRARY.md#future-integration),
 [Brand Bible → future documents](BRAND_BIBLE.md#relationship-with-existing-documents), and

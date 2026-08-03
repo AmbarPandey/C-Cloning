@@ -92,5 +92,9 @@ Built on the Identity Core:
   environment taxonomy + classification, depth-layering, `BG_` assets, the weather & time systems,
   environmental storytelling, and a worked Parking Lot location profile. Every recurring location is a
   reusable asset; scenes pick a location from here instead of inventing a background.
+- [`CAMERA_CINEMATOGRAPHY_BIBLE.md`](../production/design/CAMERA_CINEMATOGRAPHY_BIBLE.md) — the canonical
+  **visual storytelling language**: shot-type + camera-movement taxonomies, composition extensions, a
+  compositional lens language, shot sequencing/coverage, camera-to-subject framing, and a shot-descriptor
+  notation. Storyboards and shot prompts describe framing in its vocabulary instead of inventing it.
 
 See [`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.

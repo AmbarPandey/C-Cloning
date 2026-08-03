@@ -4,6 +4,9 @@ Compiled 1:1 from [02-script](02-script.md). Each shot lists framing, staging, a
 image/scene prompt** built on the [visual-prompt template](../templates/visual-prompt-template.md)
 and the [cast style guide](../characters/cast-style-guide.md). Frame: **1080×1920 (9:16)**.
 
+> Shot framing and camera moves follow the [Camera & Cinematography Bible](../design/CAMERA_CINEMATOGRAPHY_BIBLE.md)
+> (shot-type + movement taxonomies and the [shot-descriptor notation](../design/CAMERA_CINEMATOGRAPHY_BIBLE.md#shot-descriptor-notation)).
+
 ## Global style prefix (prepend to every prompt)
 ```
 Flat-color 2D cartoon, thick uniform black outlines, no gradients, minimal single-tone shading,

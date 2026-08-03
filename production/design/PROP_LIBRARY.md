@@ -391,7 +391,7 @@ must reference a prop by its canonical ID rather than describing an object from 
 | Consumer (future doc / stage) | How it uses this library |
 |---|---|
 | **[Environment Bible](ENVIRONMENT_BIBLE.md)** ✅ | Consumes the **prop vs. environment boundary**: props are movable objects; fixed set dressing (`BG_`) is the Environment Bible's. It places catalog props into locked sets. |
-| **Camera Language** | Frames hero props (the low hero angle on the raised stamp; the punch-in on the karma device) and keeps seed props in their continuity position. |
+| **[Camera & Cinematography Bible](CAMERA_CINEMATOGRAPHY_BIBLE.md)** ✅ | Frames hero props (the low hero angle on the raised stamp; the punch-in on the karma device) and keeps seed props in their continuity position. |
 | **Animation Language** | Owns **prop motion** (throw arcs, the tow-hook swing, a stamp slam, stacking tickets) using this library's static objects as the things it moves. |
 | **Wallpaper Prompt Framework** | Selects a **hero prop** (stamp / boot) alongside the hero pose + expression for channel art and thumbnails per the [thumbnail spec](../templates/thumbnail-spec.md). |
 | **Shot Generation** | Each shot names the props present by ID, driving the [visual-prompt template](../templates/visual-prompt-template.md) `PROPS` slot; seed props flagged for continuity. |

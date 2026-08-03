@@ -305,7 +305,7 @@ with the non-visual signals into one identity.
 | **Humor** | Fair, bloodless karma against arrogance; benign surprise | [Library 2](../../intelligence/02-comedy-mechanics-library.md) |
 | **Editing** | Snappy pose-to-pose cuts, no dissolves, one deliberate silence before the turn | [A1 editing spec](../A1-first-video/07-editing-spec.md) |
 | **Music / SFX** | Light comedic bed, a hard silence beat, a punchy impact/reversal sting on the twist | [A1 audio package](../A1-first-video/06-audio-package.md) |
-| **Camera language** | Wide establishing → escalation framing → low hero angle on the flex → punch-in on the twist | [A1 storyboard](../A1-first-video/03-storyboard.md) *(to be formalized in the future Camera Language doc)* |
+| **Camera language** | Wide establishing → escalation framing → low hero angle on the flex → punch-in on the twist | [Camera & Cinematography Bible](CAMERA_CINEMATOGRAPHY_BIBLE.md) (formalized) · [A1 storyboard](../A1-first-video/03-storyboard.md) |
 | **Publishing** | Title style (curiosity + karma + one emoji + `#shorts`) and a fixed hashtag set | [Brand Voice](#brand-voice) below |
 
 **The single most recognizable thing:** *the pals + the karmic twist.* If a video has neither our cast
