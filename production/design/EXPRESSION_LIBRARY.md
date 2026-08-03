@@ -370,7 +370,7 @@ reference an expression by its canonical name rather than describing a face from
 |---|---|
 | **[Pose Library](POSE_LIBRARY.md)** ✅ | Pairs each `expr_[name]` with body poses (`pose_[name]`); the **face+gesture buttons** like PIP's `wave` are pose+expression composites. Body language here becomes pose entries. |
 | **[Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md)** ✅ | Consumes the [intensity holds](#expression-intensity), the **3-stage snap**, and the **no-lip-sync / expression-only mouth** rule to define timing curves and the emotional beat map. |
-| **Wallpaper Prompt Framework** | Selects a **hero expression** (usually an L3 `gleeful` / `smug` / `shocked`) for channel art, thumbnails, and wallpapers per the [thumbnail spec](../templates/thumbnail-spec.md). |
+| **[Production Prompt Framework & Runtime Orchestration](PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md)** ✅ (incl. wallpaper prompts) | Selects a **hero expression** (usually an L3 `gleeful` / `smug` / `shocked`) for channel art, thumbnails, and wallpapers per the [thumbnail spec](../templates/thumbnail-spec.md). |
 | **Shot Generation** | Uses the [reaction→shot mapping](../../V1/02-characters-and-reactions.md) pattern: each shot names the character's expression + intensity, driving the [visual-prompt template](../templates/visual-prompt-template.md) `SUBJECT` slot. |
 | **Character Assets** | Defines what a complete **expression pack** is, so a new character's [asset set](CHARACTER_BIBLE.md#character-asset-standards) is considered done only when its declared pack exists. |
 

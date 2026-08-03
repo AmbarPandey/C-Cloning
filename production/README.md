@@ -24,7 +24,8 @@ production/
 │   ├── PROP_LIBRARY.md           ← the canonical object system (props, ownership, interaction)
 │   ├── ENVIRONMENT_BIBLE.md      ← the canonical world system (locations, weather, time, BG_ assets)
 │   ├── CAMERA_CINEMATOGRAPHY_BIBLE.md ← the visual storytelling language (shots, moves, framing, coverage)
-│   └── ANIMATION_LANGUAGE_MOTION_SYSTEM.md ← the motion language (timing, loops, wallpaper, runtime semantics)
+│   ├── ANIMATION_LANGUAGE_MOTION_SYSTEM.md ← the motion language (timing, loops, wallpaper, runtime semantics)
+│   └── PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md ← the master OS (prompts, resolution, AI roles, orchestration)
 ├── characters/                   ← model sheets for the fixed cast + style guide  (fills F2)
 │   ├── README.md
 │   ├── cast-style-guide.md
@@ -91,6 +92,7 @@ production/
 | Environments / world | [Environment Bible](design/ENVIRONMENT_BIBLE.md) → canonical location catalog + weather/time + `BG_` assets |
 | Camera / cinematography | [Camera & Cinematography Bible](design/CAMERA_CINEMATOGRAPHY_BIBLE.md) → shot + movement taxonomies, framing, coverage, shot notation |
 | Motion / animation | [Animation Language & Motion System](design/ANIMATION_LANGUAGE_MOTION_SYSTEM.md) → motion taxonomy, timing/holds/loops, wallpaper, runtime semantics |
+| Prompt framework / runtime | [Production Prompt Framework & Runtime Orchestration](design/PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md) → composition, asset resolution, AI roles, validation, orchestration (the master OS) |
 | Visual style (all assets) | [Visual Identity Lock](design/VISUAL_IDENTITY_LOCK.md) → derived from [Stage 1.5 art direction](../docs/11-stage-1_5-business-decisions.md) |
 | Asset IDs / reuse | [Stage 2 asset library](../docs/12-stage-2-channel-operating-system.md) |
 | Publish gate | [Stage 2 Publish Gate](../docs/12-stage-2-channel-operating-system.md) |

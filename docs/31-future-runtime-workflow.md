@@ -2,6 +2,11 @@
 
 The target **automated** pipeline once the system is fully wired. The manual [Daily Workflow](30-daily-workflow.md) converges toward this as automation matures.
 
+> **Runtime implementation.** This pipeline is operationalized by the
+> [Production Prompt Framework & Runtime Orchestration](../production/design/PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md)
+> — the master OS defining the AI role contracts, asset resolution, prompt composition, and validation
+> gates that turn this diagram into an executable, multi-agent workflow.
+
 ## Vision
 A near-autonomous content factory where a human supplies goals and approves the punchline + final QC, and the system does the rest.
 

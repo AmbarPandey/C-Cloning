@@ -485,7 +485,7 @@ must describe framing in this Bible's [shot vocabulary](#camera-taxonomy) rather
 | Consumer (future doc / stage) | How it uses this Bible |
 |---|---|
 | **[Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md)** ✅ | Executes the **timing/easing** of the camera moves this Bible names (how fast the `PUSHIN`, the snap+settle of the `PUNCHIN`, the hold on the flex); this Bible owns the shot vocabulary + intent, Animation Language owns the motion. |
-| **Wallpaper Prompt Framework** | Selects a **hero framing** (a `CU`/`LOW` on the hero pose+expression+prop, or a `WIDE` key-art) for channel art, thumbnails, and wallpapers per the [thumbnail spec](../templates/thumbnail-spec.md). |
+| **[Production Prompt Framework & Runtime Orchestration](PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md)** ✅ (incl. wallpaper prompts) | Selects a **hero framing** (a `CU`/`LOW` on the hero pose+expression+prop, or a `WIDE` key-art) for channel art, thumbnails, and wallpapers per the [thumbnail spec](../templates/thumbnail-spec.md). |
 | **Shot Generation** | Emits the [shot descriptor](#shot-descriptor-notation) per beat, driving the [visual-prompt template](../templates/visual-prompt-template.md) `FRAMING` slot with canonical tokens + asset IDs. |
 | **Storyboard generation** | The [storyboard](../A1-first-video/03-storyboard.md) framing column is expressed in this Bible's tokens, making coverage reusable and machine-selectable. |
 | **Editing workflow** | Consumes the shot list; owns the **cuts, freezes, speed-ramps, and captions between shots** (the [A1 editing spec](../A1-first-video/07-editing-spec.md) / [Stage 6](../../docs/15-stage-6-production-compiler.md)); this Bible owns the within-shot framing/move. |

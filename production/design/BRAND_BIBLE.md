@@ -468,7 +468,7 @@ story, voice) **and** the Visual Identity Lock (appearance).
 | Environment Bible | Setting-as-variable rules; global, non-region-locked worlds | Visual Identity Lock |
 | Camera Language | Shot grammar that serves the emotional rhythm & twist reveal | Visual Identity Lock |
 | [Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md) ✅ | Timing, the silent beat, snappy pacing, the loop | Visual Identity Lock |
-| Prompt Framework | Encodes brand tone + story rules + visual law into generation prompts | Visual Identity Lock |
+| [Production Prompt Framework & Runtime Orchestration](PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md) ✅ | Encodes brand tone + story rules + visual law into generation prompts | Visual Identity Lock |
 
 ### Dependency graph
 

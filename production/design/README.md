@@ -66,12 +66,21 @@ inherits from — plus the channel-wide standards that grow beneath them. It is 
   the audio package. The **motion specification for future AI video-generation and live-wallpaper
   systems** — every future motion/video/wallpaper prompt inherits from it.
 
-## Planned children (each inherits from the roots + the relevant libraries; not yet created)
-Prompt Framework · Image/Wallpaper prompt sets. Each must open with an inheritance banner referencing the
-Brand Bible (meaning/story/voice), the Visual Identity Lock (appearance), and — where they apply — the
-Character Bible, Expression Library, Pose Library, Prop Library, Environment Bible, Camera &
-Cinematography Bible, and Animation Language & Motion System. See
-[Character Bible → future documents](CHARACTER_BIBLE.md#relationship-with-existing-documents),
+## Master operating system (the capstone)
+- **[PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md](PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md)**
+  — the **master OS** that binds all nine design docs, the locked [Stage 4→5→6 pipeline](../../docs/03-locked-roadmap.md),
+  the tool stack, and the automation roadmap into one executable framework: prompt composition +
+  inheritance precedence & conflict resolution, runtime variables + the Resolved Shot Object,
+  cross-domain asset resolution, AI role contracts, prompt validation (closed-vocabulary /
+  hallucination prevention), runtime contracts, QA/regression, and future automation. Every AI working
+  inside C-Cloning follows this document; it orchestrates the other docs and overrides none.
+
+## Planned children (each inherits from the roots + the relevant libraries + the framework; not yet created)
+Image / wallpaper prompt sets (concrete generated prompts). Each must open with an inheritance banner
+referencing the Brand Bible (meaning/story/voice), the Visual Identity Lock (appearance), the relevant
+character-scoped libraries, and the
+[Production Prompt Framework & Runtime Orchestration](PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md).
+See [Character Bible → future documents](CHARACTER_BIBLE.md#relationship-with-existing-documents),
 [Expression Library → future integration](EXPRESSION_LIBRARY.md#future-integration),
 [Brand Bible → future documents](BRAND_BIBLE.md#relationship-with-existing-documents), and
 [Visual Identity Lock → Future Compatibility](VISUAL_IDENTITY_LOCK.md#future-compatibility).

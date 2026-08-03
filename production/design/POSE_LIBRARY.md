@@ -432,7 +432,7 @@ pose by its canonical name rather than describing a body from scratch.
 | Consumer (future doc / stage) | How it uses this library |
 |---|---|
 | **[Animation Language & Motion System](ANIMATION_LANGUAGE_MOTION_SYSTEM.md)** ✅ | Consumes the pose set as the **keyframes** it moves *between* — it owns the timing, easing, pose-to-pose snap, holds, and the loop; this library owns the static poses at each end. The boundary is explicit ([banner](#pose-library)). |
-| **Wallpaper Prompt Framework** | Selects a **hero pose** (usually an L3 `victory` / `celebrate` / `wave`) + its paired expression for channel art, thumbnails, and wallpapers per the [thumbnail spec](../templates/thumbnail-spec.md). |
+| **[Production Prompt Framework & Runtime Orchestration](PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md)** ✅ (incl. wallpaper prompts) | Selects a **hero pose** (usually an L3 `victory` / `celebrate` / `wave`) + its paired expression for channel art, thumbnails, and wallpapers per the [thumbnail spec](../templates/thumbnail-spec.md). |
 | **Shot Generation** | Each shot names the character's **pose + expression + intensity**, driving the [visual-prompt template](../templates/visual-prompt-template.md) `ACTION/POSE` and `SUBJECT` slots. |
 | **Storyboard generation** | The [storyboard](../A1-first-video/03-storyboard.md) "Key action" column is expressed as canonical pose names, making staging reusable and machine-selectable. |
 | **Video production pipeline** | The [Stage 6 production compiler](../../docs/15-stage-6-production-compiler.md) assembles shots by **posing the reusable cast** (pose + expression + prop) instead of redrawing — the core of the sub-30-minute reuse target. |

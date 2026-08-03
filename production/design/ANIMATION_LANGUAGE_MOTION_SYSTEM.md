@@ -491,8 +491,8 @@ generation**, and every motion-producing tool inherits from it.
 
 | Consumer (future doc / stage) | How it uses this system |
 |---|---|
-| **Production Prompt Framework** | Encodes the [runtime semantics](#runtime-semantics) + [motion descriptor](#runtime-semantics) into reusable motion/video generation contracts, alongside the visual/character/camera vocabularies. |
-| **Wallpaper Prompt Framework** | Inherits the [Wallpaper Motion System](#wallpaper-motion-system) — seamless ambient loops, `loop-match`, calm timing — for live wallpapers and channel art. |
+| **[Production Prompt Framework & Runtime Orchestration](PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md)** ✅ | Encodes the [runtime semantics](#runtime-semantics) + [motion descriptor](#runtime-semantics) into reusable motion/video generation contracts, alongside the visual/character/camera vocabularies. |
+| **Wallpaper prompts** (via the framework) | Inherit the [Wallpaper Motion System](#wallpaper-motion-system) — seamless ambient loops, `loop-match`, calm timing — for live wallpapers and channel art. |
 | **Video generation** (image→video) | Applies the [prompt standards](#prompt-standards) + AI prime directive to turn approved stills into on-model clips; the [Anijam](../tools/anijam-usage.md) / image→video tools consume this spec. |
 | **Future automation** | The [Stage 2 automation roadmap](../../docs/12-stage-2-channel-operating-system.md) (animation assembly) selects named motions per beat — no ad-hoc movement — so scaled output stays on-model. |
 | **Future runtime systems** | This document is the **motion specification** for any future runtime/AI video system; motion terms and timing here are the contract those systems implement. |

@@ -100,5 +100,10 @@ Built on the Identity Core:
   canonical **motion language** (convergence of all eight design docs): motion taxonomy, timing/holds/loop
   logic, per-domain motion, transition language, the Wallpaper Motion System, and the runtime-semantics
   motion vocabulary. The motion spec for future AI video-generation and live-wallpaper systems.
+- [`PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md`](../production/design/PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md)
+  — the **master operating system**: binds the nine design docs + the [Stage 4→5→6 pipeline](03-locked-roadmap.md)
+  + tools + automation into one executable framework (prompt composition, inheritance/conflict
+  resolution, runtime variables, asset resolution, AI role contracts, validation, runtime contracts, QA,
+  future automation). Every AI in C-Cloning follows it.
 
 See [`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.
