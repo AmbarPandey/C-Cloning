@@ -36,12 +36,19 @@ inherits from — plus the channel-wide standards that grow beneath them. It is 
   pose asset IDs, prompt standards, and reuse/approval rules. Inherits from the two roots + the
   Character Bible + the Expression Library; owns the *static pose* and defers motion/timing to the
   future Animation Language. The Expression Library explains the face; this explains the body.
+- **[PROP_LIBRARY.md](PROP_LIBRARY.md)** — the canonical **object system**: the prop taxonomy +
+  classification, object-design standards (scale, complexity, line, color, wear/damage, reuse),
+  character ownership of objects, interaction rules (holding/using/driving/hand placement/scale
+  consistency/pose compatibility), prop asset IDs, prompt standards, and reuse/approval rules. Inherits
+  from the two roots + the Character Bible + the Pose Library; owns the *static object + interaction*
+  and defers set dressing to the future Environment Bible and prop motion to the future Animation
+  Language. The Pose Library explains the body; this explains the objects it holds.
 
 ## Planned children (each inherits from the roots + Character Bible where characters apply; not yet created)
-Prop Library · Environment Bible · Camera Language · Animation Language · Prompt Framework ·
-Image/Wallpaper prompt sets. Each must open with an inheritance banner referencing the Brand Bible
-(meaning/story/voice), the Visual Identity Lock (appearance), and — for character-scoped docs — the
-Character Bible, Expression Library, and Pose Library. See
+Environment Bible · Camera Language · Animation Language · Prompt Framework · Image/Wallpaper prompt
+sets. Each must open with an inheritance banner referencing the Brand Bible (meaning/story/voice), the
+Visual Identity Lock (appearance), and — for character-scoped docs — the Character Bible, Expression
+Library, Pose Library, and Prop Library. See
 [Character Bible → future documents](CHARACTER_BIBLE.md#relationship-with-existing-documents),
 [Expression Library → future integration](EXPRESSION_LIBRARY.md#future-integration),
 [Brand Bible → future documents](BRAND_BIBLE.md#relationship-with-existing-documents), and

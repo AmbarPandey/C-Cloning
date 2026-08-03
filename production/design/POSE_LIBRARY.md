@@ -366,7 +366,7 @@ restate the style prefix or the paste-ready scaffolds — those live in the
 | **Pose sheet** | The whole set at once | "pose sheet: `<list the character's pose names>`, consistent proportions, full body each" | [visual-prompt template §4](../templates/visual-prompt-template.md) |
 | **Pose turnaround** | Front / 3/4 / side of one pose | "`<pose>` turnaround: front, 3/4, side; identical proportions across views" | [visual-prompt template §4](../templates/visual-prompt-template.md) |
 | **Pose + expression** | Body + matching face (a full beat) | pose descriptor + the paired [expression](EXPRESSION_LIBRARY.md#character-overrides) name + intensity | [Expression Library prompt standards](EXPRESSION_LIBRARY.md#prompt-standards) |
-| **Pose + prop** | Character interacting with a prop | pose descriptor + prop asset ID + one key action (mute-readable) | [Character Bible — prop interaction](CHARACTER_BIBLE.md#character-prompt-standards) |
+| **Pose + prop** | Character interacting with a prop | pose descriptor + prop asset ID + one key action (mute-readable) | [Prop Library — interaction rules](PROP_LIBRARY.md#interaction-rules) · [Character Bible — prop interaction](CHARACTER_BIBLE.md#character-prompt-standards) |
 | **Pose sequence** | Ordered beats across a shot | "sequence: `<poseA>` → `<poseB>` → `<poseC>`, same character, pose-to-pose" *(timing owned by Animation Language)* | [A1 storyboard](../A1-first-video/03-storyboard.md) |
 
 **One key action per pose prompt.** Keep the silhouette clear and the hands legible; request benign FX

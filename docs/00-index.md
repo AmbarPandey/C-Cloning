@@ -85,5 +85,8 @@ Built on the Identity Core:
   pose taxonomy + pose-name vocabulary, three intensity levels, universal body-language rules,
   pose+expression pairing, per-character overrides, and pose asset IDs. The Expression Library explains
   the face; the Pose Library explains the body.
+- [`PROP_LIBRARY.md`](../production/design/PROP_LIBRARY.md) — the canonical **object system**: prop
+  taxonomy + classification, object-design standards, character ownership of objects, interaction rules,
+  and prop asset IDs. Generation picks a prop from here instead of inventing objects.
 
 See [`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.

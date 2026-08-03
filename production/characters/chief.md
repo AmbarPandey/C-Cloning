@@ -27,6 +27,10 @@ official" even in black silhouette at thumbnail size.
 | Palette | Jacket `POP_TEAL` · sash/medals `BRAND_YELLOW` · trim `INK` · face `PAPER` |
 
 ## Signature props (reusable asset IDs)
+Catalogued in the [Prop Library](../design/PROP_LIBRARY.md#character-ownership) (object design, scale,
+and interaction rules); this sheet lists CHIEF's ownership. Note: cap, sash, and **medals** are
+**costume** (part of `CHAR_CHIEF_v1`), not props.
+
 | Prop | ID | Notes |
 |---|---|---|
 | Oversized ticket pad | `PROP_ticketpad_v1` | Comically large; tears sheets with a flourish |

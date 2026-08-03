@@ -24,6 +24,9 @@ stub limbs. Reads as "small and harmless" in silhouette so the power imbalance i
 | Palette | Body `PAPER` · scarf `POP_TEAL` · outline `INK` |
 
 ## Signature props (reusable asset IDs)
+Catalogued in the [Prop Library](../design/PROP_LIBRARY.md#character-ownership) (object design, scale,
+and interaction rules); this sheet lists PIP's ownership.
+
 | Prop | ID | Notes |
 |---|---|---|
 | Tiny scooter | `PROP_pip_scooter_v1` | The vehicle CHIEF unjustly boots/tickets |
