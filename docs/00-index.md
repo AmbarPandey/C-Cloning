@@ -107,3 +107,26 @@ Built on the Identity Core:
   future automation). Every AI in C-Cloning follows it.
 
 See [`production/design/README.md`](../production/design/README.md) for the full index and dependency graph.
+
+
+## Channel setup (`channel/`)
+
+The operational bridge between the locked strategy above and a live, publishing channel. The channel
+name is **IPPA** ([D-21](21-decision-log.md)).
+
+- [`channel/README.md`](../channel/README.md) — folder index and reading order.
+- [`01-CHANNEL-IDENTITY-LOCK.md`](../channel/01-CHANNEL-IDENTITY-LOCK.md) — the **locked channel name**
+  (IPPA), pronunciation, tagline, logo concept, handle candidates, and the 5-Gate justification.
+  Supersedes the *Plot Twist Pals* placeholder everywhere.
+- [`02-channel-metadata.md`](../channel/02-channel-metadata.md) — copy-paste channel description,
+  keywords, playlist structure mapped to the content pillars, and trailer strategy.
+- [`03-brand-art-specs.md`](../channel/03-brand-art-specs.md) — icon / banner / wordmark / watermark
+  technical specs plus ready-to-run generation prompts, all deferring to the
+  [Visual Identity Lock](../production/design/VISUAL_IDENTITY_LOCK.md).
+- [`04-youtube-studio-setup.md`](../channel/04-youtube-studio-setup.md) — step-by-step account,
+  branding, upload-defaults, and compliance-disclosure walkthrough.
+- [`05-launch-checklist.md`](../channel/05-launch-checklist.md) — Day 0 → Day 90 sequence, plus the
+  **YPP math problem**: the Shorts-only path to monetization conflicts with the Day-90 target in
+  [Objectives](02-objectives.md), with three options and a recommendation.
+- [`06-placeholder-migration.md`](../channel/06-placeholder-migration.md) — the rename map
+  (*Plot Twist Pals* → IPPA, `PTP_` → `IPPA_`) and which branches still need it.

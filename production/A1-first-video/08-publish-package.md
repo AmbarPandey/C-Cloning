@@ -46,7 +46,7 @@ Rules honored: 1-line hook + replay nudge (drives the seed rewatch) + comment pr
 | Category | Comedy / Film & Animation |
 | Audience | Not made for kids (advertiser-safe general audience) — set per channel policy |
 | Visibility | Scheduled (batch per [daily workflow](../../docs/30-daily-workflow.md)) |
-| Playlist | "Plot Twist Pals — Shorts" |
+| Playlist | "IPPA — All Shorts" |
 | Language / captions | English (auto); manual SFX captions optional (see [editing spec](07-editing-spec.md)) |
 | Cadence slot | Fills one slot of the 10–14/week schedule |
 

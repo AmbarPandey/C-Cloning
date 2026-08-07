@@ -310,7 +310,7 @@ catalog IDs or controlled tokens (never free text).
 | `seed_ref` | continuity seed + fixed screen position | [Visual Identity Lock](VISUAL_IDENTITY_LOCK.md#composition-rules) |
 | `loop` | boolean + loop-seam frame match | [Animation loop](ANIMATION_LANGUAGE_MOTION_SYSTEM.md#motion-timing) |
 | `on_frame_text` | exact text or `none` (default) | [Visual Identity Lock rendering](VISUAL_IDENTITY_LOCK.md#rendering-rules) |
-| `video_id` | `PTP_[####]_[premise]_[platform]_v#` | [Stage 2](../../docs/12-stage-2-channel-operating-system.md) |
+| `video_id` | `IPPA_[####]_[premise]_[platform]_v#` | [Stage 2](../../docs/12-stage-2-channel-operating-system.md) |
 
 **Resolved Shot Object (example — A1 shot 5):**
 ```yaml

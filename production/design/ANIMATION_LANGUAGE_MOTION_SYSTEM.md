@@ -58,7 +58,7 @@ It also **defers to** (references, never restates):
 >   (the silent beat, the music slam on the twist) but does not own sound.
 > - **Motion is not a stored `_v#` asset.** Motion is applied at generation time (image→video) via the
 >   [runtime vocabulary](#runtime-semantics) and the [motion descriptor](#runtime-semantics); the
->   finished video is named `PTP_[####]…` per [Stage 2](../../docs/12-stage-2-channel-operating-system.md).
+>   finished video is named `IPPA_[####]…` per [Stage 2](../../docs/12-stage-2-channel-operating-system.md).
 
 ---
 
@@ -456,7 +456,7 @@ moves are).
 4. **Approval.** Motion reads muted at thumbnail size, matches the beat's band/intensity, syncs to the
    audio, and lands the loop seam; it stays advertiser-safe.
 5. **Versioning.** Motion is **not** globally versioned; the **motion vocabulary** is versioned here (this
-   doc). The finished video is `PTP_[####]…` per [Stage 2](../../docs/12-stage-2-channel-operating-system.md).
+   doc). The finished video is `IPPA_[####]…` per [Stage 2](../../docs/12-stage-2-channel-operating-system.md).
 6. **Reuse.** Reuse **motion recipes** (named motions + timing patterns) across videos — a new video
    re-applies the same motion grammar to new poses/situations. This is the motion cost-moat.
 

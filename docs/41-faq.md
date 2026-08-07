@@ -4,7 +4,7 @@
 An evidence-based operating system that reverse-engineers why animated comedy Shorts go viral and compiles that knowledge into deterministic, production-ready videos.
 
 ### Is this a single YouTube channel?
-The Phase 1 target is one channel (working name *Plot Twist Pals*), but C-Cloning is designed as a **reusable system** that can be cloned into multiple channels/niches later. See [Future Expansion](32-future-expansion.md).
+The Phase 1 target is one channel (**IPPA**), but C-Cloning is designed as a **reusable system** that can be cloned into multiple channels/niches later. See [Future Expansion](32-future-expansion.md).
 
 ### Why "faceless" and AI-produced?
 To maximize production speed, scalability, and low cost — the levers that reach monetization fastest. See [Business Strategy](20-business-strategy.md).
