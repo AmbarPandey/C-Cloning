@@ -498,7 +498,7 @@ traceable:
 | Background | `BG_[name]_v#` | `BG_parkinglot_v1` |
 | UI / on-frame | `UI_[name]_v#` | `UI_towed_stamp_v1` |
 | Effect | `FX_[name]_v#` | `FX_impact_star_v1` |
-| Video (finished) | `PTP_[####]_[premise]_[platform]_v#` | per Stage 2 |
+| Video (finished) | `IPPA_[####]_[premise]_[platform]_v#` | per Stage 2 |
 
 Bump `_v#` **only** when a locked design genuinely changes (it should not, in Phase 1).
 

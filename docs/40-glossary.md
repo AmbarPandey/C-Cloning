@@ -74,5 +74,5 @@ Authoritative definitions for every term used across the C-Cloning system.
 
 | Term | Definition |
 |---|---|
-| **Plot Twist Pals** | Working brand name (placeholder) for the channel. |
+| **IPPA** | The channel name (locked). Pronounced "IP-puh"; an anagram of the series lead PIP. Replaced the earlier *Plot Twist Pals* placeholder — see [Channel Identity Lock](../channel/01-CHANNEL-IDENTITY-LOCK.md). |
 | **CHIEF / PIP** | Working cast names used in the compiled demonstration (Idea A1): CHIEF = authority figure, PIP = underdog. |

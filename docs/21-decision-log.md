@@ -24,6 +24,7 @@ Every major locked decision, with its rationale and source stage. Decisions are 
 | D-18 | **Funnel-Select Matrix** for generation | Deterministic idea generation replaces brainstorming | [Library 8](../intelligence/08-content-matrix.md) |
 | D-19 | **Compiler discipline** in Stages 5–6 | Idea/script parameters are immutable; issues reported not fixed | [Stage 5](14-stage-5-script-compiler.md), [Stage 6](15-stage-6-production-compiler.md) |
 | D-20 | **AI tool stack**: Anijam + ElevenLabs + LLM + n8n | Best mid-2026 fit for consistency, voice, scripting, automation | [Stage 1.5](11-stage-1_5-business-decisions.md) |
+| D-21 | **Channel name locked: IPPA** (replaces the *Plot Twist Pals* placeholder) | Short, two-syllable, globally pronounceable with no language dependency; an anagram of series lead PIP, tying the name to the channel's most recognizable asset; closes RC audit action #1 | [Channel Identity Lock](../channel/01-CHANNEL-IDENTITY-LOCK.md) |
 
 ## Explicitly rejected options
 

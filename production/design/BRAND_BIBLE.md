@@ -31,8 +31,10 @@
   reusable. This document does — **without re-opening any locked decision**
   ([Locked Roadmap](../../docs/03-locked-roadmap.md)).
 
-> **Working brand name:** *Plot Twist Pals* (placeholder, per
-> [Stage 1.5 Channel DNA](../../docs/11-stage-1_5-business-decisions.md)). **Recurring cast (Phase 1):**
+> **Channel name:** **IPPA** — locked, pronounced "IP-puh"; see
+> [Channel Identity Lock](../../channel/01-CHANNEL-IDENTITY-LOCK.md) and
+> [Stage 1.5 Channel DNA](../../docs/11-stage-1_5-business-decisions.md). Tagline: *The jerk always
+> gets it.* **Recurring cast (Phase 1):**
 > [PIP](../characters/pip.md) — the lovable underdog and channel face — and
 > [CHIEF](../characters/chief.md) — the pompous authority foil.
 
@@ -86,7 +88,7 @@ the product; the animation is just its delivery vehicle.
 > recurring cast the world recognizes — while remaining advertiser-safe for maximum revenue per view.**
 > *(from [Project Vision](../../docs/01-project-vision.md))*
 
-**The promise made to viewers — the "Plot Twist Pals Promise":**
+**The promise made to viewers — "The IPPA Promise":**
 
 1. **Every video ends with a real twist.** No exceptions ([D-08](../../docs/21-decision-log.md)).
 2. **The payoff is fair and bloodless.** Karma lands on the deserving; the underdog is never

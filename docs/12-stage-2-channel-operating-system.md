@@ -46,7 +46,7 @@ Failing gate 1, 2, or 3 → reject.
 Ideas come from a **twist-archetype bank** (6 archetypes), everyday observation, and trends (used only as a setup skin). Ideas are scored (produce only if ≥18/25) and stored in a database with a naming convention and lifecycle. Always keep ≥2 weeks of approved ideas buffered.
 
 ## Reusable asset library
-Folder hierarchy, `PTP_[####]_[premise]_[platform]_v#` naming, character versioning, background/prop/expression packs, cleared music/SFX, backup (3-2-1), and a **reuse-first mandate**. This is the entire cost moat: after a 2-week build, per-video work collapses to *script + pick presets*.
+Folder hierarchy, `IPPA_[####]_[premise]_[platform]_v#` naming, character versioning, background/prop/expression packs, cleared music/SFX, backup (3-2-1), and a **reuse-first mandate**. This is the entire cost moat: after a 2-week build, per-video work collapses to *script + pick presets*.
 
 ## Quality control
 An 11-point Publish Gate (script, comedy, animation, timing, visual clarity, brand, voice, audio, retention, metadata, originality/safety). One failure blocks publishing.

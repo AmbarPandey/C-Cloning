@@ -31,7 +31,7 @@ tags to match the specific video's twist type if needed.
 | Field | Value |
 |---|---|
 | Category | Comedy / Film & Animation |
-| Playlist | "Plot Twist Pals — Shorts" |
+| Playlist | "IPPA — All Shorts" |
 | Visibility | Scheduled (batch) |
 | Made-for-kids | Set per channel policy (advertiser-safe general audience) |
 | Cadence slot | 1 of 10–14/week |

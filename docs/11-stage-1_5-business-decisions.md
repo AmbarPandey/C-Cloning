@@ -37,7 +37,7 @@ Build on the **twist-ending engine**, fused with the best traits of the losers:
 | Attribute | Decision |
 |---|---|
 | Concept | Twist-ending comedy shorts with a small recurring cast in everyday situations ending in an absurd but bloodless surprise |
-| Working brand | *Plot Twist Pals* (placeholder) |
+| Brand / channel name | **IPPA** (locked — see [Channel Identity Lock](../channel/01-CHANNEL-IDENTITY-LOCK.md)) |
 | Animation | Clean flat-color 2D, thick outlines, minimal shading |
 | Humor | Dark-**lite** absurdist twist comedy, advertiser-safe |
 | Voice | ElevenLabs primary; minimal, visual-led dialogue |

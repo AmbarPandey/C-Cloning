@@ -398,7 +398,7 @@ SHOT 5 = FULL.LOW.PUSHIN
 **Notation rules**
 - **Tokens only** from the [Camera](#camera-taxonomy) / [Movement](#camera-movement-taxonomy) taxonomies
   and the other libraries' canonical IDs — never invented framing words.
-- The **finished video** is named `PTP_[####]_[premise]_[platform]_v#` per
+- The **finished video** is named `IPPA_[####]_[premise]_[platform]_v#` per
   [Stage 2](../../docs/12-stage-2-channel-operating-system.md); individual shots are numbered *within*
   that video (`SHOT 1..n`), not globally versioned.
 - Default omitted fields = `EYE` angle and `STATIC` movement.
@@ -448,7 +448,7 @@ Shots are **planned and laid out**, not stored as versioned assets (the assets t
    the arc; framing stays advertiser-safe.
 5. **Versioning.** Shots are numbered *within* a video (`SHOT 1..n`); they are **not** globally
    versioned. The shot-type/movement **vocabulary** is versioned here (this doc). The finished video is
-   `PTP_[####]…` per [Stage 2](../../docs/12-stage-2-channel-operating-system.md).
+   `IPPA_[####]…` per [Stage 2](../../docs/12-stage-2-channel-operating-system.md).
 6. **Reuse.** Reuse **framing recipes** (the beat→coverage table) across videos, not per-shot files — a
    new video re-applies the same [sequencing](#shot-sequencing) to new situations. This is the coverage
    cost-moat: consistent, machine-selectable framing.

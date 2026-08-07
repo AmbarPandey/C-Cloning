@@ -28,7 +28,7 @@ validation gates, and a two-human-checkpoint safeguard — fully ready to drive 
 | **Single ownership** | 10/10 | Every concept has exactly one owning document; all others reference it. No competing standards. |
 | **Inheritance / precedence** | 10/10 | Explicit precedence (domain-ownership wins; Lock wins visual; Brand Bible wins story; Locked Roadmap is supreme); conflict-resolution algorithm documented. |
 | **Cross-links** | 9/10 | All cross-file links resolve (0 broken); the few remaining "follow-up" recommendations are low-priority editorial items (V1 Series Bible, project-vision pointers). |
-| **Namespace discipline** | 10/10 | `CHAR_/PROP_/BG_/UI_/FX_/MUS_/SFX_` + `PTP_` video; no conflicts; the Camera shot-descriptor notation avoids a competing namespace. |
+| **Namespace discipline** | 10/10 | `CHAR_/PROP_/BG_/UI_/FX_/MUS_/SFX_` + `IPPA_` video; no conflicts; the Camera shot-descriptor notation avoids a competing namespace. |
 
 **Strengths:** clean layered architecture with explicit ownership boundaries at every layer; conflict-resolution algorithm is defined; the runtime-variable Resolved Shot Object is a well-typed unit.
 **Weaknesses:** none blocking. **Residual risk:** the Mermaid diagrams in Brand/Character Bibles are rendered as text (not auto-validated); a future CI tool could lint them.
@@ -107,7 +107,7 @@ validation gates, and a two-human-checkpoint safeguard — fully ready to drive 
 |---|---|---|
 | AI model drift / hallucination | High | Closed-vocabulary validation + reference-sheet attachment + quality checklists |
 | Document length complexity | Low | TOCs + self-contained sections + the framework's composition model (prompts reference, don't restate) |
-| Channel name still placeholder (*Plot Twist Pals*) | Low | Must be locked before brand-art / merch / wallpaper publishing; not a design-system blocker |
+| ~~Channel name still placeholder~~ — **RESOLVED**: locked as **IPPA** | — | Closed by [Channel Identity Lock](../channel/01-CHANNEL-IDENTITY-LOCK.md); brand-art / merch / wallpaper work is unblocked |
 | No CI linting for links/diagrams | Low | Currently validated manually (this audit); recommend CI integration post-merge |
 | Editing Language not yet a standalone design doc | Low | A1 editing spec + Stage 6 cover the ground; a dedicated doc is recommended but not blocking |
 | Concrete prompt *sets* (paste-ready wallpaper/thumbnail prompts) not yet generated | Low | The system defines *how* to compose them; generation is the next milestone |
@@ -132,7 +132,7 @@ validation gates, and a two-human-checkpoint safeguard — fully ready to drive 
 
 ## Remaining Recommendations (non-blocking)
 
-1. **Lock the channel name** — the placeholder *Plot Twist Pals* appears in metadata templates and publish packages; lock it before wallpaper/brand-art work.
+1. ~~**Lock the channel name**~~ — ✅ **DONE.** Locked as **IPPA**; see [Channel Identity Lock](../channel/01-CHANNEL-IDENTITY-LOCK.md). All placeholder references and the `IPPA_` video-ID prefix migrated per the [migration map](../channel/06-placeholder-migration.md).
 2. **Dedicated Editing Language doc** — the Camera and Animation docs both defer cuts/transitions to "the Editing workflow" (A1 editing spec); a standalone design doc would close that boundary formally.
 3. **CI link/diagram linting** — add a GitHub Action to run the Python link/anchor checker on every PR.
 4. **Generate concrete wallpaper + thumbnail prompt sets** — the system defines *how*; the next milestone is generating the actual paste-ready files (first wallpaper loop, first thumbnail).

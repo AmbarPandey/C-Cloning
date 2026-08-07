@@ -65,6 +65,7 @@ See the [System Architecture](docs/04-system-architecture.md) for the full pictu
 | See why each decision was made | [Decision Log](docs/21-decision-log.md) |
 | Operate the system day-to-day | [Daily Workflow](docs/30-daily-workflow.md) |
 | See the creative + runtime design standards | [Production Design](production/design/README.md) |
+| **Set up the actual channel (IPPA)** | [**Channel Setup**](channel/README.md) |
 | Look up a term | [Glossary](docs/40-glossary.md) |
 | Get quick answers | [FAQ](docs/41-faq.md) |
 
@@ -79,9 +80,11 @@ C-Cloning/
 ├── intelligence/                 ← the 8 knowledge/computation libraries
 ├── diagrams/                     ← Mermaid architecture & dependency diagrams
 ├── prompts/                      ← reusable stage prompt contracts
-└── production/                   ← first-video artifacts: cast sheets, the Idea A1 package,
-                                     templates, tool guides, and the Production Design system
-                                     (10-doc creative + runtime standard in design/)
+├── production/                   ← first-video artifacts: cast sheets, the Idea A1 package,
+│                                   templates, tool guides, and the Production Design system
+│                                   (10-doc creative + runtime standard in design/)
+└── channel/                      ← the live channel (IPPA): identity lock, metadata, brand-art
+                                     specs, YouTube Studio setup, launch checklist
 ```
 
 A complete index of every document is maintained in [`docs/00-index.md`](docs/00-index.md).
@@ -98,6 +101,9 @@ A complete index of every document is maintained in [`docs/00-index.md`](docs/00
 | Generation → Production (Stages 4–6) | ✅ Locked & demonstrated (Idea `A1`) |
 | First-video production artifacts | ✅ Delivered ([`production/`](production/README.md): cast, full A1 package, templates, tool guides) |
 | Production Design system | ✅ Delivered ([`production/design/`](production/design/README.md): 10-doc creative + runtime standard) |
+| Channel name | ✅ **Locked: IPPA** ([D-21](docs/21-decision-log.md), [identity lock](channel/01-CHANNEL-IDENTITY-LOCK.md)) |
+| Channel setup pack | ✅ Delivered ([`channel/`](channel/README.md): metadata, brand-art specs, Studio setup, launch checklist) |
+| Brand art (icon / banner / wordmark) | ⏳ Specs + prompts ready; exports pending |
 | Phase 1 (Shorts → monetization) | ▶ Ready to execute |
 | Phase 2 (long-form expansion) | ⏳ Post-monetization |
 
