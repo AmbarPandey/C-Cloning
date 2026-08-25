@@ -30,10 +30,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** - subject motion - camera - transitions/FX - cut.
 
-### SHOT 1 - 0:00-0:02 - WIDE.EYE.STATIC
-- **Motion:** Sunny beach scene. `SKY`-blue sky, `PAPER`-tan sand, turquoise ocean in background with gentle foam. PIP kneels on a small raised mound (a natural hump in the sand, visibly higher than surroundings), shaping a tiny sand lump with both hands (2-frame pat cycle). CHIEF stomps in from left (4-frame walk, heavy steps leave prints), kicks sand at PIP (3-frame kick, sand spray arc), then jams a small `BRAND_YELLOW` flag into a half-built sand wall (2-frame jab). The wall is between PIP and the ocean, already knee-high.
-- **Camera:** locked wide. Framing shows the ocean (top third), the sand wall area (center), PIP on his mound (right of center), and clear waterline in background. This exact framing returns in C8.
-- **Motion graphics/FX:** Sand spray is 4-5 flat `PAPER`-tan dots arcing through air (3 frames). The `BRAND_YELLOW` flag is a tiny triangle on a stick. Gentle foam line visible at waterline (flat white shapes, 6-frame oscillation).
+### SHOT 1A - 0:00-0:015 - CU.EYE.STATIC  *(cold payoff - replaces the old wide establishing shot)*
+- **Motion:** Close, low on the sand: a **moat channel running inward**, and seawater sprinting along it toward the fortress core — the channel doing its job perfectly and in the wrong direction. The first wall base darkens and slumps. Cut as it gives. The motion is **already at full speed on frame 1** - there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only - no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B - 0:015-0:02 - MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hard cut to the beach: a **tide line** drawn as a dark wet arc across the sand with a `BRAND_YELLOW` arrow showing which way it is moving, the fortress wall built inside the arc, and a small sand turtle patted down safely outside it. PIP is in the same frame just outside the tide line, patting the last shell onto his little sand turtle — same beach, same sand, smaller ambition.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3-7 word hook caption *"His moat is pointing inward"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 - 0:02-0:06 - MED-WIDE.EYE.STATIC

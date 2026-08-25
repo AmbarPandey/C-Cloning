@@ -17,7 +17,7 @@ a ballistic arc ending in a mud-splash impact. The contrast is between CHIEF's e
 ego-printed, thin string) and PIP's simplicity (tiny handmade kite, relaxed grip, perfect flight).
 
 Two contrasting motion languages:
-- **CHIEF:** forceful, then strained, then ragdolled. Early: stomping, slamming, flexing. Middle: sliding, digging in, wrapping wrist (desperation masked as confidence). After snap: pinwheeling, tumbling, splatting. All motion fights against or surrenders to external force.
+- **CHIEF:** forceful, then strained, then panicked. Early: stomping, slamming, flexing. Middle: sliding, digging in, wrapping wrist (desperation masked as confidence). After snap: pinwheeling, tumbling, splatting. All motion fights against or surrenders to external force.
 - **PIP:** appears in C1 (flying kite, startled by shove), C2 (background, relaxed), C4 (background, sitting), C7 (standing with kite, look-and-tilt), and C8 (catches kite, waves). His motion is minimal and gravity-neutral -- his kite flies effortlessly, his body is always at rest.
 
 > **The one rule that cannot break:** the **string tension must only increase** from C3 to C5. The string
@@ -32,10 +32,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** - subject motion - camera - transitions/FX - cut.
 
-### SHOT 1 - 0:00-0:02 - WIDE.EYE.STATIC
-- **Motion:** An open grassy hilltop. The vertical frame is divided: top 40% is `SKY`-blue with 3 puffy white cumulus clouds drifting left-to-right (1 pixel/frame drift). Middle 45%: green grass hill sloping from upper-right to lower-left. All grass blades lean right (wind indicator, 2-frame sway cycle). Bottom 15%: the hill's base with flat brown `ASPHALT`-tinted oval MUD PUDDLE (SEED B -- reflective surface, flat oval shape with slight `SKY` reflection). PIP stands mid-hill (small figure, center-right), holding a thin white string attached to a small diamond-shaped `POP_TEAL` kite with a 3-ribbon tail (each ribbon a different length, fluttering in the wind with offset phase). CHIEF enters frame-left: stomping walk (4-frame cycle, heavy), carrying a rolled canvas bundle under right arm and a massive `ASPHALT`-grey metal spool under left arm (the spool is as big as his torso). He elbows PIP's string (2-frame: elbow out, string deflects). PIP stumbles right 2 steps (3-frame stumble). Kite dips (4-frame dip then recover). CHIEF drops spool with a THUD (2-frame drop, dust puff on impact) and begins unrolling canvas (3-frame).
-- **Camera:** locked wide. Full hill visible: sky (top), hilltop with characters (center), slope with puddle (bottom). This exact framing returns in C8.
-- **Motion graphics/FX:** Wind indicators: grass blades lean right (2-frame sway), cloud drift (1px/frame), PIP's kite ribbons flutter (3 ribbons, offset 2-frame phase each). Spool drop creates a flat `PAPER` dust ring (3-frame expand + fade). Mud puddle is a flat brown oval with a thin `SKY`-blue highlight line (reflection).
+### SHOT 1A - 0:00-0:015 - CU.EYE.STATIC  *(cold payoff - replaces the old wide establishing shot)*
+- **Motion:** Close on a taut kite line **letting go** — the thin string parting mid-frame, the severed end whipping back past camera, and a huge metal spool spinning itself empty in a blur. The line goes slack across the grass. Cut on the slack. The motion is **already at full speed on frame 1** - there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only - no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B - 0:015-0:02 - MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hook hard cut to the hilltop: two lines side by side against the sky with a `BRAND_YELLOW` bracket comparing them — one thick, one **thread-thin** — the thin one running up to an enormous `ALERT_RED` delta kite, the thick one to a small `POP_TEAL` diamond. Same wind, two gauges. PIP is in the same frame with his small diamond kite already up and steady, string held loose in one hand — same wind, right gauge.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3-7 word hook caption *"Wrong string for that kite"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 - 0:02-0:06 - MED-WIDE.EYE.STATIC
@@ -57,7 +63,7 @@ Two contrasting motion languages:
 - **Transition out:** hard cut.
 
 ### SHOT 5 - 0:16-0:22 - MED.EYE.STATIC -> HOLD
-- **Motion:** The biggest gust (grass horizontal, a stray leaf flies across frame). CHIEF's kite LUNGES forward in the sky. The pull yanks CHIEF off the ground entirely: his feet leave the earth by 10cm and he is now being TOWED HORIZONTALLY (body at 30-degree incline, hanging from his wrist-wrapped string, moving rightward at speed). He covers visible distance (his body translates 60px rightward over 2 seconds of tow). His free left hand pinwheels (4-frame flail cycle). Then: **SNAP**. The thin string breaks at its midpoint (2-frame: the taut line becomes two severed whipping ends -- one flies toward the kite, one toward CHIEF's wrist. A `BRAND_YELLOW` snap-flash at the break point, 1 frame). **Music cuts on the SNAP.** CHIEF now has forward momentum but no upward support. His arc begins: body starts descending (the parabolic trajectory begins). His cap lifts off his head (1-frame separation, cap begins own upward trajectory). Two medals detach from sash (they fly outward like confetti). The broken kite above folds inward (the delta-wing crumples, 4-frame fold) and begins tumbling.
+- **Motion:** The biggest gust (grass horizontal, a stray leaf flies across frame). CHIEF's kite LUNGES forward in the sky. The pull yanks CHIEF off the ground entirely: the bolted spool shears out of the ground and skids forward, dragging his heels through the grass in short comic hops (body upright, weight thrown back, both boots braced on the spool, still holding on out of pride — feet stay on the ground). He covers visible distance (his body translates 60px rightward over 2 seconds of tow). His free left hand pinwheels (4-frame flail cycle). Then: **SNAP**. The thin string breaks at its midpoint (2-frame: the taut line becomes two severed whipping ends -- one flies toward the kite, one toward CHIEF's wrist. A `BRAND_YELLOW` snap-flash at the break point, 1 frame). **Music cuts on the SNAP.** CHIEF now has forward momentum but no upward support. His arc begins: body starts descending (the parabolic trajectory begins). His cap lifts off his head (1-frame separation, cap begins own upward trajectory). Two medals detach from sash (they fly outward like confetti). The broken kite above folds inward (the delta-wing crumples, 4-frame fold) and begins tumbling.
 - **Camera:** medium shot, static. CHIEF's horizontal tow and the snap happen center-frame.
 - **Motion graphics/FX:** The tow is a horizontal translation of CHIEF's body (30px/second rightward). The SNAP is a 1-frame `BRAND_YELLOW` 6-point star burst at the break point + the line splitting into two curling ends (each end recoils with a spring animation: 4-frame settle). Cap separation: cap Y-velocity becomes positive (rising) while body Y-velocity becomes negative (falling). Medal detach: 2 flat `BRAND_YELLOW` circles fly outward on diverging arcs.
 - **AUDIO CUE (critical):** music **cuts on the SNAP (0:16)**, leaving only wind rushing past CHIEF's body.

@@ -28,10 +28,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** — subject motion — camera — transitions/FX — cut.
 
-### SHOT 1 — 0:00–0:02 · WIDE.EYE.STATIC
-- **Motion:** first flat raindrops strike the pavement in small 3-frame splash pops (scattered, ~6 of them). **A single drop falls from the broken gutter** and lands in a small puddle mark below it (one clean 10-frame fall). CHIEF struts in from frame left and **shoves PIP aside** with one glove (fast 3-frame shove, PIP staggers 2 frames and recovers). PIP blinks once.
-- **Camera:** locked wide. 6-frame settle hold so **both seeds register** — the broken gutter with its splash mark below, and the two contrasting umbrellas in the stand.
-- **Motion graphics/FX:** flat rain streaks (short `SKY` dashes, no blur); small flat splash pops on impact. **No highlight, sparkle or emphasis on the gutter** — it must read as ordinary broken guttering.
+### SHOT 1A — 0:00—0:015 — CU.EYE.STATIC  *(cold payoff — replaces the old wide establishing shot)*
+- **Motion:** An enormous umbrella canopy, filling the frame, sagging like a full waterskin — the fabric bulging downward, one fat seam of water walking along the rib toward the low point. It tips a few degrees further. Cut before it empties. The motion is **already at full speed on frame 1** — there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only — no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B — 0:015—0:02 — MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hard cut to the shop doorway: a chalk-pale **dry patch** outlined on the wet pavement under the awning — the one spot that stays dry — with the broken gutter mouth directly above it, dripping. Two umbrellas in the stand beside it: one a deep bowl, one small and flat. PIP is already in frame, in shot, holding the small flat umbrella over himself and standing just outside the dry patch — same task, smaller method, no complaint.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3—7 word hook caption *"This umbrella is full"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 — 0:02–0:06 · MED.EYE.PUSHIN(slow)

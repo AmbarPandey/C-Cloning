@@ -107,8 +107,9 @@ An **11-second musical silence**, cut **mid-phrase** on the frame the spark fire
 
 | Time | SFX | Level | Clip / purpose |
 |---|---|---|---|
-| 0:00 | `SFX_elevator_ding_v1` | **-10** | C1 - elevator arriving. The opening sound that sets the location |
-| 0:00.5 | `SFX_doors_slide_v1` | -12 | C1 - doors opening smoothly |
+| 0:00 | `SFX_coldopen_impact_v1` | -8 | **C1a cold payoff** - the event already in motion; loudest transient in the first second, no music under it |
+| 0:00.5 | `SFX_coldopen_tail_v1` | -14 | C1a - the decay of that event (debris, servo, water, fabric, line) |
+| 0:01.5 | `BGM_bed_v1` **(entry)** | -18 | **C1b** - the comedy bed enters *on the hard cut to the goal diagram*, not at 0:00. The cold payoff plays against near-silence so it reads as an event rather than an intro |
 | 0:01 | `SFX_shove_impact_v1` | -12 | C1 - CHIEF shoving PIP aside (soft, comic) |
 | 0:01.5 | `SFX_button_click_v1` (x3, rapid) | **-10** | **C1 - SEED B. The DOOR CLOSE button. First pressing. Must be clearly audible and rhythmic** |
 | 0:02 | `SFX_doors_slide_v1` (reversed, shorter) | -11 | C1 - doors closing on PIP |

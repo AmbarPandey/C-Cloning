@@ -25,7 +25,10 @@
 
 | Device | Where | Purpose |
 |---|---|---|
-| **Cold-open hook** | 0:00-0:02 | Opens on a shiny new smart lock being slapped onto a gate and a smirk at PIP. Conflict instant |
+| **Cold payoff first** | 0:00-0:015 | Opens *on* the karma moment, already in motion, tight and contextless. Inverts the old establishing shot — the two biggest causes of swipe-away (setup before payoff, static first frame) are both removed. First micro-payoff lands inside 1.5 s instead of at 27 s |
+| **Goal diagram** | 0:015-0:02 | The rule of the world is *drawn*, not implied — the viewer perceives it instead of inferring it, which is the difference v3 exploited. No words, no reasoning step |
+| **Scoreboard** | 0:02 onward | Both characters attempt the same task in the same frame, so the contrast is behavioural rather than circumstantial. The viewer picks a side inside a second |
+| **Dramatic irony** | 0:02-0:27 | The whole middle is now watched with the ending already known. Exposition becomes suspense |
 | **Dramatic irony** | 0:06-0:27 | The audience saw PIP pocket the backup key in C1. CHIEF has no idea it exists |
 | **Escalation of overreach** | 0:06-0:16 | CHIEF keeps adding features, posing at the lock, making it more "secure" - every upgrade is another brick in his own wall |
 | **The cake** | planted 0:01 | The celebration cake is visible in C1 - when he grabs it in C5, the audience already knows it is trouble |
@@ -41,7 +44,7 @@
 
 | Clip | Timecode | Beat | On-screen | Emotion (CHIEF / PIP) |
 |---|---|---|---|---|
-| C1 | 0:00-0:02 | **Hook + SEED** | A garden gate. A delivery driver hands CHIEF a fancy smart-lock box. In the background, the driver also hands PIP a **tiny brass key** (SEED A) which PIP quietly pockets. On CHIEF's side of the gate: a **celebration cake with thick icing** (SEED B) on a small table | excited / neutral |
+| C1 | 0:00-0:02 | **COLD PAYOFF → GOAL DIAGRAM** | **0:00-0:015:** Close on the lock's scan panel, a gloved hand already smearing across it. The panel throws its **rejection mark** — `ALERT_RED` cross, hard flash — th… **0:015-0:02:** hard cut to the drawn win condition. PIP already in frame attempting the same task | panicked / neutral |
 | C2 | 0:02-0:06 | **Setup** | CHIEF mounts the smart lock on the gate. It glows `BRAND_YELLOW`. He scans his face - green checkmark. He turns and grins at PIP on the other side, wagging a finger: *you can't get in now* | smug / patient |
 | C3 | 0:06-0:11 | **Escalation 1** | CHIEF taps the lock's screen, adding "features" - a longer passcode, a second scan, a retinal icon. Each addition makes the lock glow brighter and more complex. PIP just waits quietly | gloating / content |
 | C4 | 0:11-0:16 | **Escalation 2** | CHIEF demonstrates for PIP: he walks through, the lock beeps green. He walks back, beeps green again. He does a little victory strut each time. The cake is visible on its table each pass | triumphant / patient |
@@ -56,13 +59,25 @@
 
 > Legend - **VIS** visual/staging - **ACT** action - **CAM** camera - **VO** narration (optional layer) - **SFX** sound - **EMO** emotion
 
-### C1 - HOOK + SEED (0:00-0:02)
-- **VIS:** A `PAPER`-coloured garden with a simple `ASPHALT` gate. A delivery driver (a flat silhouette) hands CHIEF a shiny box with a smart-lock icon on it. In the same motion, the driver hands PIP a **tiny brass key** which PIP quickly pockets into his `POP_TEAL` scarf (SEED A). On a small table on CHIEF's side: a round **celebration cake with thick white icing** (SEED B).
-- **ACT:** CHIEF snatches the box eagerly, ignoring PIP entirely. PIP pockets the key in one quick motion.
-- **CAM:** Static wide establishing (this exact framing returns in C8).
-- **VO:** *"He got something new."*
-- **SFX:** Delivery van door slam; a small metallic *clink* as the key is handed over; upbeat comedy bed enters.
-- **EMO:** CHIEF excited - PIP neutral.
+### C1 — COLD PAYOFF + GOAL DIAGRAM (0:00-0:02)
+
+> **Cold-open inversion.** C1 does not establish anything. It shows the ending already in motion, then
+> hard-cuts to the drawn rule of the world. No character enters frame. Nothing is explained.
+
+**C1a — the cold payoff (0:00-0:015)**
+- **VIS:** Close on the lock's scan panel, a gloved hand already smearing across it. The panel throws its **rejection mark** — `ALERT_RED` cross, hard flash — then again, then a third time, faster. Each refusal is louder. Cut on the third.
+- **CAM:** Tight. Subject fills the frame. Motion already underway on frame one — **no push-in from a wide, no entrance.**
+- **HOOK TEXT (edit layer, not baked into the render):** *"Locked out by his own face"*
+
+**C1b — the goal diagram (0:015-0:02)**
+- **VIS:** Hard cut to the gate: the lock's own pictogram strip on the panel — a `POP_TEAL` tick beside a clean face, an `ALERT_RED` cross beside a smeared one. Below it, a small manual keyhole on the lock's underside, and the celebration cake with thick `PAPER` icing on its table.
+- **ACT:** PIP is at the gate in the same frame, quietly trying the manual keyhole with the little key — same goal, the boring method, already working.
+- **CAM:** Hard cut. Static, medium-wide, held. This is the frame C8 returns to for the loop seam.
+- **VO:** *"The lock only knows one face."*
+- **SFX:** Three rejection buzzes, rising in pitch and speed; glove squeaking on glass; a small mechanical *clunk* from the keyhole; bed enters on the diagram cut.
+- **EMO:** CHIEF panicked · PIP neutral
+
+**Load-bearing flaw planted here:** the icing cake sits on CHIEF's side of the gate from frame 1, and the lock reads faces. Celebrating is what breaks it.
 
 ### C2 - SETUP (0:02-0:06)
 - **VIS:** Medium shot of the gate. CHIEF bolts the smart lock onto it - a chunky `BRAND_YELLOW` device with a small screen. He leans in for a face scan; the screen flashes a **green checkmark**.

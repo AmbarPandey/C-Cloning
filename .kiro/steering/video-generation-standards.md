@@ -57,6 +57,78 @@ Every package contains these, all locked to one shared master timeline:
 `C1 0:00–0:02 · C2 0:02–0:06 · C3 0:06–0:11 · C4 0:11–0:16 · C5 0:16–0:22 · C6 0:22–0:27 ·
 C7 0:27–0:31 · C8 0:31–0:32` — music cuts to silence at 0:16, twist impact ~0:29, loop seam at C8.
 
+## The swipe gate (Shorts — read this before writing C1)
+
+Shorts are swipe-discovered. There is no thumbnail and no title, so **the first frame is the thumbnail
+and the first line is the title**, and they are consumed involuntarily in about one second. The gate
+metric is **Stayed to Watch**; average % viewed is only computed on the people who already stayed, so
+a good completion number on a failed gate means nothing. Full derivation in
+[`RETENTION-ANALYSIS-V3.md`](../../RETENTION-ANALYSIS-V3.md).
+
+### C1 is a cold payoff, never an establishing shot
+
+The old house opening — *"Static wide establishing… CHIEF struts in from left"* — was present in all of
+`v1`–`v17` and is the top two causes of swipe-away happening at once: **setup before payoff** and a
+**static first frame**. It is retired. Do not reintroduce it.
+
+```
+C1  0:00–0:015  COLD PAYOFF  the karma moment already in progress — tight, mid-motion,
+                             no context, cut away before it resolves
+C1b 0:015–0:02  HARD CUT     to the goal diagram (the rule of the world, drawn)
+C2  0:02–0:06   REWIND       the setup, now watched with the ending already known
+```
+
+Hard rules for C1:
+- **Motion is already underway.** Nothing enters frame. No character entrance, ever.
+- **Tight framing.** The subject fills significant frame area. Not a wide.
+- **No reasoning step.** It must read muted, in one pass. If the viewer has to infer, it fails.
+- **The first micro-payoff lands inside 1.5 s** — not evidence of a payoff, the payoff itself, partially.
+
+### The five structural requirements
+
+Extracted from the one episode in the catalogue that beat its cohort (`v3`):
+
+1. **Draw the goal, don't imply it.** A win condition must be *visible* by 0:02 — a target line with an
+   arrow at it, a limit pictogram, a fill line, a balance. No words. If the rule of the world cannot be
+   drawn, it is not a Shorts premise.
+2. **Build a scoreboard.** Both characters attempt **the same task in the same frame**, so the contrast
+   is behavioural, not circumstantial. PIP is never waiting offscreen.
+3. **Make the visual engine produce change every second.** Something must be measurably different from
+   how it was a second ago — growing, filling, tilting, accumulating. In 9:16, prefer vertical.
+4. **The flaw must be load-bearing.** The seed is the *mechanical cause* of the ending, planted visibly,
+   accumulating stress as the episode escalates. **No external agents** — karma that arrives from
+   outside the frame is a coincidence, not a mechanism, and coincidences don't get rewatched.
+5. **Let the antagonist fully win first.** Trophy in hand, peak music, held pose, completely
+   convincing. A reversal can only break a prediction the viewer was allowed to commit to.
+
+### The three-layer hook
+
+| Layer | Spec |
+|---|---|
+| Visual | The cold payoff, in motion. Must carry the idea alone |
+| **Text** | **3–7 words** — a caption added **in the edit**, never baked into the render |
+| Verbal | **5–10 words**, no preamble, and never the same sentence as the text |
+
+All three assert **one** idea. If they disagree, the viewer spends the decision window reconciling them
+and swipes. Alignment beats cleverness.
+
+> The text layer and the zero-baked-in-text invariant coexist because the hook caption is added in the
+> edit — the same carve-out the invariant already makes for captions. Rendered frames stay text-free.
+> Keep the caption clear of the bottom bar and the right-hand action rail.
+
+### Cadence ban
+
+No two consecutive episodes may share an opening-line rhythm. **`"One ___. One ___."` is retired** — it
+ran six episodes straight (`v10`, `v12`, `v14`, `v15`, `v16`, `v17`) and a returning viewer reads a
+repeated cadence as *the same video again*.
+
+### Before publishing — the silent half-second test
+
+Mute it, play **0.5 s**, pause, and ask someone unfamiliar: *what is this about, who is it for, is
+there a reason to keep watching?* Three answers or the hook is rewritten.
+
+---
+
 ## Retention requirement (applies to BOTH formats)
 
 The script must hold the viewer for the **entire** runtime:

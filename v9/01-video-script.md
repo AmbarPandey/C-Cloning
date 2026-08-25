@@ -27,7 +27,10 @@
 
 | Device | Where | Purpose |
 |---|---|---|
-| **Cold-open hook** | 0:00-0:02 | Opens on one slice, two characters, and a hand slamming a ketchup bottle down possessively. Conflict instant |
+| **Cold payoff first** | 0:00-0:015 | Opens *on* the karma moment, already in motion, tight and contextless. Inverts the old establishing shot — the two biggest causes of swipe-away (setup before payoff, static first frame) are both removed. First micro-payoff lands inside 1.5 s instead of at 27 s |
+| **Goal diagram** | 0:015-0:02 | The rule of the world is *drawn*, not implied — the viewer perceives it instead of inferring it, which is the difference v3 exploited. No words, no reasoning step |
+| **Scoreboard** | 0:02 onward | Both characters attempt the same task in the same frame, so the contrast is behavioural rather than circumstantial. The viewer picks a side inside a second |
+| **Dramatic irony** | 0:02-0:27 | The whole middle is now watched with the ending already known. Exposition becomes suspense |
 | **Dramatic irony** | 0:06-0:27 | The audience can see the waiter standing right there the entire time. The simple solution is always visible; CHIEF just never considers it |
 | **The fortress** | 0:06-0:16 | CHIEF's overreach made physical - each bottle added is funnier than the last because the solution was always just "ask politely" |
 | **The absence** | 0:16-0:22 | CHIEF leaves the table. The audience knows something will happen while he is gone |
@@ -43,7 +46,7 @@
 
 | Clip | Timecode | Beat | On-screen | Emotion (CHIEF / PIP) |
 |---|---|---|---|---|
-| C1 | 0:00-0:02 | **Hook + SEED** | A small restaurant table. A shared plate with **one pizza slice** remaining. CHIEF slams a ketchup bottle down next to the plate possessively. Behind them: a **waiter** standing attentively (SEED A). In the background: a **topping bar** at the counter (SEED B) | possessive / hungry |
+| C1 | 0:00-0:02 | **COLD PAYOFF → GOAL DIAGRAM** | **0:00-0:015:** Close on an elaborate wall of condiment bottles, stacked three high — and framed dead centre inside it, the plate it is guarding is **empty**. A singl… **0:015-0:02:** hard cut to the drawn win condition. PIP already in frame attempting the same task | shocked / neutral |
 | C2 | 0:02-0:06 | **Setup** | CHIEF begins building his fortress. He places a second bottle, then a third, forming a wall between PIP and the pizza. He grins at PIP: *mine*. PIP looks at the slice, then at the waiter behind them | smug / thoughtful |
 | C3 | 0:06-0:11 | **Escalation 1** | The fortress grows. CHIEF adds mustard, hot sauce, salt shaker, pepper mill - stacking them in an increasingly elaborate arrangement around the plate. He steps back to admire his work. The waiter is still standing in the background, ready | obsessive / patient |
 | C4 | 0:11-0:16 | **Escalation 2** | CHIEF spots the topping bar at the counter. His eyes light up - he wants to add toppings to HIS slice before eating it. He points at PIP warningly (don't touch), then **walks away from the table** toward the counter, leaving the slice "guarded" by the bottle fortress | triumphant / patient |
@@ -58,13 +61,25 @@
 
 > Legend - **VIS** visual/staging - **ACT** action - **CAM** camera - **VO** narration (optional layer) - **SFX** sound - **EMO** emotion
 
-### C1 - HOOK + SEED (0:00-0:02)
-- **VIS:** A small `PAPER`-coloured restaurant table. A shared round plate with **one triangular pizza slice** on it (golden, with visible toppings). CHIEF's gloved hand slams a `ALERT_RED` ketchup bottle down next to the plate, possessively. Behind them in soft focus: a **waiter** (simple flat silhouette with a small `PAPER` apron) standing attentively near a serving station (SEED A). Further back: a **topping bar** with small bowls of olives, peppers, and cheese visible at the counter (SEED B).
-- **ACT:** CHIEF slams the bottle down and spreads his arms wide over the plate: *this is mine*. PIP, sitting across the table, leans forward slightly looking at the slice.
-- **CAM:** Static wide establishing (this exact framing returns in C8).
-- **VO:** *"One slice left."*
-- **SFX:** A heavy bottle *thunk* on table; upbeat trattoria-style comedy bed enters; a small "hmm" from PIP.
-- **EMO:** CHIEF possessive - PIP hungry.
+### C1 — COLD PAYOFF + GOAL DIAGRAM (0:00-0:02)
+
+> **Cold-open inversion.** C1 does not establish anything. It shows the ending already in motion, then
+> hard-cuts to the drawn rule of the world. No character enters frame. Nothing is explained.
+
+**C1a — the cold payoff (0:00-0:015)**
+- **VIS:** Close on an elaborate wall of condiment bottles, stacked three high — and framed dead centre inside it, the plate it is guarding is **empty**. A single crumb. The fortress is perfect and it is protecting nothing. One bottle wobbles.
+- **CAM:** Tight. Subject fills the frame. Motion already underway on frame one — **no push-in from a wide, no entrance.**
+- **HOOK TEXT (edit layer, not baked into the render):** *"The fortress worked perfectly"*
+
+**C1b — the goal diagram (0:015-0:02)**
+- **VIS:** Hard cut wide to the table earlier: one plate, dead centre between two seats, **one slice on it**, and a small `INK` arrow-and-hand pictogram on the table card — the service call sign. Two chairs, two people, one slice.
+- **ACT:** PIP is seated at the same table in frame, hand already half-raised toward the service sign — same slice, different method.
+- **CAM:** Hard cut. Static, medium-wide, held. This is the frame C8 returns to for the loop seam.
+- **VO:** *"He guarded it. He just left first."*
+- **SFX:** Glass bottles clinking as the stack settles; one hollow *scrape* of an empty plate; a distant kitchen clatter; bed enters on the diagram cut.
+- **EMO:** CHIEF shocked · PIP neutral
+
+**Load-bearing flaw planted here:** the service call sign is on the table from frame 1. Leaving the table to fetch more toppings is what spends the fortress.
 
 ### C2 - SETUP (0:02-0:06)
 - **VIS:** Medium two-shot across the table. CHIEF places a second bottle (mustard, `BRAND_YELLOW`), then a third (hot sauce, `ALERT_RED`), forming a wall between PIP and the pizza.

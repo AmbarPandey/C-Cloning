@@ -28,7 +28,10 @@
 
 | Device | Where | Purpose |
 |---|---|---|
-| **Cold-open hook** | 0:00-0:02 | Opens on CHIEF shoving PIP aside and slamming a tower of paper into the printer. Conflict instant |
+| **Cold payoff first** | 0:00-0:015 | Opens *on* the karma moment, already in motion, tight and contextless. Inverts the old establishing shot — the two biggest causes of swipe-away (setup before payoff, static first frame) are both removed. First micro-payoff lands inside 1.5 s instead of at 27 s |
+| **Goal diagram** | 0:015-0:02 | The rule of the world is *drawn*, not implied — the viewer perceives it instead of inferring it, which is the difference v3 exploited. No words, no reasoning step |
+| **Scoreboard** | 0:02 onward | Both characters attempt the same task in the same frame, so the contrast is behavioural rather than circumstantial. The viewer picks a side inside a second |
+| **Dramatic irony** | 0:02-0:27 | The whole middle is now watched with the ending already known. Exposition becomes suspense |
 | **Dramatic irony** | 0:06-0:27 | The audience saw PIP slip a single sheet into the bypass tray in C1. CHIEF has no idea it is there |
 | **Escalation of overreach** | 0:06-0:16 | CHIEF keeps increasing the copy count, posing with each number - 100, 500, 999. Each increase makes the overheat inevitable |
 | **The 999 counter** | planted 0:02 | The absurd number on the printer screen tells the audience something will go wrong |
@@ -44,7 +47,7 @@
 
 | Clip | Timecode | Beat | On-screen | Emotion (CHIEF / PIP) |
 |---|---|---|---|---|
-| C1 | 0:00-0:02 | **Hook + SEED** | A tiny office with one printer on a desk. CHIEF shoves PIP aside and slams an enormous **tower of blank paper** into the main tray. While CHIEF is distracted, PIP quietly slips **a single sheet into the small bypass tray** on the printer's side (SEED A). The printer's screen glows `BRAND_YELLOW` | aggressive / patient |
+| C1 | 0:00-0:02 | **COLD PAYOFF → GOAL DIAGRAM** | **0:00-0:015:** Close on a printer erupting — sheets firing out faster than the tray can hold them, a rising drift of paper already past the machine's own height, eac… **0:015-0:02:** hard cut to the drawn win condition. PIP already in frame attempting the same task | shocked / neutral |
 | C2 | 0:02-0:06 | **Setup** | CHIEF jabs the copy-count button. The screen shows "001"... he holds the button... "050"... "100"... he grins and keeps pressing... **"999"** (SEED B). He hits PRINT. The printer starts whirring. He turns to PIP and wags a finger: *you'll be waiting a long time* | smug / patient |
 | C3 | 0:06-0:11 | **Escalation 1** | Pages fly out of the printer - all identical: CHIEF's face with "EMPLOYEE OF THE MONTH" (the only text is on the printed pages within the scene, not overlaid). He catches them triumphantly, fanning them out. The printer is working hard, the whirring gets louder. PIP waits, hands in scarf | gloating / content |
 | C4 | 0:11-0:16 | **Escalation 2** | The printed pages now pile up on the floor around CHIEF's feet. He is knee-deep in his own face. The printer is visibly struggling - the `BRAND_YELLOW` glow turns `ALERT_RED` at the edges. A small heat-wave shimmer appears above the machine. PIP notices, tilts his head | triumphant / observant |
@@ -59,13 +62,25 @@
 
 > Legend - **VIS** visual/staging - **ACT** action - **CAM** camera - **VO** narration (optional layer) - **SFX** sound - **EMO** emotion
 
-### C1 - HOOK + SEED (0:00-0:02)
-- **VIS:** A tiny `PAPER`-coloured office. One printer on a desk, glowing `BRAND_YELLOW`. CHIEF bulldozes past PIP (who stumbles slightly) and slams a comically tall **tower of blank paper** into the main paper tray. While CHIEF gloats at his paper stack, PIP quietly reaches over and slips **a single sheet into the small bypass tray** on the printer's side (SEED A). The bypass tray is small and easy to miss because CHIEF's paper tower dominates the frame.
-- **ACT:** CHIEF shoves, loads paper aggressively. PIP slips one sheet into the side tray in a quick motion.
-- **CAM:** Static wide establishing (this exact framing returns in C8).
-- **VO:** *"One printer. One problem."*
-- **SFX:** Office ambiance; a heavy paper-stack *thud*; a tiny paper *slip* as PIP loads the bypass tray; upbeat comedy bed enters.
-- **EMO:** CHIEF aggressive - PIP patient.
+### C1 — COLD PAYOFF + GOAL DIAGRAM (0:00-0:02)
+
+> **Cold-open inversion.** C1 does not establish anything. It shows the ending already in motion, then
+> hard-cuts to the drawn rule of the world. No character enters frame. Nothing is explained.
+
+**C1a — the cold payoff (0:00-0:015)**
+- **VIS:** Close on a printer erupting — sheets firing out faster than the tray can hold them, a rising drift of paper already past the machine's own height, each sheet carrying the same smug printed face. The stack topples toward camera. Cut mid-fall.
+- **CAM:** Tight. Subject fills the frame. Motion already underway on frame one — **no push-in from a wide, no entrance.**
+- **HOOK TEXT (edit layer, not baked into the render):** *"999 copies of himself"*
+
+**C1b — the goal diagram (0:015-0:02)**
+- **VIS:** Hard cut to the printer's small display: a queue readout reading **`999`** on one line and **`1`** on the line beneath it, with a `BRAND_YELLOW` arrow pointing at the `1`. Beside the machine, a pull-out **bypass tray**, visibly separate from the main path.
+- **ACT:** PIP is at the machine in the same frame holding a single sheet, feeding it into the bypass tray — same printer, one page.
+- **CAM:** Hard cut. Static, medium-wide, held. This is the frame C8 returns to for the loop seam.
+- **VO:** *"One printer. He queued nine hundred and ninety-nine."*
+- **SFX:** Motor whine climbing then straining; rapid paper *thwip-thwip-thwip*; a heat-stressed tick; bed enters on the diagram cut.
+- **EMO:** CHIEF shocked · PIP neutral
+
+**Load-bearing flaw planted here:** the bypass tray is drawn in frame 1 and is outside the jammed path. Overloading the main tray is what routes PIP's job first.
 
 ### C2 - SETUP (0:02-0:06)
 - **VIS:** Medium shot of CHIEF at the printer's control panel. He jabs the copy-count button repeatedly. The small screen shows the number climbing: 001... 050... 100... 500... **999**. He slams the big green PRINT button. The printer whirs to life.

@@ -102,7 +102,9 @@ An **11-second musical silence**, cut **mid-phrase** on the frame CHIEF bites th
 
 | Time | SFX | Level | Clip / purpose |
 |---|---|---|---|
-| 0:00 | `SFX_van_door_v1` | -14 | C1 - delivery arrival |
+| 0:00 | `SFX_coldopen_impact_v1` | -8 | **C1a cold payoff** - the event already in motion; loudest transient in the first second, no music under it |
+| 0:00.5 | `SFX_coldopen_tail_v1` | -14 | C1a - the decay of that event (debris, servo, water, fabric, line) |
+| 0:01.5 | `BGM_bed_v1` **(entry)** | -18 | **C1b** - the comedy bed enters *on the hard cut to the goal diagram*, not at 0:00. The cold payoff plays against near-silence so it reads as an event rather than an intro |
 | **0:01** | **`SFX_key_clink_v1`** | **-13** | **C1 - SEED A. The backup key handed to PIP. Must be audible** |
 | 0:01.5 | `SFX_button_v1` (eager grab) | -16 | C1 - CHIEF snatching the box |
 | 0:02.5 | sparks SFX (brief drill) | -15 | C2 - bolting the lock on |

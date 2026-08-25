@@ -30,10 +30,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** - subject motion - camera - transitions/FX - cut.
 
-### SHOT 1 - 0:00-0:02 - WIDE.EYE.STATIC
-- **Motion:** CHIEF's gloved hand enters frame and **slams** a `ALERT_RED` ketchup bottle down next to a shared plate (fast 3-frame slam, small table shake on impact - the plate and slice jiggle 2 frames). PIP, across the table, leans forward slightly (2-frame lean). In the background, the waiter shifts weight (2-frame settle - just enough to register as alive).
-- **Camera:** locked wide. 6-frame settle hold so both seeds register - the waiter standing ready and the topping bar at the counter.
-- **Motion graphics/FX:** a small impact ring (2-frame flat circle) under the bottle on slam; slight table jiggle. No emphasis on the waiter or topping bar.
+### SHOT 1A - 0:00-0:015 - CU.EYE.STATIC  *(cold payoff - replaces the old wide establishing shot)*
+- **Motion:** Close on an elaborate wall of condiment bottles, stacked three high — and framed dead centre inside it, the plate it is guarding is **empty**. A single crumb. The fortress is perfect and it is protecting nothing. One bottle wobbles. The motion is **already at full speed on frame 1** - there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only - no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B - 0:015-0:02 - MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hard cut wide to the table earlier: one plate, dead centre between two seats, **one slice on it**, and a small `INK` arrow-and-hand pictogram on the table card — the service call sign. Two chairs, two people, one slice. PIP is seated at the same table in frame, hand already half-raised toward the service sign — same slice, different method.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3-7 word hook caption *"The fortress worked perfectly"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 - 0:02-0:06 - MED.EYE.PUSHIN(slow)

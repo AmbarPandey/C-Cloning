@@ -107,8 +107,9 @@ A **10-second musical silence**, cut **mid-phrase** on the frame the printer die
 
 | Time | SFX | Level | Clip / purpose |
 |---|---|---|---|
-| 0:00 | `SFX_shove_v1` | -14 | C1 - CHIEF shoves PIP aside |
-| 0:00.5 | `SFX_paper_stack_thud_v1` | -10 | C1 - massive paper stack slammed into tray |
+| 0:00 | `SFX_coldopen_impact_v1` | -8 | **C1a cold payoff** - the event already in motion; loudest transient in the first second, no music under it |
+| 0:00.5 | `SFX_coldopen_tail_v1` | -14 | C1a - the decay of that event (debris, servo, water, fabric, line) |
+| 0:01.5 | `BGM_bed_v1` **(entry)** | -18 | **C1b** - the comedy bed enters *on the hard cut to the goal diagram*, not at 0:00. The cold payoff plays against near-silence so it reads as an event rather than an intro |
 | **0:01** | **`SFX_paper_slip_v1`** | **-13** | **C1 - SEED A. PIP's single sheet into the bypass tray. Must be audible** |
 | 0:02.5 | `SFX_button_click_rapid_v1` | -14 | C2 - counter climbing rapidly |
 | 0:04 | `SFX_button_slam_v1` | -10 | C2 - slamming the PRINT button |

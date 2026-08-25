@@ -30,10 +30,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** - subject motion - camera - transitions/FX - cut.
 
-### SHOT 1 - 0:00-0:02 - WIDE.EYE.STATIC
-- **Motion:** CHIEF rams into frame from the left with an overloaded shopping cart (items piled high, 2-3 items fall off in a 4-frame scatter). He bumps PIP aside (3-frame stumble). He swerves the cart under the "EXPRESS - 10 ITEMS OR FEWER" sign (SEED B) and parks at the left register. The right register's green "OPEN" light (SEED A) glows steadily in the background.
-- **Camera:** locked wide. 6-frame settle hold so both seeds register - the sign overhead and the green OPEN light on the unused register.
-- **Motion graphics/FX:** a small `BRAND_YELLOW` glow on the register screen as CHIEF approaches; the green "OPEN" light is a flat green circle, unemphasized. Items falling off the cart are flat colored shapes.
+### SHOT 1A - 0:00-0:015 - CU.EYE.STATIC  *(cold payoff - replaces the old wide establishing shot)*
+- **Motion:** Close on a self-checkout barrier **slamming down** across the belt, `ALERT_RED` bar dropping into place, and a counter above it flipping from `10` to **`11`** and locking. The alert light strobes. A gloved hand is still mid-reach with the twelfth item. Cut on the lock. The motion is **already at full speed on frame 1** - there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only - no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B - 0:015-0:02 - MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hard cut to the lane sign: a pictogram of **ten item shapes and a cross through an eleventh** — no words. Beside it, the next register with its own light showing a clean `POP_TEAL` open state, unattended. PIP is in frame at the same lane entrance holding one small item, already turning toward the open register — same queue, one item.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3-7 word hook caption *"Item eleven ends it"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 - 0:02-0:06 - MED.EYE.PUSHIN(slow)

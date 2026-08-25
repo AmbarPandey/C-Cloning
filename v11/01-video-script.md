@@ -27,7 +27,10 @@
 
 | Device | Where | Purpose |
 |---|---|---|
-| **Cold-open hook** | 0:00-0:02 | Opens on CHIEF ramming an overloaded cart past PIP straight into the express lane under the "10 ITEMS OR FEWER" sign. Conflict instant |
+| **Cold payoff first** | 0:00-0:015 | Opens *on* the karma moment, already in motion, tight and contextless. Inverts the old establishing shot — the two biggest causes of swipe-away (setup before payoff, static first frame) are both removed. First micro-payoff lands inside 1.5 s instead of at 27 s |
+| **Goal diagram** | 0:015-0:02 | The rule of the world is *drawn*, not implied — the viewer perceives it instead of inferring it, which is the difference v3 exploited. No words, no reasoning step |
+| **Scoreboard** | 0:02 onward | Both characters attempt the same task in the same frame, so the contrast is behavioural rather than circumstantial. The viewer picks a side inside a second |
+| **Dramatic irony** | 0:02-0:27 | The whole middle is now watched with the ending already known. Exposition becomes suspense |
 | **Dramatic irony** | 0:02-0:27 | The audience saw the sign and the counter. They know CHIEF has far more than 10 items. The question is *when* the machine will catch him |
 | **Escalation of overreach** | 0:06-0:16 | CHIEF scans faster, the counter climbs 4...5...7...9...10. Each scan brings him closer to the obvious limit |
 | **The open register** | planted 0:00 | A green "OPEN" light on the next register is visible from C1. PIP noticed it. CHIEF never looked |
@@ -43,7 +46,7 @@
 
 | Clip | Timecode | Beat | On-screen | Emotion (CHIEF / PIP) |
 |---|---|---|---|---|
-| C1 | 0:00-0:02 | **Hook + SEED** | A self-checkout area with two registers. The left register has a large sign above: **"EXPRESS - 10 ITEMS OR FEWER"** (SEED B). The right register has a small green **"OPEN"** light (SEED A). CHIEF rams an overloaded cart (items spilling over) past PIP and muscles into the EXPRESS lane. PIP is left holding his **one small item** (a carton of milk) | aggressive / patient |
+| C1 | 0:00-0:02 | **COLD PAYOFF → GOAL DIAGRAM** | **0:00-0:015:** Close on a self-checkout barrier **slamming down** across the belt, `ALERT_RED` bar dropping into place, and a counter above it flipping from `10` to… **0:015-0:02:** hard cut to the drawn win condition. PIP already in frame attempting the same task | panicked / neutral |
 | C2 | 0:02-0:06 | **Setup** | CHIEF starts scanning items at the express self-checkout. The screen shows a counter: "ITEMS: 1". He scans a second - "ITEMS: 2". A third - "ITEMS: 3". He is moving fast, cocky, barely looking. He glances back at PIP with a smirk: *I was here first*. PIP blinks, looks at the other register | smug / patient |
 | C3 | 0:06-0:11 | **Escalation 1** | CHIEF scans faster - items fly across the scanner. The counter jumps: 4... 5... 6... 7. Each beep is louder than the last. He is not reading the count. The "10 ITEMS OR FEWER" sign glows above him. PIP waits patiently, one item in hand | gloating / content |
 | C4 | 0:11-0:16 | **Escalation 2** | The counter hits 8... 9... **10**. At "10" the screen flashes `BRAND_YELLOW` briefly (a warning). CHIEF does not notice - he is already reaching for the next item. He has a huge grin, moving fast. The sign above pulses once. PIP tilts his head, watching the counter | triumphant / observant |
@@ -58,13 +61,25 @@
 
 > Legend - **VIS** visual/staging - **ACT** action - **CAM** camera - **VO** narration (optional layer) - **SFX** sound - **EMO** emotion
 
-### C1 - HOOK + SEED (0:00-0:02)
-- **VIS:** A `PAPER`-coloured store interior with a self-checkout area. Two registers side by side. The left one has a large overhead sign: **"EXPRESS - 10 ITEMS OR FEWER"** (SEED B). The right one has a small green **"OPEN"** light (SEED A) but no one at it. CHIEF rams through with an overloaded cart (items piled high, some falling off) and muscles into the express lane, bumping PIP aside. PIP holds a single **carton of milk**.
-- **ACT:** CHIEF bulldozes in, cart first. PIP stumbles slightly, then looks at the right register with the green light.
-- **CAM:** Static wide establishing (this exact framing returns in C8).
-- **VO:** *"Express lane. Ten items or fewer."*
-- **SFX:** Cart wheels rattling; items clinking/thudding in the overfull cart; a bump as PIP is shoved; upbeat comedy bed enters.
-- **EMO:** CHIEF aggressive - PIP patient.
+### C1 — COLD PAYOFF + GOAL DIAGRAM (0:00-0:02)
+
+> **Cold-open inversion.** C1 does not establish anything. It shows the ending already in motion, then
+> hard-cuts to the drawn rule of the world. No character enters frame. Nothing is explained.
+
+**C1a — the cold payoff (0:00-0:015)**
+- **VIS:** Close on a self-checkout barrier **slamming down** across the belt, `ALERT_RED` bar dropping into place, and a counter above it flipping from `10` to **`11`** and locking. The alert light strobes. A gloved hand is still mid-reach with the twelfth item. Cut on the lock.
+- **CAM:** Tight. Subject fills the frame. Motion already underway on frame one — **no push-in from a wide, no entrance.**
+- **HOOK TEXT (edit layer, not baked into the render):** *"Item eleven ends it"*
+
+**C1b — the goal diagram (0:015-0:02)**
+- **VIS:** Hard cut to the lane sign: a pictogram of **ten item shapes and a cross through an eleventh** — no words. Beside it, the next register with its own light showing a clean `POP_TEAL` open state, unattended.
+- **ACT:** PIP is in frame at the same lane entrance holding one small item, already turning toward the open register — same queue, one item.
+- **CAM:** Hard cut. Static, medium-wide, held. This is the frame C8 returns to for the loop seam.
+- **VO:** *"Ten items or fewer. He brought thirty."*
+- **SFX:** Barrier *clack* and servo whir; alert tone doubling; a cart wheel squeal cut short; bed enters on the diagram cut.
+- **EMO:** CHIEF panicked · PIP neutral
+
+**Load-bearing flaw planted here:** the open register is lit from frame 1 and the limit is drawn on the sign. Overloading the cart is what locks the machine.
 
 ### C2 - SETUP (0:02-0:06)
 - **VIS:** Medium shot of CHIEF at the self-checkout scanner. He scans items in rapid succession. The screen shows "ITEMS: 1"... "ITEMS: 2"... "ITEMS: 3". Each scan beeps. He barely looks at what he is scanning, eyes on PIP instead.

@@ -28,7 +28,10 @@
 
 | Device | Where | Purpose |
 |---|---|---|
-| **Cold-open hook** | 0:00-0:02 | Opens on CHIEF kicking sand at PIP and planting a flag on a half-built wall. Conflict in two seconds |
+| **Cold payoff first** | 0:00-0:015 | Opens *on* the karma moment, already in motion, tight and contextless. Inverts the old establishing shot — the two biggest causes of swipe-away (setup before payoff, static first frame) are both removed. First micro-payoff lands inside 1.5 s instead of at 27 s |
+| **Goal diagram** | 0:015-0:02 | The rule of the world is *drawn*, not implied — the viewer perceives it instead of inferring it, which is the difference v3 exploited. No words, no reasoning step |
+| **Scoreboard** | 0:02 onward | Both characters attempt the same task in the same frame, so the contrast is behavioural rather than circumstantial. The viewer picks a side inside a second |
+| **Dramatic irony** | 0:02-0:27 | The whole middle is now watched with the ending already known. Exposition becomes suspense |
 | **Dramatic irony** | 0:06-0:27 | The audience sees PIP calmly building a tiny turtle on higher ground while CHIEF digs himself lower. They know who will survive the tide |
 | **Escalation of overreach** | 0:06-0:16 | CHIEF's fortress grows absurdly tall, his moat absurdly deep -- each beat shows him digging deeper channels that slope toward the waterline |
 | **The moat channels** | planted 0:06 | The audience sees the channels and the approaching waterline -- they know the water will follow the path CHIEF is digging |
@@ -44,7 +47,7 @@
 
 | Clip | Timecode | Beat | On-screen | Emotion (CHIEF / PIP) |
 |---|---|---|---|---|
-| C1 | 0:00-0:02 | **Hook + SEED** | A sunny beach. PIP is kneeling on a small raised mound of sand, starting to shape a tiny lump (SEED A: the turtle). CHIEF stomps over, kicks sand at PIP, and plants a small `BRAND_YELLOW` flag on a half-built sand wall between PIP and the ocean. The **waterline** is visible in the background, gently lapping | smug / startled |
+| C1 | 0:00-0:02 | **COLD PAYOFF → GOAL DIAGRAM** | **0:00-0:015:** Close, low on the sand: a **moat channel running inward**, and seawater sprinting along it toward the fortress core — the channel doing its job perfec… **0:015-0:02:** hard cut to the drawn win condition. PIP already in frame attempting the same task | shocked / neutral |
 | C2 | 0:02-0:06 | **Setup** | CHIEF starts building his sand wall higher, using a small shovel. He begins digging a **moat trench** on the ocean side (SEED B). PIP wipes sand off his scarf, blinks, then returns to shaping his tiny turtle calmly. A gentle wave laps the beach far behind CHIEF -- the tide is coming in, almost imperceptibly | determined / calm |
 | C3 | 0:06-0:11 | **Escalation 1** | CHIEF's wall is now shoulder-height. He digs the moat deeper and wider, creating distinct **channels** that extend toward the waterline. He adds turrets with `BRAND_YELLOW` flags. The waterline has crept slightly closer. PIP is not visible -- focus entirely on CHIEF's obsessive construction | proud / -- (PIP not shown) |
 | C4 | 0:11-0:16 | **Escalation 2** | The fortress is now a massive structure with multiple towers, battlements, and a deep moat with three channel arms extending seaward. CHIEF stands on top, posing triumphantly with arms spread. The waterline is now visibly close to the end of the channels. A thin line of water touches the outermost channel tip. CHIEF does not notice -- too busy admiring his creation from above | triumphant / -- |
@@ -59,13 +62,25 @@
 
 > Legend - **VIS** visual/staging - **ACT** action - **CAM** camera - **VO** narration (optional layer) - **SFX** sound - **EMO** emotion
 
-### C1 - HOOK + SEED (0:00-0:02)
-- **VIS:** A bright `SKY`-blue sky over a `PAPER`-coloured sand beach. Ocean (`SKY` blue-green) visible in the background with gentle wave foam. PIP kneels on a small raised mound (6 inches higher than surrounding beach), shaping a tiny lump of sand (SEED A: the future turtle). CHIEF stomps into frame from the left, kicks a spray of sand at PIP (PIP flinches, grains on his scarf), and jams a small `BRAND_YELLOW` flag into a half-built sand wall between PIP and the ocean.
-- **ACT:** CHIEF kicks sand, plants flag aggressively. PIP flinches but stays on his mound.
-- **CAM:** Static wide establishing (this exact framing returns in C8).
-- **VO:** *"One beach. One wall."*
-- **SFX:** Ocean ambience; a sandy *kick-scatter*; flag *jab* into sand; upbeat comedy bed enters.
-- **EMO:** CHIEF smug - PIP startled.
+### C1 — COLD PAYOFF + GOAL DIAGRAM (0:00-0:02)
+
+> **Cold-open inversion.** C1 does not establish anything. It shows the ending already in motion, then
+> hard-cuts to the drawn rule of the world. No character enters frame. Nothing is explained.
+
+**C1a — the cold payoff (0:00-0:015)**
+- **VIS:** Close, low on the sand: a **moat channel running inward**, and seawater sprinting along it toward the fortress core — the channel doing its job perfectly and in the wrong direction. The first wall base darkens and slumps. Cut as it gives.
+- **CAM:** Tight. Subject fills the frame. Motion already underway on frame one — **no push-in from a wide, no entrance.**
+- **HOOK TEXT (edit layer, not baked into the render):** *"His moat is pointing inward"*
+
+**C1b — the goal diagram (0:015-0:02)**
+- **VIS:** Hard cut to the beach: a **tide line** drawn as a dark wet arc across the sand with a `BRAND_YELLOW` arrow showing which way it is moving, the fortress wall built inside the arc, and a small sand turtle patted down safely outside it.
+- **ACT:** PIP is in the same frame just outside the tide line, patting the last shell onto his little sand turtle — same beach, same sand, smaller ambition.
+- **CAM:** Hard cut. Static, medium-wide, held. This is the frame C8 returns to for the loop seam.
+- **VO:** *"He dug the moat himself."*
+- **SFX:** Water rushing through a narrow sand channel, close and hissing; wet sand slumping; a gull far off; bed enters on the diagram cut.
+- **EMO:** CHIEF shocked · PIP neutral
+
+**Load-bearing flaw planted here:** the tide arrow is drawn in frame 1 and the moat runs inward. Digging deeper is what channels the wave to the core.
 
 ### C2 - SETUP (0:02-0:06)
 - **VIS:** CHIEF grabs a small flat shovel (was stuck in the sand beside him) and starts building the wall higher, scooping sand rapidly. He begins digging a **trench** on the ocean-facing side of the wall (SEED B: the moat). The trench slopes slightly downhill toward the waterline. PIP behind the wall: wipes sand grains off his `POP_TEAL` scarf, blinks once, then returns to his mound and continues shaping his tiny sand lump with careful pats. A gentle wave laps the beach 10 feet behind CHIEF's construction.

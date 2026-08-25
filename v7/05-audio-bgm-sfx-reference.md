@@ -103,7 +103,9 @@ An **11-second musical silence**, cut **mid-phrase** on the frame CHIEF plants h
 
 | Time | SFX | Level | Clip / purpose |
 |---|---|---|---|
-| 0:00 | `SFX_rain_light_v1` (enters) | -20 | C1 — first rain |
+| 0:00 | `SFX_coldopen_impact_v1` | -8 | **C1a cold payoff** — the event already in motion; loudest transient in the first second, no music under it |
+| 0:00.5 | `SFX_coldopen_tail_v1` | -14 | C1a — the decay of that event (debris, servo, water, fabric, line) |
+| 0:01.5 | `BGM_bed_v1` **(entry)** | -18 | **C1b** — the comedy bed enters *on the hard cut to the goal diagram*, not at 0:00. The cold payoff plays against near-silence so it reads as an event rather than an intro |
 | **0:01** | **`SFX_drip_v1`** (single, clear) | **-14** | **C1 — SEED A. The gutter drip. Signature stage 1. Must be clearly audible** |
 | 0:01 | `SFX_button_v1` (strut boings ×2) | -18 | C1 — CHIEF's vain walk |
 | 0:02 | `SFX_shove_oof_v1` | -14 | C1 — PIP shoved aside (soft and comic, never harsh) |

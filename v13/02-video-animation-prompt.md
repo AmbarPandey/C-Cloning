@@ -30,10 +30,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** - subject motion - camera - transitions/FX - cut.
 
-### SHOT 1 - 0:00-0:02 - WIDE.EYE.STATIC
-- **Motion:** Peaceful pond scene. A shared tackle box (wooden, open lid) sits center-frame on the bank, visibly full of colorful gear. CHIEF storms in from frame-left and grabs items rapidly (4-frame grab cycle x4): the big rod, a fistful of lures, the reel, weights. He slams the empty box lid shut (2-frame slam). PIP approaches from frame-right, opens the box (3-frame), looks inside (empty - 2-frame blink), then spots the **stick** on the ground beside the box (3-frame look-down) and picks it up (3-frame pickup). The stick has a string already attached with a bent pin at the end.
-- **Camera:** locked wide. The full pond, bank, box, and both characters visible. 6-frame settle hold to register both seeds (PIP's stick and the now-loaded rod).
-- **Motion graphics/FX:** flat water with gentle 8-frame ripple cycle on the pond surface. Lures in the tackle box are flat colored shapes (chrome, green, red). The bent pin on PIP's string catches a small `BRAND_YELLOW` glint. No emphasis on either seed.
+### SHOT 1A - 0:00-0:015 - CU.EYE.STATIC  *(cold payoff - replaces the old wide establishing shot)*
+- **Motion:** Close on a fishing rod **snapping backward** under load, the overloaded line letting go — lures, weights and a fat bobber already airborne behind him in a spreading arc, the rod whipping bare. Cut at the top of the arc, gear still in the air. The motion is **already at full speed on frame 1** - there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only - no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B - 0:015-0:02 - MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hard cut to the pond bank: a shared tackle box open between two fishing spots, **one side crammed and one side empty**, and a `BRAND_YELLOW` arrow on the box lid pointing at the single item left in it — a bent pin on a length of string. PIP is on the bank in the same frame, already dropping his bent-pin-and-string into the water — same pond, no equipment.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3-7 word hook caption *"He took the whole tackle box"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 - 0:02-0:06 - MED.EYE.PUSHIN(slow)

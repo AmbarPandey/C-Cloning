@@ -28,7 +28,10 @@
 
 | Device | Where | Purpose |
 |---|---|---|
-| **Cold-open hook** | 0:00-0:02 | Opens on CHIEF shoving PIP away from elevator doors and hammering "CLOSE." Conflict in two seconds |
+| **Cold payoff first** | 0:00-0:015 | Opens *on* the karma moment, already in motion, tight and contextless. Inverts the old establishing shot — the two biggest causes of swipe-away (setup before payoff, static first frame) are both removed. First micro-payoff lands inside 1.5 s instead of at 27 s |
+| **Goal diagram** | 0:015-0:02 | The rule of the world is *drawn*, not implied — the viewer perceives it instead of inferring it, which is the difference v3 exploited. No words, no reasoning step |
+| **Scoreboard** | 0:02 onward | Both characters attempt the same task in the same frame, so the contrast is behavioural rather than circumstantial. The viewer picks a side inside a second |
+| **Dramatic irony** | 0:02-0:27 | The whole middle is now watched with the ending already known. Exposition becomes suspense |
 | **Dramatic irony** | 0:06-0:27 | The audience saw PIP take the stairs in C2. CHIEF has no idea PIP is already climbing while he gloats |
 | **Escalation of overreach** | 0:06-0:16 | CHIEF presses the button faster and harder each beat, adding fingers, using both hands, visibly damaging the panel |
 | **The close button** | planted 0:01 | CHIEF's obsessive pressing tells the audience something will break |
@@ -44,7 +47,7 @@
 
 | Clip | Timecode | Beat | On-screen | Emotion (CHIEF / PIP) |
 |---|---|---|---|---|
-| C1 | 0:00-0:02 | **Hook + SEED** | A building lobby. Elevator doors open. Beside the elevator: a **stairwell door with a "5" sign** above it (SEED A). CHIEF barges past PIP into the elevator and immediately hammers the **"DOOR CLOSE" button** (SEED B), grinning at PIP as the doors begin to shut | smug / surprised |
+| C1 | 0:00-0:02 | **COLD PAYOFF → GOAL DIAGRAM** | **0:00-0:015:** Close on a lift button panel with a gloved thumb jabbing it, fast and repeatedly — and on the fourth jab the panel **sparks**, a flat `BRAND_YELLOW` f… **0:015-0:02:** hard cut to the drawn win condition. PIP already in frame attempting the same task | shocked / neutral |
 | C2 | 0:02-0:06 | **Setup** | The elevator doors close in PIP's face. PIP blinks once, looks at the closed doors, then calmly turns and pushes open the **stairwell door**. He disappears inside. Meanwhile inside the elevator, CHIEF gloats and presses the floor "5" button, leaning smugly against the back wall | gloating / calm |
 | C3 | 0:06-0:11 | **Escalation 1** | Inside the elevator: CHIEF keeps pressing the "DOOR CLOSE" button even though the doors are already shut (a nervous tic of triumph). He jabs it rhythmically with one finger, humming to himself. The floor indicator shows "1... 2..." moving up slowly. A tiny **scorch mark** appears around the button edges | gloating / -- (PIP not shown) |
 | C4 | 0:11-0:16 | **Escalation 2** | CHIEF now presses the button with **two fingers, then his whole palm**, pressing harder and faster. The scorch mark grows. The button is visibly depressed deeper than it should go. The floor indicator shows "2... 3..." still moving. Smoke wisps curl from the panel edges. CHIEF does not notice -- too busy gloating at his own reflection in the mirror | triumphant / -- |
@@ -59,13 +62,25 @@
 
 > Legend - **VIS** visual/staging - **ACT** action - **CAM** camera - **VO** narration (optional layer) - **SFX** sound - **EMO** emotion
 
-### C1 - HOOK + SEED (0:00-0:02)
-- **VIS:** A `PAPER`-coloured building lobby. Polished `ASPHALT`-grey elevator doors (center frame) with a call button glowing `BRAND_YELLOW`. To the right of the elevator: a **stairwell door** with a small **"5"** floor sign above it in `ALERT_RED` (SEED A). The elevator doors open. Both characters approach. CHIEF bulldozes past PIP (PIP stumbles), enters the elevator, and immediately **hammers the "DOOR CLOSE" button** on the inside panel (SEED B) while grinning back at PIP.
-- **ACT:** CHIEF shoves, enters, jabs button aggressively. Doors begin closing. PIP caught outside.
-- **CAM:** Static wide establishing (this exact framing returns in C8 from inside the elevator looking out).
-- **VO:** *"One elevator. One button."*
-- **SFX:** Lobby ambience; elevator *ding*; a shove impact; rapid button *click-click-click*; doors sliding; upbeat comedy bed enters.
-- **EMO:** CHIEF smug - PIP surprised.
+### C1 — COLD PAYOFF + GOAL DIAGRAM (0:00-0:02)
+
+> **Cold-open inversion.** C1 does not establish anything. It shows the ending already in motion, then
+> hard-cuts to the drawn rule of the world. No character enters frame. Nothing is explained.
+
+**C1a — the cold payoff (0:00-0:015)**
+- **VIS:** Close on a lift button panel with a gloved thumb jabbing it, fast and repeatedly — and on the fourth jab the panel **sparks**, a flat `BRAND_YELLOW` flash, and every light on it dies at once. The car lurches. Cut on the lurch.
+- **CAM:** Tight. Subject fills the frame. Motion already underway on frame one — **no push-in from a wide, no entrance.**
+- **HOOK TEXT (edit layer, not baked into the render):** *"He mashed the close button"*
+
+**C1b — the goal diagram (0:015-0:02)**
+- **VIS:** Hard cut to the lobby: the floor indicator above the doors showing the target floor, and immediately beside the lift, a **staircase** drawn with a simple riser-and-arrow pictogram going up to the same number. Two routes, one destination, both in frame.
+- **ACT:** PIP is in the same frame at the foot of the stairs, one foot already on the first riser — same destination, the slower route.
+- **CAM:** Hard cut. Static, medium-wide, held. This is the frame C8 returns to for the loop seam.
+- **VO:** *"Same floor. Two ways up."*
+- **SFX:** Rapid button clicks, mechanical and dry; one electrical *snap*; lights dropping with a descending whine; cable groan; bed enters on the diagram cut.
+- **EMO:** CHIEF shocked · PIP neutral
+
+**Load-bearing flaw planted here:** the stairs are drawn beside the lift in frame 1. Abusing the close button is what strands him.
 
 ### C2 - SETUP (0:02-0:06)
 - **VIS:** Two-panel beat. **Panel A (lobby):** PIP faces the closed elevator doors, blinks, turns his head to look at the stairwell door, then calmly pushes it open and walks through. **Panel B (elevator interior):** CHIEF inside the elevator, pressing floor "5" button. He leans against the back wall (which has a mirror), adjusts his cap smugly, and does a little triumphant shimmy.
