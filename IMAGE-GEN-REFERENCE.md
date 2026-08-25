@@ -9,26 +9,59 @@
 > **expression** (§4) + **pose** (§5), any **props** (§6), a **background** (§7), and a **camera
 > framing** (§8). §9 has full copy-paste recipes that combine them.
 >
-> Distilled from the locked design bibles (Visual Identity Lock, Character/Expression/Pose/Prop/
-> Environment/Camera bibles) and the cast model sheets. Everything here is the *canonical, reusable*
-> layer — reuse it, never reinvent it.
+> Distilled from the locked design bibles and the cast model sheets. Everything here is the
+> *canonical, reusable* layer — reuse it, never reinvent it. When this sheet and a bible disagree,
+> **the bible wins** and this sheet is the bug.
+>
+> **Upstream sources (now in-repo — these were dangling references before the base fix):**
+> [Visual Identity Lock](production/design/VISUAL_IDENTITY_LOCK.md) ·
+> [Character Bible](production/design/CHARACTER_BIBLE.md) ·
+> [Expression Library](production/design/EXPRESSION_LIBRARY.md) ·
+> [Pose Library](production/design/POSE_LIBRARY.md) ·
+> [Prop Library](production/design/PROP_LIBRARY.md) ·
+> [Environment Bible](production/design/ENVIRONMENT_BIBLE.md) ·
+> [Camera & Cinematography Bible](production/design/CAMERA_CINEMATOGRAPHY_BIBLE.md) ·
+> [Animation Language](production/design/ANIMATION_LANGUAGE_MOTION_SYSTEM.md) ·
+> cast sheets: [PIP](production/characters/pip.md) · [CHIEF](production/characters/chief.md)
 
 ---
 
 ## 1. Style Prefix — ALWAYS prepend this (do not edit)
 
+Pick the prefix that matches the **format of the package you are building**. The two prefixes are
+identical except for the aspect clause — everything else is locked.
+
+**Shorts (9:16) — the default:**
 ```
-Flat-color 2D cartoon, thick uniform black outlines, no gradients, minimal single-tone shading,
-chunky 2.5-head proportions, high-contrast, clean vector look, 9:16 vertical, mobile-legible.
+Flat-color 2D cartoon, thick uniform INK #1A1A1A outlines (never pure black #000000), no gradients,
+minimal single-tone shading, chunky 2-to-2.5-head proportions per the character sheet,
+high-contrast, clean vector look, 9:16 vertical 1080x1920, mobile-legible.
 Palette: INK #1A1A1A, BRAND_YELLOW #FFD400, PAPER #FFF7E0, SKY #BFE3F2, ASPHALT #6E7076,
 ALERT_RED #E4322B, POP_TEAL #2FB6A3. No text unless specified. Advertiser-safe, no gore.
 ```
+
+**Long form (16:9):**
+```
+Flat-color 2D cartoon, thick uniform INK #1A1A1A outlines (never pure black #000000), no gradients,
+minimal single-tone shading, chunky 2-to-2.5-head proportions per the character sheet,
+high-contrast, clean vector look, 16:9 horizontal 1920x1080, legible at small size.
+Palette: INK #1A1A1A, BRAND_YELLOW #FFD400, PAPER #FFF7E0, SKY #BFE3F2, ASPHALT #6E7076,
+ALERT_RED #E4322B, POP_TEAL #2FB6A3. No text unless specified. Advertiser-safe, no gore.
+```
+
+> **Why two prefixes:** the standards require long form to be **16:9 horizontal** — any vertical or
+> square video under 3 minutes is auto-classified as a Short. A single hardcoded `9:16` prefix
+> silently mis-renders every long-form package (this is what happened to `v5`).
+
+> **Per-character proportions:** the prefix gives the *band*, the character sheet gives the *value* —
+> **PIP ≈ 2 heads**, **CHIEF ≈ 2.5 heads** (§3). Never flatten both to one number; the height
+> difference is the status contrast the comedy depends on.
 
 **Global look rules baked into every image:**
 - Uniform **thick black outline** (~6–8 px at 1080×1920), `INK #1A1A1A` — never pure black, never colored.
 - **Flat color, zero gradients**, at most one flat hard-edged shadow tone per shape. No textures, glow, bloom, or blur.
 - **Rounded shapes by default**; sharp/angular only as a deliberate authority/threat accent.
-- **One clear subject** per frame, generous negative space, subject centered in the thumb-safe band (keep key elements out of the top ~15% / bottom ~20%).
+- **One clear subject** per frame, generous negative space, subject centered in the safe band. *Shorts (9:16):* keep key elements out of the top ~15% / bottom ~20% (UI chrome). *Long form (16:9):* keep them out of the bottom ~12% (player bar) and clear of the thumbnail crop.
 - **Mute-first:** the pose + expression alone must convey the beat with no sound and no text.
 - **Silhouette test:** fill the subject 100% black — it must still be recognizable.
 
@@ -72,11 +105,17 @@ Reads "small and harmless" in silhouette. Default resting face: worried.
 
 ```
 CHAR_CHIEF_v1: short rotund puffed-up warden, ~2.5 heads tall, big head, small legs, chest out,
-chin high, stiff heels-together strut. POP_TEAL #2FB6A3 warden jacket with gold buttons, oversized
-peaked cap with a badge, a diagonal BRAND_YELLOW #FFD400 sash covered in medals (vanity tell),
-oversized white gloves, bushy brows, tiny mustache, permanent smug half-smile, small eyes, face
-PAPER #FFF7E0, INK #1A1A1A outline. Reads "self-important official" in silhouette. Default face: smug.
+chin high, stiff heels-together strut. POP_TEAL #2FB6A3 warden jacket with BRAND_YELLOW #FFD400
+buttons, oversized peaked cap with a badge, a diagonal BRAND_YELLOW #FFD400 sash covered in
+BRAND_YELLOW medals (vanity tell), oversized PAPER #FFF7E0 gloves, bushy brows, tiny mustache,
+permanent smug half-smile, small eyes, face PAPER #FFF7E0, INK #1A1A1A outline.
+Reads "self-important official" in silhouette. Default face: smug.
 ```
+> **Palette note (resolves a long-standing contradiction):** CHIEF's buttons were previously specced
+> as "gold" and his gloves as "white" — both **off-palette**, and white is explicitly forbidden by
+> §10. They are now `BRAND_YELLOW` and `PAPER`. His cap/sash/medals/buttons form **one costume-yellow
+> cluster**; the "one `BRAND_YELLOW` focal hit per frame" rule in §6 governs **props**, not costume,
+> so the hero prop still needs to be the brightest *new* yellow the eye lands on in any frame.
 - **Silhouette signature (mandatory every shot):** cap + sash + medals (these are costume, part of the character — never omit or slim him down).
 - **Owns props:** giant rubber stamp (`PROP_stamp_v1`), wheel boot (`PROP_boot_v1`), oversized ticket pad (`PROP_ticketpad_v1`), his scooter (`PROP_chief_scooter_v1`).
 - **Only breaks** from smug to shocked → panicked at the twist.
@@ -217,7 +256,7 @@ Urban · Commercial/Retail · Workplace/Institutional (office, DMV — "petty au
 
 ## 8. Camera / Framing (shot grammar — describe shots in these tokens)
 
-Default to **`WIDE`/`FULL` at `EYE` angle, `STATIC`**. Tighter/angled/moving shots are deliberate beats. 9:16 vertical, one clear subject, no depth-of-field blur, no lens distortion (a "close-up" = tighter crop + bigger subject, background stays flat and in focus).
+Default to **`WIDE`/`FULL` at `EYE` angle, `STATIC`**. Tighter/angled/moving shots are deliberate beats. Frame in the package's locked aspect (**9:16 for Shorts, 16:9 for long form**), one clear subject, no depth-of-field blur, no lens distortion (a "close-up" = tighter crop + bigger subject, background stays flat and in focus).
 
 **Framing (distance):** `EWIDE` (extreme wide) · `WIDE` (establishing) · `FULL` (full body) · `MED` (two-shot) · `MCU` · `CU` (reaction close-up / thumbnail hero) · `ECU` · `REACT` (reaction insert) · `CUT` (cutaway/reveal).
 
@@ -245,15 +284,19 @@ Combine §1 + the parts you need. Attach the character reference sheet/seed for 
 
 ### A. Build a character reference once
 ```
-Flat-color 2D cartoon, thick uniform black outlines, no gradients, minimal single-tone shading,
-chunky 2.5-head proportions, high-contrast, clean vector look, 9:16 vertical, mobile-legible.
+Flat-color 2D cartoon, thick uniform INK #1A1A1A outlines (never pure black #000000), no gradients,
+minimal single-tone shading, chunky 2-to-2.5-head proportions per the character sheet,
+high-contrast, clean vector look, 9:16 vertical 1080x1920, mobile-legible.
 Palette: INK #1A1A1A, BRAND_YELLOW #FFD400, PAPER #FFF7E0, SKY #BFE3F2, ASPHALT #6E7076,
 ALERT_RED #E4322B, POP_TEAL #2FB6A3. No text unless specified. Advertiser-safe, no gore.
-Character turnaround (front, 3/4, side) of CHIEF: short rotund puffed-up warden ~2.5 heads tall,
-POP_TEAL warden jacket + gold buttons, oversized peaked cap with badge, diagonal BRAND_YELLOW sash
-with medals, oversized white gloves, tiny mustache, smug half-smile. Plus a 6-expression sheet:
-neutral, smug, shocked, gleeful, panicked, deadpan. Consistent proportions across all poses.
+Character turnaround (front, 3/4, side) of CHIEF at ~2.5 heads tall: short rotund puffed-up warden,
+POP_TEAL warden jacket + BRAND_YELLOW buttons, oversized peaked cap with badge, diagonal
+BRAND_YELLOW sash with medals, oversized PAPER gloves, tiny mustache, smug half-smile.
+Plus a 6-expression sheet: neutral, smug, shocked, gleeful, panicked, deadpan.
+Consistent proportions across all poses.
 ```
+> For PIP, use the same recipe but state **~2 heads tall** and swap in his `POP_TEAL` scarf and the
+> PIP expression set (neutral, worried, teary, hopeful, gleeful, relieved).
 Store as `CHAR_CHIEF_v1`. (Same pattern for PIP.)
 
 ### B. A single acting beat (character + pose + expression)
