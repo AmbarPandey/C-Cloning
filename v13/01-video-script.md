@@ -29,7 +29,10 @@
 
 | Device | Where | Purpose |
 |---|---|---|
-| **Cold-open hook** | 0:00-0:02 | Opens on CHIEF snatching all the gear from a shared tackle box, leaving PIP with nothing. Conflict instant |
+| **Cold payoff first** | 0:00-0:015 | Opens *on* the karma moment, already in motion, tight and contextless. Inverts the old establishing shot — the two biggest causes of swipe-away (setup before payoff, static first frame) are both removed. First micro-payoff lands inside 1.5 s instead of at 27 s |
+| **Goal diagram** | 0:015-0:02 | The rule of the world is *drawn*, not implied — the viewer perceives it instead of inferring it, which is the difference v3 exploited. No words, no reasoning step |
+| **Scoreboard** | 0:02 onward | Both characters attempt the same task in the same frame, so the contrast is behavioural rather than circumstantial. The viewer picks a side inside a second |
+| **Dramatic irony** | 0:02-0:27 | The whole middle is now watched with the ending already known. Exposition becomes suspense |
 | **Dramatic irony** | 0:06-0:27 | The audience can see the line sagging more with each attachment; CHIEF cannot (he is admiring the lures, not the load) |
 | **Escalation of overreach** | 0:06-0:16 | CHIEF clips on one more lure, one more weight, one more bobber -- each addition makes the snap more inevitable |
 | **The sag meter** | planted 0:06 | The fishing line's visible droop is a wordless load indicator -- every second it gets heavier |
@@ -45,7 +48,7 @@
 
 | Clip | Timecode | Beat | On-screen | Emotion (CHIEF / PIP) |
 |---|---|---|---|---|
-| C1 | 0:00-0:02 | **Hook + SEED** | A peaceful pond. A shared **tackle box** sits on the bank between two fishing spots. CHIEF storms over and grabs **everything** -- the big rod, all lures, weights, the reel, the fancy bobber. He slams the empty box back. PIP looks at the empty box, then picks up a **bare stick with a string and bent pin** from the ground beside it (SEED A) | greedy / unbothered |
+| C1 | 0:00-0:02 | **COLD PAYOFF → GOAL DIAGRAM** | **0:00-0:015:** Close on a fishing rod **snapping backward** under load, the overloaded line letting go — lures, weights and a fat bobber already airborne behind him… **0:015-0:02:** hard cut to the drawn win condition. PIP already in frame attempting the same task | shocked / neutral |
 | C2 | 0:02-0:06 | **Setup** | CHIEF gloats, holding up his massive rod loaded with a shiny reel and his first lure already attached. He waves it at PIP tauntingly. PIP calmly ties his string to the stick tip (3 wraps, a knot) and the bent pin dangles at the end. CHIEF laughs, pointing at PIP's pathetic setup | mocking / focused |
 | C3 | 0:06-0:11 | **Escalation 1** | CHIEF starts loading MORE onto his line. He clips on a **second lure** (shiny, metallic). Then a **third** (feathered). Then a **lead weight**. The line visibly sags lower with each addition. He admires each one before clipping it on. PIP has already cast his stick-line into the water -- the bent pin bobs gently | gloating / patient |
 | C4 | 0:11-0:16 | **Escalation 2** | CHIEF adds a **massive red bobber** (the size of his fist), then **two more weights**, then a **fourth lure**. The line now sags almost to the ground under the combined load -- a comical droop. The rod tip bends downward. CHIEF does not look at the line; he is busy polishing his reel and flexing. PIP's string twitches slightly (a nibble?) but he waits | triumphant / patient |
@@ -60,13 +63,25 @@
 
 > Legend - **VIS** visual/staging - **ACT** action - **CAM** camera - **VO** narration (optional layer) - **SFX** sound - **EMO** emotion
 
-### C1 - HOOK + SEED (0:00-0:02)
-- **VIS:** A peaceful `SKY`-blue and `PAPER`-cream pond scene. Reeds on the edges, a flat `ASPHALT`-grey dock/bank. Between two fishing spots: a shared wooden **tackle box**, lid open, full of gear (lures, weights, reel, bobber, big rod propped against it). CHIEF storms in and grabs **everything** out of the box -- both hands full of lures, the reel, the rod -- slamming the now-empty box shut. PIP approaches the empty box, looks inside (nothing), then spots a **bare stick** on the ground with a length of string already tied and a bent pin at the end (SEED A). He picks it up.
-- **ACT:** CHIEF hoards aggressively (fast 4-frame grabs). PIP picks up the stick calmly (3-frame pickup).
-- **CAM:** Static wide establishing (this exact framing returns in C8).
-- **VO:** *"One tackle box. He took everything."*
-- **SFX:** Pond ambience (gentle water lapping, a bird chirp); a greedy *grab-grab-grab*; the box *slam* shut; comedy bed enters warm and pastoral.
-- **EMO:** CHIEF greedy - PIP unbothered.
+### C1 — COLD PAYOFF + GOAL DIAGRAM (0:00-0:02)
+
+> **Cold-open inversion.** C1 does not establish anything. It shows the ending already in motion, then
+> hard-cuts to the drawn rule of the world. No character enters frame. Nothing is explained.
+
+**C1a — the cold payoff (0:00-0:015)**
+- **VIS:** Close on a fishing rod **snapping backward** under load, the overloaded line letting go — lures, weights and a fat bobber already airborne behind him in a spreading arc, the rod whipping bare. Cut at the top of the arc, gear still in the air.
+- **CAM:** Tight. Subject fills the frame. Motion already underway on frame one — **no push-in from a wide, no entrance.**
+- **HOOK TEXT (edit layer, not baked into the render):** *"He took the whole tackle box"*
+
+**C1b — the goal diagram (0:015-0:02)**
+- **VIS:** Hard cut to the pond bank: a shared tackle box open between two fishing spots, **one side crammed and one side empty**, and a `BRAND_YELLOW` arrow on the box lid pointing at the single item left in it — a bent pin on a length of string.
+- **ACT:** PIP is on the bank in the same frame, already dropping his bent-pin-and-string into the water — same pond, no equipment.
+- **CAM:** Hard cut. Static, medium-wide, held. This is the frame C8 returns to for the loop seam.
+- **VO:** *"Every lure in the box. On one line."*
+- **SFX:** Line singing under tension, then a sharp *crack*; hardware clattering in the air; a bare rod whistle; water lapping; bed enters on the diagram cut.
+- **EMO:** CHIEF shocked · PIP neutral
+
+**Load-bearing flaw planted here:** the line sags visibly under the load from frame 1. Loading every lure is what snaps it on the backswing.
 
 ### C2 - SETUP (0:02-0:06)
 - **VIS:** Medium two-shot on the bank. CHIEF holds up his enormous loaded rod -- shiny reel glinting, one large metallic lure already dangling. He waves it mockingly at PIP. PIP calmly wraps his string three times around the stick tip, ties a knot, and the bent pin drops to dangle. CHIEF looks at PIP's stick, then at his own magnificent rod, and laughs openly -- pointing.

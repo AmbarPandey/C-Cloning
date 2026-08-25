@@ -30,7 +30,10 @@
 
 | Device | Where | Purpose |
 |---|---|---|
-| **Cold-open hook** | 0:00-0:02 | Opens on CHIEF slamming a thick book onto a table, directly blocking PIP's path. Conflict instant |
+| **Cold payoff first** | 0:00-0:015 | Opens *on* the karma moment, already in motion, tight and contextless. Inverts the old establishing shot — the two biggest causes of swipe-away (setup before payoff, static first frame) are both removed. First micro-payoff lands inside 1.5 s instead of at 27 s |
+| **Goal diagram** | 0:015-0:02 | The rule of the world is *drawn*, not implied — the viewer perceives it instead of inferring it, which is the difference v3 exploited. No words, no reasoning step |
+| **Scoreboard** | 0:02 onward | Both characters attempt the same task in the same frame, so the contrast is behavioural rather than circumstantial. The viewer picks a side inside a second |
+| **Dramatic irony** | 0:02-0:27 | The whole middle is now watched with the ending already known. Exposition becomes suspense |
 | **Dramatic irony** | 0:06-0:27 | Audience sees the table bowing, the tower wobbling, while CHIEF keeps adding. They know it will fall |
 | **Escalation of overreach** | 0:06-0:16 | Each book added makes the tower more absurd -- bigger books, weirder angles, table legs bending |
 | **The floor cushion** | planted 0:01 | PIP's alternative is visible from frame 1 -- rewatchers notice it immediately |
@@ -46,7 +49,7 @@
 
 | Clip | Timecode | Beat | On-screen | Emotion (CHIEF / PIP) |
 |---|---|---|---|---|
-| C1 | 0:00-0:02 | **Hook + SEED** | A quiet library interior -- warm `PAPER` walls, tall wooden bookshelves, one rectangular study table (center), a round "SHHH" sign on the wall (SEED B). A **floor cushion** (`POP_TEAL`) sits beside a low shelf on the right (SEED A). PIP walks toward the table carrying a small picture book. CHIEF stomps ahead, slams a massive encyclopedia onto the table directly in PIP's spot, then plants both hands on the table possessively | smug / surprised |
+| C1 | 0:00-0:02 | **COLD PAYOFF → GOAL DIAGRAM** | **0:00-0:015:** Close on a table leg **splitting** — the joint opening, the whole tabletop dropping a hand's width, and the base of a huge book stack shearing sideway… **0:015-0:02:** hard cut to the drawn win condition. PIP already in frame attempting the same task | shocked / neutral |
 | C2 | 0:02-0:06 | **Setup** | CHIEF rapidly stacks books: he pulls volumes from the nearest shelf and builds a WALL of books across the table's edge facing PIP -- 8 books wide, 2 high. The wall blocks the entire near side. He steps back and crosses arms. PIP looks at the book-wall, looks at the floor cushion, shrugs, walks to the cushion, sits cross-legged, and opens his slim picture book. A reading lamp on a low shelf illuminates him warmly | territorial / content |
 | C3 | 0:06-0:11 | **Escalation 1** | CHIEF is not satisfied with a wall -- he starts building UP. He stacks books vertically into a tower on the table center: encyclopedias, dictionaries, atlases (each visibly heavier/bigger). The tower reaches 6 books high. The table creaks subtly. CHIEF adds two more thick volumes sideways as "buttresses." He admires his creation, one hand on hip | proud / -- (PIP reading, not shown) |
 | C4 | 0:11-0:16 | **Escalation 2** | The tower is now 10 books high -- absurdly tall, wobbling slightly with each new addition. The table legs are visibly bowing outward. CHIEF stretches on tiptoes to place a thick atlas on top. The tower sways (2-pixel oscillation). He stabilizes it with one finger, then adds ANOTHER book. The table emits a faint groan. CHIEF ignores it, already reaching for one more book from the shelf | obsessive / -- |
@@ -61,13 +64,25 @@
 
 > Legend - **VIS** visual/staging - **ACT** action - **CAM** camera - **VO** narration (optional layer) - **SFX** sound - **EMO** emotion
 
-### C1 - HOOK + SEED (0:00-0:02)
-- **VIS:** A warm `PAPER`-toned library interior. Tall wooden bookshelves line the left wall (filled with colorful spines). A sturdy rectangular wooden study table sits center-frame with a green reading lamp on it. On the back wall: a round white "SHHH" sign with a finger-to-lips icon (SEED B). To the right of the low shelf: a round `POP_TEAL` floor cushion (SEED A). PIP approaches the table from the right, carrying a slim picture book. CHIEF charges in from the left, slams a massive red encyclopedia onto the table surface directly where PIP was heading (the table thuds and shakes), then plants both white-gloved hands flat on the table and leans forward possessively.
-- **ACT:** CHIEF slams book, claims table. PIP halted mid-approach.
-- **CAM:** Static wide establishing (this exact framing returns in C8).
-- **VO:** *"One table. One guy."*
-- **SFX:** Ambient library hum (air conditioning, distant page turns); heavy book SLAM on wood; table rattle; upbeat comedy bed (pizzicato + xylophone) enters.
-- **EMO:** CHIEF smug - PIP surprised.
+### C1 — COLD PAYOFF + GOAL DIAGRAM (0:00-0:02)
+
+> **Cold-open inversion.** C1 does not establish anything. It shows the ending already in motion, then
+> hard-cuts to the drawn rule of the world. No character enters frame. Nothing is explained.
+
+**C1a — the cold payoff (0:00-0:015)**
+- **VIS:** Close on a table leg **splitting** — the joint opening, the whole tabletop dropping a hand's width, and the base of a huge book stack shearing sideways above it. One thin paperback slides off the top and hangs in the air. Cut before the stack lands.
+- **CAM:** Tight. Subject fills the frame. Motion already underway on frame one — **no push-in from a wide, no entrance.**
+- **HOOK TEXT (edit layer, not baked into the render):** *"One paperback too many"*
+
+**C1b — the goal diagram (0:015-0:02)**
+- **VIS:** Hard cut to the reading room: a small **load-limit pictogram** stamped on the table leg — a stacked-books shape with a line across it and a `BRAND_YELLOW` arrow at the line — with the actual stack already well past it. A floor cushion sits free beside the shelves.
+- **ACT:** PIP is in the same frame on the floor cushion with one slim picture book open on his knees — same library, one book.
+- **CAM:** Hard cut. Static, medium-wide, held. This is the frame C8 returns to for the loop seam.
+- **VO:** *"The table had a limit. He found it."*
+- **SFX:** Wood fibres tearing, low and slow; a deep joint *crack*; pages riffling; library hush underneath; bed enters on the diagram cut.
+- **EMO:** CHIEF shocked · PIP neutral
+
+**Load-bearing flaw planted here:** the load-limit mark is drawn on the leg in frame 1. Each added volume walks the stack closer to it.
 
 ### C2 - SETUP (0:02-0:06)
 - **VIS:** CHIEF rapidly pulls books from the nearest shelf (2-frame grabs) and stacks them into a WALL across the table edge facing PIP -- volumes standing upright side by side, 8 books wide, 2 rows high. The wall completely blocks access to the table from PIP's side. CHIEF steps back, dusts his gloves, crosses arms with a satisfied nod. PIP observes the wall, looks right, notices the floor cushion. He shrugs (3-frame), walks to the cushion (4 steps), sits cross-legged on it, and opens his picture book flat on his lap. The reading lamp on the low shelf beside him glows `BRAND_YELLOW` warmly, illuminating his page.

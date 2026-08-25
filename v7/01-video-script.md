@@ -52,7 +52,10 @@ triggered by his own gloating gesture. He is the entire causal chain. That disti
 
 | Device | Where | Purpose |
 |---|---|---|
-| **Cold-open hook** | 0:00–0:02 | Opens on the first rain hitting the pavement and a hand shoving PIP aside. Conflict in two seconds, no setup |
+| **Cold payoff first** | 0:00–0:015 | Opens *on* the karma moment, already in motion, tight and contextless. Inverts the old establishing shot — the two biggest causes of swipe-away (setup before payoff, static first frame) are both removed. First micro-payoff lands inside 1.5 s instead of at 27 s |
+| **Goal diagram** | 0:015–0:02 | The rule of the world is *drawn*, not implied — the viewer perceives it instead of inferring it, which is the difference v3 exploited. No words, no reasoning step |
+| **Scoreboard** | 0:02 onward | Both characters attempt the same task in the same frame, so the contrast is behavioural rather than circumstantial. The viewer picks a side inside a second |
+| **Dramatic irony** | 0:02–0:27 | The whole middle is now watched with the ending already known. Exposition becomes suspense |
 | **Dramatic irony** | 0:06–0:27 | **The audience can see the canopy filling; CHIEF cannot.** This is the retention engine — 21 seconds of *knowing something the character doesn't*, which is a stronger hold than curiosity because the viewer is waiting for a specific, guaranteed event |
 | **The sag meter** | 0:06–0:27 | The canopy's droop is a visible, wordless load indicator. Every second it gets heavier and the payoff gets bigger |
 | **Open loop** | planted 0:01 | The broken gutter is dripping in frame 1 — the question is *when*, not *if* |
@@ -73,7 +76,7 @@ Different psychological driver, so the two don't feel like the same trick.
 
 | Clip | Timecode | Beat | On-screen | Emotion (CHIEF / PIP) |
 |---|---|---|---|---|
-| C1 | 0:00–0:02 | **Hook + SEED** | Rain starts on a shop front. A **broken gutter drips** above the doorway. Umbrella stand: one **enormous bowl-shaped** umbrella, one **tiny flat** one. CHIEF shoves PIP aside | smug / worried |
+| C1 | 0:00–0:02 | **COLD PAYOFF → GOAL DIAGRAM** | **0:00–0:015:** An enormous umbrella canopy, filling the frame, sagging like a full waterskin — the fabric bulging downward, one fat seam of water walking along the r… **0:015–0:02:** hard cut to the drawn win condition. PIP already in frame attempting the same task | smug (offscreen, unseen) / neutral |
 | C2 | 0:02–0:06 | **Setup** | He seizes the big umbrella and snaps it open with a flourish, gloating. PIP quietly takes the tiny one | gloating / neutral |
 | C3 | 0:06–0:11 | **Escalation 1** | Rain heavier. CHIEF struts to the "best spot" — **directly under the broken gutter** — and gloats. The gutter starts pouring into his canopy | gloating / content |
 | C4 | 0:11–0:16 | **Escalation 2** | Rain heavier still. The canopy **visibly sags**, the pool deepening. He gloats harder, oblivious. PIP is perfectly dry | triumphant / content |
@@ -88,13 +91,25 @@ Different psychological driver, so the two don't feel like the same trick.
 
 > Legend — **VIS** visual/staging · **ACT** action · **CAM** camera · **VO** narration (optional layer) · **SFX** sound · **EMO** emotion
 
-### C1 — HOOK + SEED (0:00–0:02)
-- **VIS:** A `PAPER` shop front on an `ASPHALT` pavement. First `SKY`-blue raindrops striking the ground in flat splashes. Above the doorway: a **broken `ASPHALT` gutter with an `ALERT_RED` rust crack**, dripping a steady bead of water onto the pavement below (**SEED A** — the water source, and the flat splash marks show exactly where it lands). Beside the door, an umbrella stand holding two umbrellas: one **enormous `BRAND_YELLOW` umbrella with a deep bowl-shaped canopy**, and one **tiny flat `POP_TEAL` one** (**SEED B**). PIP is reaching for an umbrella.
-- **ACT:** CHIEF struts in and **shoves PIP aside** with one oversized glove, eyes locked on the big one.
-- **CAM:** Static wide establishing (this exact framing returns in C8).
-- **VO:** *"It started to rain."*
-- **SFX:** Light rainy comedy bed (low); first rain patter; **a single clear gutter drip**; a small "oof" as PIP is shoved.
-- **EMO:** CHIEF smug · PIP worried.
+### C1 — COLD PAYOFF + GOAL DIAGRAM (0:00–0:02)
+
+> **Cold-open inversion.** C1 does not establish anything. It shows the ending already in motion, then
+> hard-cuts to the drawn rule of the world. No character enters frame. Nothing is explained.
+
+**C1a — the cold payoff (0:00–0:015)**
+- **VIS:** An enormous umbrella canopy, filling the frame, sagging like a full waterskin — the fabric bulging downward, one fat seam of water walking along the rib toward the low point. It tips a few degrees further. Cut before it empties.
+- **CAM:** Tight. Subject fills the frame. Motion already underway on frame one — **no push-in from a wide, no entrance.**
+- **HOOK TEXT (edit layer, not baked into the render):** *"This umbrella is full"*
+
+**C1b — the goal diagram (0:015–0:02)**
+- **VIS:** Hard cut to the shop doorway: a chalk-pale **dry patch** outlined on the wet pavement under the awning — the one spot that stays dry — with the broken gutter mouth directly above it, dripping. Two umbrellas in the stand beside it: one a deep bowl, one small and flat.
+- **ACT:** PIP is already in frame, in shot, holding the small flat umbrella over himself and standing just outside the dry patch — same task, smaller method, no complaint.
+- **CAM:** Hard cut. Static, medium-wide, held. This is the frame C8 returns to for the loop seam.
+- **VO:** *"He picked the big one. Obviously."*
+- **SFX:** Water sheeting off fabric, close and heavy; one deep fabric *groan* as the canopy tips; gutter drip on stone; comedy bed enters clean on the hard cut to the diagram.
+- **EMO:** CHIEF smug (offscreen, unseen) · PIP neutral
+
+**Load-bearing flaw planted here:** the broken gutter mouth is directly above the dry patch, and the big canopy is a bowl. Standing in the best spot is what loads it.
 
 ### C2 — SETUP (0:02–0:06)
 - **VIS:** Medium two-shot at the umbrella stand.

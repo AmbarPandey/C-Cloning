@@ -29,10 +29,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** - subject motion - camera - transitions/FX - cut.
 
-### SHOT 1 - 0:00-0:02 - WIDE.EYE.STATIC
-- **Motion:** A delivery driver (flat silhouette, no detail) hands CHIEF a shiny box (3-frame handoff). In the same motion, the driver's other hand extends a **tiny brass key** to PIP, who pockets it into his scarf in a quick 4-frame motion (easy to miss on first watch). CHIEF snatches the box eagerly in a 3-frame grab.
-- **Camera:** locked wide. 6-frame settle hold so both seeds register - the key handoff and the cake on the table.
-- **Motion graphics/FX:** a small `BRAND_YELLOW` sparkle on the box as CHIEF grabs it; the key has a single-frame metallic glint. The cake on the table has no emphasis - it reads as background.
+### SHOT 1A - 0:00-0:015 - CU.EYE.STATIC  *(cold payoff - replaces the old wide establishing shot)*
+- **Motion:** Close on the lock's scan panel, a gloved hand already smearing across it. The panel throws its **rejection mark** — `ALERT_RED` cross, hard flash — then again, then a third time, faster. Each refusal is louder. Cut on the third. The motion is **already at full speed on frame 1** - there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only - no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B - 0:015-0:02 - MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hard cut to the gate: the lock's own pictogram strip on the panel — a `POP_TEAL` tick beside a clean face, an `ALERT_RED` cross beside a smeared one. Below it, a small manual keyhole on the lock's underside, and the celebration cake with thick `PAPER` icing on its table. PIP is at the gate in the same frame, quietly trying the manual keyhole with the little key — same goal, the boring method, already working.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3-7 word hook caption *"Locked out by his own face"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 - 0:02-0:06 - MED.EYE.PUSHIN(slow)

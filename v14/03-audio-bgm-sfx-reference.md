@@ -119,7 +119,9 @@ An **11-second musical silence**, cut **mid-phrase** on the frame the tide water
 
 | Time | Line | Duration | Style |
 |---|---|---|---|
-| 0:00 | *"One beach. One wall."* | 1.8 s | deadpan, matter-of-fact |
+| 0:00 | `SFX_coldopen_impact_v1` | -8 | **C1a cold payoff** - the event already in motion; loudest transient in the first second, no music under it |
+| 0:00.5 | `SFX_coldopen_tail_v1` | -14 | C1a - the decay of that event (debris, servo, water, fabric, line) |
+| 0:01.5 | `BGM_bed_v1` **(entry)** | -18 | **C1b** - the comedy bed enters *on the hard cut to the goal diagram*, not at 0:00. The cold payoff plays against near-silence so it reads as an event rather than an intro |
 | 0:02 | *"Higher. Deeper. That'll show him."* | 3.0 s | slightly amused |
 | 0:06 | *"A moat. For protection."* | 2.0 s | dry irony |
 | 0:11 | *"The biggest castle on the beach. And the deepest moat."* | 4.0 s | building grandeur (mock-epic) |

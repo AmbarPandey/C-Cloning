@@ -30,10 +30,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** - subject motion - camera - transitions/FX - cut.
 
-### SHOT 1 - 0:00-0:02 - WIDE.EYE.STATIC
-- **Motion:** Laundromat interior. Five round-doored dryers in a row along the back wall (`ASPHALT`-grey metal, round glass windows). A horizontal **radiator pipe** on the right wall at chest height with a subtle `BRAND_YELLOW` shimmer (warm air distortion, 2-frame oscillation). Fluorescent strip lights on ceiling. One plastic chair. PIP enters from right carrying a small basket (one `POP_TEAL` shirt visible inside). He approaches the last empty dryer (#5, rightmost). CHIEF stomps in from left (4-frame heavy walk), shoves PIP aside (3-frame shove, PIP stumbles right), grabs his overflowing basket (clothes piled above rim), and crams fabric into dryer #5 (4-frame stuff -- a sleeve pokes out the door edge). He slams the door (2-frame slam) and feeds a coin (2-frame insert + 1-frame coin flash).
-- **Camera:** locked wide. Full laundromat visible: dryer row (back wall), radiator pipe (right wall), chair (right foreground). This exact framing returns in C8.
-- **Motion graphics/FX:** `BRAND_YELLOW` shimmer on radiator pipe is a subtle 2-frame oscillation of thin warm lines above the pipe. The coin is a flat `BRAND_YELLOW` circle. The poked-out sleeve is `ALERT_RED` fabric.
+### SHOT 1A - 0:00-0:015 - CU.EYE.STATIC  *(cold payoff - replaces the old wide establishing shot)*
+- **Motion:** Close on a row of dryer doors **bursting open in sequence**, one-two-three-four-five, each one flinging a tangled knot of laundry out into the room — a sock arriving flat against the lens. Machines still rocking. Cut on the fifth door. The motion is **already at full speed on frame 1** - there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only - no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B - 0:015-0:02 - MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hard cut to the laundromat: a **fill line** printed inside an open drum with a `BRAND_YELLOW` arrow at it, and the drum stuffed far past it. On the wall behind, a single warm radiator pipe with one small shirt hanging on it. PIP is in frame at the radiator pipe, smoothing his one small shirt flat on it — same laundry problem, no machine.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3-7 word hook caption *"All five, past the line"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 - 0:02-0:06 - MED-WIDE.EYE.STATIC

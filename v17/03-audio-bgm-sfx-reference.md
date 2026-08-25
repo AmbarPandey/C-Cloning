@@ -109,7 +109,9 @@ An **11-second musical silence**, cut **mid-phrase** on the frame the string sna
 
 | Timecode | Line | Delivery | Level |
 |---|---|---|---|
-| 0:00.5 | *"One hill. One kite guy."* | Deadpan, matter-of-fact. The breeze is audible under it | -8 dB |
+| 0:00 | `SFX_coldopen_impact_v1` | -8 | **C1a cold payoff** - the event already in motion; loudest transient in the first second, no music under it |
+| 0:00.5 | `SFX_coldopen_tail_v1` | -14 | C1a - the decay of that event (debris, servo, water, fabric, line) |
+| 0:01.5 | `BGM_bed_v1` **(entry)** | -18 | **C1b** - the comedy bed enters *on the hard cut to the goal diagram*, not at 0:00. The cold payoff plays against near-silence so it reads as an event rather than an intro |
 | 0:03 | *"Bigger. Always bigger."* | Slightly amused, knowing what is coming | -8 dB |
 | 0:07 | *"More string. More pull."* | Building energy, rhythmic (synced to gusts) | -9 dB |
 | 0:12 | *"Wrapped it. Around his wrist."* | Conspiratorial, the audience-knows-this-is-bad delivery | -9 dB |

@@ -31,10 +31,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** - subject motion - camera - transitions/FX - cut.
 
-### SHOT 1 - 0:00-0:02 - WIDE.EYE.STATIC
-- **Motion:** A warm `PAPER`-toned library interior. Tall wooden bookshelves (dark `ASPHALT`-brown wood, colorful book spines: reds, greens, blues, golds) line the left wall. A sturdy rectangular wooden study table sits center-frame, green-shaded reading lamp on it (lamp glows `BRAND_YELLOW`). Back wall: a round white circle sign with "SHHH" text and a finger-to-lips icon in `INK` (SEED B). Right side near a low shelf: a round `POP_TEAL` floor cushion (SEED A). PIP enters from right carrying a slim `POP_TEAL`-covered picture book (3-frame walk). CHIEF charges in from left (4-frame heavy stomp-walk), reaches the table first, and SLAMS a massive `ALERT_RED` encyclopedia onto the surface (2-frame slam -- the table shakes, lamp wobbles 2 frames). He plants both white-gloved hands flat on the table and leans forward (3-frame lean, possessive stance).
-- **Camera:** locked wide. Full library visible: bookshelves (left), table (center), low shelf + cushion (right), SHHH sign (back wall). This exact framing returns in C8.
-- **Motion graphics/FX:** Book slam creates a small dust puff (3 flat `PAPER`-white circles, 2-frame expand + fade). Lamp wobble is a 2-frame tilt of the shade. The `BRAND_YELLOW` lamp glow is a static flat circle beneath the shade.
+### SHOT 1A - 0:00-0:015 - CU.EYE.STATIC  *(cold payoff - replaces the old wide establishing shot)*
+- **Motion:** Close on a table leg **splitting** — the joint opening, the whole tabletop dropping a hand's width, and the base of a huge book stack shearing sideways above it. One thin paperback slides off the top and hangs in the air. Cut before the stack lands. The motion is **already at full speed on frame 1** - there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only - no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B - 0:015-0:02 - MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hard cut to the reading room: a small **load-limit pictogram** stamped on the table leg — a stacked-books shape with a line across it and a `BRAND_YELLOW` arrow at the line — with the actual stack already well past it. A floor cushion sits free beside the shelves. PIP is in the same frame on the floor cushion with one slim picture book open on his knees — same library, one book.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3-7 word hook caption *"One paperback too many"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 - 0:02-0:06 - MED-WIDE.EYE.STATIC

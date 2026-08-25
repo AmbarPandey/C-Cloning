@@ -29,7 +29,10 @@
 
 | Device | Where | Purpose |
 |---|---|---|
-| **Cold-open hook** | 0:00-0:02 | Opens on CHIEF yanking PIP's basket aside and cramming clothes into the last available dryer. Conflict in two seconds |
+| **Cold payoff first** | 0:00-0:015 | Opens *on* the karma moment, already in motion, tight and contextless. Inverts the old establishing shot — the two biggest causes of swipe-away (setup before payoff, static first frame) are both removed. First micro-payoff lands inside 1.5 s instead of at 27 s |
+| **Goal diagram** | 0:015-0:02 | The rule of the world is *drawn*, not implied — the viewer perceives it instead of inferring it, which is the difference v3 exploited. No words, no reasoning step |
+| **Scoreboard** | 0:02 onward | Both characters attempt the same task in the same frame, so the contrast is behavioural rather than circumstantial. The viewer picks a side inside a second |
+| **Dramatic irony** | 0:02-0:27 | The whole middle is now watched with the ending already known. Exposition becomes suspense |
 | **Dramatic irony** | 0:06-0:27 | The audience sees PIP's shirt on the warm pipe (safe, gentle heat) while CHIEF's machines shake violently. They know which laundry survives |
 | **Escalation of overreach** | 0:06-0:16 | The dryers rumble louder, shake harder, temperature gauges climb into the red -- each beat shows the machines failing |
 | **The overstuffing** | planted 0:01 | CHIEF forces clothes past the fill line -- audience immediately knows the machines will reject them |
@@ -45,7 +48,7 @@
 
 | Clip | Timecode | Beat | On-screen | Emotion (CHIEF / PIP) |
 |---|---|---|---|---|
-| C1 | 0:00-0:02 | **Hook + SEED** | A laundromat interior -- row of round-doored dryers along the back wall. A **radiator pipe** runs along the side wall with a warm `BRAND_YELLOW` shimmer (SEED A). PIP approaches the last empty dryer with a small basket (one shirt visible). CHIEF shoves PIP aside, grabs his own overfull basket, and crams a massive wad of clothes into that last dryer (SEED B: fabric visibly compressed past the fill line). He slams the door and feeds a coin | smug / startled |
+| C1 | 0:00-0:02 | **COLD PAYOFF → GOAL DIAGRAM** | **0:00-0:015:** Close on a row of dryer doors **bursting open in sequence**, one-two-three-four-five, each one flinging a tangled knot of laundry out into the room —… **0:015-0:02:** hard cut to the drawn win condition. PIP already in frame attempting the same task | panicked / neutral |
 | C2 | 0:02-0:06 | **Setup** | CHIEF moves along the row -- ALL dryers (5 total) now have his clothes in them, doors shut, tumbling. He dusts his gloves smugly. PIP, holding his single wet shirt, looks at the occupied dryers, then notices the **radiator pipe** on the wall. He walks over and drapes his shirt over the pipe. A tiny wisp of steam rises from the warm pipe. PIP sits down in a plastic chair beside it | gloating / calm |
 | C3 | 0:06-0:11 | **Escalation 1** | CHIEF stands proudly in front of "his" dryers, arms crossed. The machines tumble -- but the drum sounds are **labored, strained**. Dryer #1 starts vibrating more than the others (a visible wobble). The temperature gauge on its panel creeps from green toward yellow. Inside the round window: clothes are packed so tight they barely tumble -- just one solid mass rotating. CHIEF does not notice; he is polishing his medals | proud / -- (PIP not shown) |
 | C4 | 0:11-0:16 | **Escalation 2** | ALL five dryers are now visibly shaking. Temperature gauges on #1 and #2 are in the yellow/orange zone. Dryer #3 starts **walking** (vibrating so hard it inches forward on the floor, leaving a gap). A faint smell line (wavy `ASPHALT` grey) rises from the vents. CHIEF finally notices dryer #3 moving and pushes it back into line with one hand, then returns to his smug pose. The machines shake harder the moment he turns away | oblivious / -- |
@@ -60,13 +63,25 @@
 
 > Legend - **VIS** visual/staging - **ACT** action - **CAM** camera - **VO** narration (optional layer) - **SFX** sound - **EMO** emotion
 
-### C1 - HOOK + SEED (0:00-0:02)
-- **VIS:** A `PAPER`-coloured laundromat interior. Five round-doored dryers in a row along the back wall (industrial, `ASPHALT`-grey metal). A **radiator pipe** runs horizontally along the right side wall at chest height, with a subtle `BRAND_YELLOW` warm shimmer around it (SEED A). Fluorescent ceiling lights. A small plastic chair. PIP approaches the last (rightmost) empty dryer carrying a small basket with one wet `POP_TEAL` shirt. CHIEF stomps in from left, shoves PIP aside (PIP stumbles, basket stays in hand), grabs his own OVERFULL basket (clothes piled above the rim), and crams a massive wad of fabric into the dryer (SEED B: clothes visibly compressed, a sleeve pokes out the door edge). He slams the door and shoves a coin into the slot.
-- **ACT:** CHIEF shoves, stuffs, slams, coins. PIP stumbles back holding his basket.
-- **CAM:** Static wide establishing (this exact framing returns in C8).
-- **VO:** *"Five dryers. One guy."*
-- **SFX:** Fluorescent hum; a shove *thud*; clothes *crumpling*; door *slam*; coin *clink*; upbeat comedy bed enters.
-- **EMO:** CHIEF smug - PIP startled.
+### C1 — COLD PAYOFF + GOAL DIAGRAM (0:00-0:02)
+
+> **Cold-open inversion.** C1 does not establish anything. It shows the ending already in motion, then
+> hard-cuts to the drawn rule of the world. No character enters frame. Nothing is explained.
+
+**C1a — the cold payoff (0:00-0:015)**
+- **VIS:** Close on a row of dryer doors **bursting open in sequence**, one-two-three-four-five, each one flinging a tangled knot of laundry out into the room — a sock arriving flat against the lens. Machines still rocking. Cut on the fifth door.
+- **CAM:** Tight. Subject fills the frame. Motion already underway on frame one — **no push-in from a wide, no entrance.**
+- **HOOK TEXT (edit layer, not baked into the render):** *"All five, past the line"*
+
+**C1b — the goal diagram (0:015-0:02)**
+- **VIS:** Hard cut to the laundromat: a **fill line** printed inside an open drum with a `BRAND_YELLOW` arrow at it, and the drum stuffed far past it. On the wall behind, a single warm radiator pipe with one small shirt hanging on it.
+- **ACT:** PIP is in frame at the radiator pipe, smoothing his one small shirt flat on it — same laundry problem, no machine.
+- **CAM:** Hard cut. Static, medium-wide, held. This is the frame C8 returns to for the loop seam.
+- **VO:** *"Five dryers, and he filled every one."*
+- **SFX:** Five door latches failing in a rising run; heavy tumbling thuds; static crackle; one wet slap; bed enters on the diagram cut.
+- **EMO:** CHIEF panicked · PIP neutral
+
+**Load-bearing flaw planted here:** the drum fill line is drawn in frame 1. Overstuffing past it is what pops the doors.
 
 ### C2 - SETUP (0:02-0:06)
 - **VIS:** Quick wide shot showing ALL five dryers now occupied and tumbling (round windows show rotating fabric masses). CHIEF walks along the row, patting each door like he owns them, then dusts his white gloves with satisfaction. PIP, holding his single wet shirt, looks at the row of taken dryers, then turns his head right and notices the radiator pipe. He walks over (4 steps), drapes his shirt over the pipe carefully, and smooths it flat. A tiny wisp of `PAPER`-white steam rises from where the wet fabric meets the warm pipe. PIP sits in the plastic chair, crosses his legs, and relaxes.

@@ -30,10 +30,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** - subject motion - camera - transitions/FX - cut.
 
-### SHOT 1 - 0:00-0:02 - WIDE.EYE.STATIC
-- **Motion:** Building lobby. Elevator doors slide open (6-frame slide). CHIEF shoves PIP aside (3-frame shove, PIP stumbles 2 frames). CHIEF enters the elevator and immediately jabs the "DOOR CLOSE" button with one finger (2-frame jab, repeated 3x). The doors begin sliding shut. PIP, outside, raises a hand but the doors close.
-- **Camera:** locked wide. Framing shows both the elevator (center) and the stairwell door (right side) with the "5" sign clearly visible above it. 6-frame settle hold so both seeds register.
-- **Motion graphics/FX:** `BRAND_YELLOW` glow on the elevator call button; the "DOOR CLOSE" button has a small flat circle highlight on each press. The "5" sign is static, just part of the set -- no emphasis.
+### SHOT 1A - 0:00-0:015 - CU.EYE.STATIC  *(cold payoff - replaces the old wide establishing shot)*
+- **Motion:** Close on a lift button panel with a gloved thumb jabbing it, fast and repeatedly — and on the fourth jab the panel **sparks**, a flat `BRAND_YELLOW` flash, and every light on it dies at once. The car lurches. Cut on the lurch. The motion is **already at full speed on frame 1** - there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only - no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B - 0:015-0:02 - MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hard cut to the lobby: the floor indicator above the doors showing the target floor, and immediately beside the lift, a **staircase** drawn with a simple riser-and-arrow pictogram going up to the same number. Two routes, one destination, both in frame. PIP is in the same frame at the foot of the stairs, one foot already on the first riser — same destination, the slower route.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3-7 word hook caption *"He mashed the close button"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 - 0:02-0:06 - SPLIT: LOBBY.EYE.STATIC / INTERIOR.EYE.PUSHIN

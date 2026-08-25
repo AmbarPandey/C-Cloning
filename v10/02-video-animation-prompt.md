@@ -30,10 +30,16 @@ Two contrasting motion languages:
 
 > Format per shot: **[timecode] FRAMING.ANGLE.MOVEMENT** - subject motion - camera - transitions/FX - cut.
 
-### SHOT 1 - 0:00-0:02 - WIDE.EYE.STATIC
-- **Motion:** CHIEF shoves PIP aside (3-frame shove, PIP stumbles 2-frame) and slams an enormous tower of blank paper into the printer's main tray (4-frame slam). While CHIEF gloats at his stack, PIP quietly reaches to the printer's side and slips **a single sheet into the small bypass tray** in a quick 3-frame motion (easy to miss). The printer's screen glows `BRAND_YELLOW`.
-- **Camera:** locked wide. 6-frame settle hold so both seeds register - the bypass tray sheet and the printer's eager screen.
-- **Motion graphics/FX:** a small `BRAND_YELLOW` glow on the printer screen; a tiny paper edge visible in the bypass tray. The paper tower dominates the frame (no emphasis on the bypass tray).
+### SHOT 1A - 0:00-0:015 - CU.EYE.STATIC  *(cold payoff - replaces the old wide establishing shot)*
+- **Motion:** Close on a printer erupting — sheets firing out faster than the tray can hold them, a rising drift of paper already past the machine's own height, each sheet carrying the same smug printed face. The stack topples toward camera. Cut mid-fall. The motion is **already at full speed on frame 1** - there is no entrance, no settle, no push-in from a wide, and no character walks into shot.
+- **Camera:** locked tight CU. The subject fills the frame. **Zero settle time.** Frame 1 is mid-event.
+- **Motion graphics/FX:** flat impact shapes only - no glow, no blur, no gradients. Palette tokens only.
+- **Transition out:** hard cut on the beat, *before* the event resolves.
+
+### SHOT 1B - 0:015-0:02 - MED.EYE.STATIC  *(goal diagram)*
+- **Motion:** Hard cut to the printer's small display: a queue readout reading **`999`** on one line and **`1`** on the line beneath it, with a `BRAND_YELLOW` arrow pointing at the `1`. Beside the machine, a pull-out **bypass tray**, visibly separate from the main path. PIP is at the machine in the same frame holding a single sheet, feeding it into the bypass tray — same printer, one page.
+- **Camera:** locked medium-wide, held. **This exact framing returns in SHOT 8 for the loop seam.**
+- **On-frame text:** **none baked into the render.** The 3-7 word hook caption *"999 copies of himself"* is an **edit-layer overlay**, placed clear of the bottom bar and the right-hand action rail.
 - **Transition out:** hard cut.
 
 ### SHOT 2 - 0:02-0:06 - MED.EYE.PUSHIN(slow)

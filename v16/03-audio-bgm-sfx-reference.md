@@ -112,7 +112,9 @@ An **11-second musical silence**, cut **mid-phrase** on the frame the table leg 
 
 | Timecode | Line | Delivery | Level |
 |---|---|---|---|
-| 0:00.5 | *"One table. One guy."* | Deadpan, matter-of-fact. Short pause between sentences | -8 dB |
+| 0:00 | `SFX_coldopen_impact_v1` | -8 | **C1a cold payoff** - the event already in motion; loudest transient in the first second, no music under it |
+| 0:00.5 | `SFX_coldopen_tail_v1` | -14 | C1a - the decay of that event (debris, servo, water, fabric, line) |
+| 0:01.5 | `BGM_bed_v1` **(entry)** | -18 | **C1b** - the comedy bed enters *on the hard cut to the goal diagram*, not at 0:00. The cold payoff plays against near-silence so it reads as an event rather than an intro |
 | 0:03 | *"Every. Single. Book."* | Each word punched separately, rhythmic (synced to book placements) | -8 dB |
 | 0:07 | *"Higher. Always higher."* | Slightly awed, building energy | -9 dB |
 | 0:12 | *"One more. Just one more."* | Quieter, conspiratorial whisper (library voice) | -10 dB |

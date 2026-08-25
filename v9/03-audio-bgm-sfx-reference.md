@@ -100,7 +100,9 @@ An **11-second musical silence**, cut on the frame CHIEF picks up his first oliv
 
 | Time | SFX | Level | Clip / purpose |
 |---|---|---|---|
-| 0:00 | `SFX_restaurant_amb_v1` (enters) | -24 | C1 - ambient restaurant (continuous to 0:32) |
+| 0:00 | `SFX_coldopen_impact_v1` | -8 | **C1a cold payoff** - the event already in motion; loudest transient in the first second, no music under it |
+| 0:00.5 | `SFX_coldopen_tail_v1` | -14 | C1a - the decay of that event (debris, servo, water, fabric, line) |
+| 0:01.5 | `BGM_bed_v1` **(entry)** | -18 | **C1b** - the comedy bed enters *on the hard cut to the goal diagram*, not at 0:00. The cold payoff plays against near-silence so it reads as an event rather than an intro |
 | **0:01** | **`SFX_bottle_thunk_v1`** | **-8 - the loudest single hit in the first half** | **C1 - HOOK. Ketchup bottle slammed possessively. Sets the tone** |
 | 0:01.5 | `SFX_table_jiggle_v1` | -16 | C1 - table rattles from the impact |
 | 0:03 | `SFX_bottle_clunk_v1` | -12 | C2 - mustard placed |
