@@ -1,0 +1,100 @@
+# Production — First-Video Artifacts
+
+This folder contains the **concrete, executable production artifacts** for the first
+Short. Where [`docs/`](../docs/) defines the *method* and [`prompts/`](../prompts/)
+defines the *contracts*, this folder is the *filled output* — everything an operator
+needs to actually build, review, and publish **Idea A1**.
+
+> **Scope & governance.** These artifacts *instantiate* the locked design; they do not
+> change it. Every artifact traces 1:1 back to the locked stages/libraries. Nothing here
+> re-opens a locked decision (see [Locked Roadmap](../docs/03-locked-roadmap.md)).
+
+## Layout
+
+```
+production/
+├── README.md                     ← you are here
+├── design/                       ← the Identity Core (single source of truth for brand + visuals)
+│   ├── README.md
+│   ├── BRAND_BIBLE.md            ← who the channel is: purpose, story, personality, voice
+│   ├── VISUAL_IDENTITY_LOCK.md   ← how everything looks: the locked visual language
+│   ├── CHARACTER_BIBLE.md        ← the character system + full PIP profile + future template
+│   ├── EXPRESSION_LIBRARY.md     ← the canonical emotional language (taxonomy, intensity, per-char)
+│   ├── POSE_LIBRARY.md           ← the canonical body-language system (poses, pairing, per-char)
+│   ├── PROP_LIBRARY.md           ← the canonical object system (props, ownership, interaction)
+│   ├── ENVIRONMENT_BIBLE.md      ← the canonical world system (locations, weather, time, BG_ assets)
+│   ├── CAMERA_CINEMATOGRAPHY_BIBLE.md ← the visual storytelling language (shots, moves, framing, coverage)
+│   ├── ANIMATION_LANGUAGE_MOTION_SYSTEM.md ← the motion language (timing, loops, wallpaper, runtime semantics)
+│   └── PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md ← the master OS (prompts, resolution, AI roles, orchestration)
+├── characters/                   ← model sheets for the fixed cast + style guide  (fills F2)
+│   ├── README.md
+│   ├── cast-style-guide.md
+│   ├── chief.md
+│   └── pip.md
+├── A1-first-video/               ← the complete, filled production package for Idea A1  (fills F7)
+│   ├── README.md
+│   ├── 01-idea-brief.md          ← the exact Stage 4 brief
+│   ├── 02-script.md              ← the full Stage 5 script (8 scenes, scene table)
+│   ├── 03-storyboard.md          ← the filled Stage 6 storyboard + per-shot render prompts
+│   ├── 04-asset-manifest.md      ← every asset, tagged reusable vs new, with IDs
+│   ├── 05-animation-spec.md      ← motion, camera, timing, loop spec
+│   ├── 06-audio-package.md       ← VO/SFX/music/silence map + ElevenLabs settings
+│   ├── 07-editing-spec.md        ← timeline, cuts, captions, loop seam
+│   ├── 08-publish-package.md     ← title / description / hashtags / thumbnail  (fills F6)
+│   ├── 09-scoring-worksheet.md   ← reproduces FinalScore 9.2 from the formula  (fills F1, scoped)
+│   └── 10-production-checklist.md← filled 11-point Publish Gate + ordered build steps
+├── templates/                    ← reusable, blank templates for every future video
+│   ├── README.md
+│   ├── visual-prompt-template.md ← (fills F3)
+│   ├── thumbnail-spec.md         ← (fills F6)
+│   ├── metadata-template.md      ← title / description / hashtag formulas  (fills F6)
+│   ├── editing-timeline-template.md
+│   └── publish-gate-checklist.md ← fillable 11-point gate
+└── tools/                        ← how to drive the locked tool stack  (fills F4)
+    ├── README.md
+    ├── anijam-usage.md
+    ├── elevenlabs-usage.md
+    ├── image-generator-usage.md
+    └── n8n-publishing.md
+```
+
+## How to produce the first video (operator quickstart)
+
+1. Read the [Identity Core](design/README.md) — the [Brand Bible](design/BRAND_BIBLE.md) (who the
+   channel is) and the [Visual Identity Lock](design/VISUAL_IDENTITY_LOCK.md) (how it looks) — then the
+   [cast style guide](characters/cast-style-guide.md) and the two model sheets.
+2. Generate the character + background assets using the
+   [image generator guide](tools/image-generator-usage.md) and the prompts in the
+   [storyboard](A1-first-video/03-storyboard.md).
+3. Render the 8 scenes in [Anijam](tools/anijam-usage.md) using the
+   [animation spec](A1-first-video/05-animation-spec.md).
+4. Generate SFX/music (no VO for A1 — it is mute-first) per the
+   [audio package](A1-first-video/06-audio-package.md) and
+   [ElevenLabs guide](tools/elevenlabs-usage.md).
+5. Assemble/caption/export per the [editing spec](A1-first-video/07-editing-spec.md).
+6. Run the [filled Publish Gate](A1-first-video/10-production-checklist.md); fix any single
+   failing item.
+7. Publish using the [publish package](A1-first-video/08-publish-package.md) and the
+   [n8n publishing guide](tools/n8n-publishing.md).
+
+## Traceability
+
+| Artifact | Locked source it instantiates |
+|---|---|
+| Idea brief | [Stage 4](../docs/13-stage-4-idea-generator.md) + [Idea-Generation contract](../prompts/idea-generation.md) |
+| Script | [Stage 5](../docs/14-stage-5-script-compiler.md) + [Script-Compilation contract](../prompts/script-compilation.md) |
+| Storyboard → editing | [Stage 6](../docs/15-stage-6-production-compiler.md) + [Production-Compilation contract](../prompts/production-compilation.md) |
+| Brand identity (story/voice) | [Brand Bible](design/BRAND_BIBLE.md) → operationalizes [Project Vision](../docs/01-project-vision.md) + [Stage 1.5 Channel DNA](../docs/11-stage-1_5-business-decisions.md) + [Libraries 1–6](../intelligence/README.md) |
+| Character system + cast | [Character Bible](design/CHARACTER_BIBLE.md) → implemented by the [model sheets](characters/README.md) (PIP, CHIEF) |
+| Expressions / emotional language | [Expression Library](design/EXPRESSION_LIBRARY.md) → canonical emotion taxonomy + per-character packs |
+| Poses / body language | [Pose Library](design/POSE_LIBRARY.md) → canonical pose taxonomy + pose+expression pairing + per-character sets |
+| Props / objects | [Prop Library](design/PROP_LIBRARY.md) → canonical object catalog + ownership + interaction rules |
+| Environments / world | [Environment Bible](design/ENVIRONMENT_BIBLE.md) → canonical location catalog + weather/time + `BG_` assets |
+| Camera / cinematography | [Camera & Cinematography Bible](design/CAMERA_CINEMATOGRAPHY_BIBLE.md) → shot + movement taxonomies, framing, coverage, shot notation |
+| Motion / animation | [Animation Language & Motion System](design/ANIMATION_LANGUAGE_MOTION_SYSTEM.md) → motion taxonomy, timing/holds/loops, wallpaper, runtime semantics |
+| Prompt framework / runtime | [Production Prompt Framework & Runtime Orchestration](design/PRODUCTION_PROMPT_FRAMEWORK_RUNTIME_ORCHESTRATION.md) → composition, asset resolution, AI roles, validation, orchestration (the master OS) |
+| Visual style (all assets) | [Visual Identity Lock](design/VISUAL_IDENTITY_LOCK.md) → derived from [Stage 1.5 art direction](../docs/11-stage-1_5-business-decisions.md) |
+| Asset IDs / reuse | [Stage 2 asset library](../docs/12-stage-2-channel-operating-system.md) |
+| Publish gate | [Stage 2 Publish Gate](../docs/12-stage-2-channel-operating-system.md) |
+| Tool choices | [Stage 1.5 tool stack](../docs/11-stage-1_5-business-decisions.md) · [D-20](../docs/21-decision-log.md) |
+| Scoring | [Library 7](../intelligence/07-virality-intelligence-database.md) · [Library 8](../intelligence/08-content-matrix.md) |

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>C-Cloning v1 — "The Wrong Scooter" · Live Wallpaper 9:16</title>
+<!--
+  ============================================================================
+  C-Cloning · v1 "The Wrong Scooter" — LIVE WALLPAPER (9:16, 1080x1920, 32s loop)
+  ============================================================================
+  Implements the master timeline in ../01-video-script.md and the motion /
+  camera / transition / FX spec in ../04-video-generation-prompt.md.
+
+  Timeline (single source of truth, from file 01):
+    C1 0:00-0:02  Hook + SEED        WIDE.EYE.STATIC
+    C2 0:02-0:06  Setup              MED.EYE.PUSHIN(slow, 100->110%)
+    C3 0:06-0:11  Escalation 1       MED.EYE.STATIC + 4-frame impact hold @0:08
+    C4 0:11-0:16  Escalation 2       MED-WIDE.EYE.PUSHIN(slight, 100->104%)
+    C5 0:16-0:22  Anticipation       FULL.LOW.PUSHIN -> HOLD (freeze @0:18)
+    C6 0:22-0:27  Pattern break      WIDE.EYE.STATIC (hook aligns @0:26)
+    C7 0:27-0:31  TWIST              WIDE.EYE.PUNCHIN @0:29 + 0.5s TOWED freeze
+    C8 0:31-0:32  Payoff / loop      WIDE.EYE.STATIC (== C1 framing)
+
+  Hard cuts only. No dissolves, fades, wipes, glitch or zoom-blur (file 04 §B).
+  No camera rotation / orbit / handheld.
+
+  URL params (for review + QA, not needed for wallpaper use):
+    ?t=18.5     seek to a timecode and pause (renders that exact frame)
+    ?captions=1 enable the two optional captions from file 04 §A
+    ?fit=cover  fill the screen instead of letterboxing
+    ?grid=1     overlay the wallpaper safe zones (top 15% / bottom 18%)
+
+  Art is hand-authored vector (no raster assets, no external requests) so the
+  file is fully self-contained and offline-safe.
+  ============================================================================
+-->
+<style>
+  html,body{margin:0;padding:0;height:100%;background:#000;overflow:hidden}
+  /* Absolute centering (not grid/flex): a 1920px-tall item makes an auto grid row
+     grow to 1920px, leaving nothing to centre within, so the scaled stage would
+     drop below the fold on any short viewport. translate(-50%,-50%) is immune. */
+  #wrap{position:fixed;inset:0;overflow:hidden}
+  #stage{position:absolute;left:50%;top:50%;width:1080px;height:1920px;overflow:hidden;
+         background:#45BEEE;transform-origin:center center;
+         transform:translate(-50%,-50%)}
+
+  .shot{position:absolute;inset:0;opacity:0;visibility:hidden}
+  .shot.on{opacity:1;visibility:visible}   /* hard cut: no transition, ever */
+  .shot svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+
+  /* ---------- CAMERA (file 04 §A) ------------------------------------ */
+  @keyframes push110 {from{transform:scale(1)}   to{transform:scale(1.10)}}
+  @keyframes push104 {from{transform:scale(1)}   to{transform:scale(1.04)}}
+  @keyframes shake3  {0%,39%{transform:scale(1) translate(0,0)}
+                      40%{transform:scale(1.012) translate(-7px,4px)}
+                      42%{transform:scale(1.012) translate(6px,-3px)}
+                      44%,100%{transform:scale(1) translate(0,0)}}
+  /* C5: low hero-angle gentle rise that settles into the proud hold */
+  @keyframes heroRise{0%{transform:scale(1.00) translateY(26px)}
+                      33%{transform:scale(1.055) translateY(0)}
+                      100%{transform:scale(1.055) translateY(0)}}
+  /* C7: quick punch-in on the stamp slam (t=2.0s of 4s => 50%), then settle */
+  @keyframes punchIn {0%,50%{transform:scale(1)}
+                      55%{transform:scale(1.18)}
+                      63%{transform:scale(1.07)}
+                      100%{transform:scale(1.07)}}
+
+  .s1 .cam{transform-origin:50% 60%}
+  .s2 .cam{transform-origin:42% 52%; animation:push110 4s linear both}
+  .s3 .cam{transform-origin:50% 58%; animation:shake3 5s linear both}
+  .s4 .cam{transform-origin:50% 58%; animation:push104 5s linear both}
+  .s5 .cam{transform-origin:50% 72%; animation:heroRise 6s cubic-bezier(.25,.9,.3,1) both}
+  .s6 .cam{transform-origin:50% 60%}
+  .s7 .cam{transform-origin:58% 70%; animation:punchIn 4s linear both}
+  .s8 .cam{transform-origin:50% 60%}
+
+  /* ---------- CHARACTER / PROP MOTION -------------------------------- */
+  /* C1 strut: bouncy 2-step cycle, left edge -> left third */
+  @keyframes strutIn{0%{transform:translate(-260px,0)}
+                     100%{transform:translate(0,0)}}
+  @keyframes strutBob{0%,100%{transform:translateY(0)}
+                      25%{transform:translateY(-16px)}
+                      50%{transform:translateY(0)}
+                      75%{transform:translateY(-16px)}}
+  /* PIP coin fumble loop */
+  @keyframes fumble{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(6deg)}}
+  /* C2 stamp/pad draw flourish */
+  @keyframes drawOut{0%{transform:translate(-40px,26px) scale(.7);opacity:0}
+                     45%{transform:translate(0,0) scale(1);opacity:1}
+                     100%{transform:translate(0,0) scale(1);opacity:1}}
+  @keyframes grinGrow{0%{transform:scale(.94)}60%{transform:scale(1)}100%{transform:scale(1)}}
+  /* C3 stamp slam + boot snap */
+  @keyframes stampSlam{0%{transform:translate(0,-120px) rotate(-16deg)}
+                       18%{transform:translate(0,0) rotate(0deg)}
+                       26%{transform:translate(0,-26px) rotate(-4deg)}
+                       40%{transform:translate(0,-10px) rotate(0)}
+                       100%{transform:translate(0,-10px) rotate(0)}}
+  @keyframes bootSnap{0%,34%{transform:translate(0,-140px) scale(.9);opacity:0}
+                      40%{transform:translate(0,0) scale(1);opacity:1}
+                      100%{transform:translate(0,0) scale(1);opacity:1}}
+  /* C4 ticket pop-ins (staggered ~4 frames apart via data-d) */
+  @keyframes popIn{0%{transform:scale(.3) rotate(-24deg);opacity:0}
+                   60%{transform:scale(1.14) rotate(4deg);opacity:1}
+                   100%{transform:scale(1) rotate(0);opacity:1}}
+  @keyframes polish{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+  /* C5 podium hop + flag plant + victory snap, then long freeze */
+  @keyframes podiumHop{0%{transform:translate(-120px,90px)}
+                       22%{transform:translate(-30px,-70px)}
+                       33%{transform:translate(0,0)}
+                       100%{transform:translate(0,0)}}
+  @keyframes flagPlant{0%,20%{transform:translateY(-180px) rotate(-18deg);opacity:0}
+                       33%{transform:translateY(0) rotate(0);opacity:1}
+                       100%{transform:translateY(0) rotate(0);opacity:1}}
+  /* C6 tow truck rolls in from bg-right, hook aligns at 80% (0:26) */
+  @keyframes truckIn{0%{transform:translateX(560px)}
+                     80%{transform:translateX(0)}
+                     100%{transform:translateX(0)}}
+  @keyframes hookSwing{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+  /* C7 the twist */
+  @keyframes hoist{0%,50%{transform:translate(0,0) rotate(0)}
+                   100%{transform:translate(-40px,-262px) rotate(-18deg)}}
+  @keyframes flung{0%,50%{transform:translate(0,0) rotate(0)}
+                   62%{transform:translate(-50px,-120px) rotate(-16deg)}
+                   100%{transform:translate(-78px,-88px) rotate(-24deg)}}
+  @keyframes capFly{0%,50%{transform:translate(0,0) rotate(0);opacity:1}
+                    100%{transform:translate(-40px,-190px) rotate(-124deg);opacity:1}}
+  @keyframes stampSmack{0%,49%{transform:scale(2.4) rotate(-26deg);opacity:0}
+                        52%{transform:scale(1) rotate(-9deg);opacity:1}
+                        56%{transform:scale(1.06) rotate(-9deg);opacity:1}
+                        100%{transform:scale(1) rotate(-9deg);opacity:1}}
+  @keyframes burst{0%,49%{transform:scale(.2);opacity:0}
+                   53%{transform:scale(1.25);opacity:1}
+                   70%{transform:scale(1.5);opacity:0}
+                   100%{opacity:0}}
+  @keyframes flash1{0%,49.5%{opacity:0}50%{opacity:.85}53%,100%{opacity:0}}
+  /* C8 payoff */
+  @keyframes haulOff{0%{transform:translate(0,0) scale(1)}
+                     100%{transform:translate(132px,-46px) scale(.84)}}
+  @keyframes waveArm{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(20deg)}}
+  @keyframes bootPop{0%{transform:translate(0,0) rotate(0)}
+                     100%{transform:translate(-26px,34px) rotate(-40deg)}}
+  /* ---------- FX ------------------------------------------------------ */
+  @keyframes twinkle{0%,100%{transform:scale(.5);opacity:.15}
+                     50%{transform:scale(1.15);opacity:1}}
+  @keyframes puffOut{0%{transform:scale(.4);opacity:.95}
+                     100%{transform:scale(1.7);opacity:0}}
+  @keyframes glint{0%,70%{transform:scale(0);opacity:0}
+                   80%{transform:scale(1.2);opacity:1}
+                   100%{transform:scale(.6);opacity:0}}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @keyframes popTiny{0%{transform:scale(0);opacity:0}
+                     70%{transform:scale(1.15);opacity:1}
+                     100%{transform:scale(1);opacity:1}}
+  @keyframes capFade{0%,8%{opacity:0}18%,72%{opacity:1}100%{opacity:0}}
+
+  .anim{animation-fill-mode:both}
+  .strutIn{animation:strutIn 2s cubic-bezier(.4,0,.6,1) both}
+  .strutBob{animation:strutBob 1s steps(1,end) 0s 2 both}
+  .fumble{animation:fumble .8s ease-in-out infinite}
+  .drawOut{animation:drawOut 4s cubic-bezier(.2,1.3,.4,1) both}
+  .grinGrow{animation:grinGrow 4s ease-out both}
+  .stampSlam{animation:stampSlam 5s cubic-bezier(.3,1.6,.4,1) both}
+  .bootSnap{animation:bootSnap 5s cubic-bezier(.3,1.7,.4,1) both}
+  .popIn{animation:popIn .34s cubic-bezier(.3,1.7,.4,1) both}
+  .polish{animation:polish .7s ease-in-out infinite}
+  .podiumHop{animation:podiumHop 6s cubic-bezier(.3,1.2,.4,1) both}
+  .flagPlant{animation:flagPlant 6s cubic-bezier(.3,1.5,.4,1) both}
+  .truckIn{animation:truckIn 5s cubic-bezier(.3,0,.5,1) both}
+  .hookSwing{animation:hookSwing 1.6s ease-in-out infinite}
+  .hoist{animation:hoist 4s cubic-bezier(.4,0,.5,1) both}
+  .flung{animation:flung 4s cubic-bezier(.3,0,.5,1) both}
+  .capFly{animation:capFly 4s cubic-bezier(.3,0,.5,1) both}
+  .stampSmack{animation:stampSmack 4s cubic-bezier(.2,1.5,.4,1) both}
+  .burst{animation:burst 4s ease-out both}
+  .flash1{animation:flash1 4s linear both}
+  .haulOff{animation:haulOff 1s linear both}
+  .waveArm{animation:waveArm .42s ease-in-out infinite}
+  .bootPop{animation:bootPop 1s cubic-bezier(.3,1.6,.4,1) both}
+  .twinkle{animation:twinkle 1.1s ease-in-out infinite}
+  .puffOut{animation:puffOut .5s ease-out both}
+  .glint{animation:glint 4s ease-out both}
+  .bob{animation:bob 1.4s ease-in-out infinite}
+  .popTiny{animation:popTiny .3s cubic-bezier(.3,1.8,.4,1) both}
+  .capFade{animation:capFade 2s linear both}
+
+  /* safe-zone overlay (?grid=1) */
+  #grid{position:absolute;inset:0;display:none;pointer-events:none}
+  #grid.on{display:block}
+  #grid i{position:absolute;left:0;right:0;background:rgba(255,0,80,.16);
+          border-top:2px dashed rgba(255,0,80,.8);border-bottom:2px dashed rgba(255,0,80,.8)}
+  #grid .t{top:0;height:288px}
+  #grid .b{bottom:0;height:346px}
+  #grid .band{top:480px;height:865px;background:rgba(0,180,255,.10);
+              border-color:rgba(0,180,255,.7)}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+  <div id="grid"><i class="t"></i><i class="band"></i><i class="b"></i></div>
+</div></div>
+
+<script>
+"use strict";
+/* ======================================================================
+   0. Config + palette (Style Prefix v2 — calibrated to approved renders)
+   ====================================================================== */
+const Q = new URLSearchParams(location.search);
+const CAPTIONS = Q.get("captions") === "1";      // file 04 §A marks these optional
+const FIT      = Q.get("fit") === "cover" ? "cover" : "contain";
+const SEEK     = Q.has("t") ? parseFloat(Q.get("t")) : null;
+
+const C = {
+  INK:"#22201E", SKY:"#45BEEE", CLOUD:"#F6F1E4", ASPHALT:"#4E4E4E",
+  ASPHALT_D:"#444444", LINE:"#EDE7D8", RED:"#BB2E25", REDIN:"#D4453B",
+  TEAL:"#1F6B68", TEALD:"#14504E", GOLD:"#F0B21C", GOLDD:"#C98F0F",
+  SKIN:"#F3C9A0", IVORY:"#F7F1E3", OFFW:"#FBF8F0", PINK:"#E98A86",
+  CHROME:"#B9C0C4", CHROME_D:"#8B9398", ORANGE:"#E8862A", TEAR:"#4FA9DE",
+  PAPER:"#F4EDDA", TRO:"#2A2522", WOOD:"#7A4A28", WOOD_D:"#5C3720"
+};
+const IK = (w) => `stroke="${C.INK}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"`;
+/* IKC: same geometry attrs but an explicit stroke colour. Needed because
+   `${IK(w)} stroke="X"` emits a DUPLICATE stroke attribute and the HTML parser
+   keeps the FIRST one — silently painting everything INK. */
+const IKC = (w, col) => `stroke="${col}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"`;
+
+/* ======================================================================
+   1. Environment  (BG_parkinglot_v2)
+   ====================================================================== */
+function cloud(x, y, s) {
+  return `<g transform="translate(${x},${y}) scale(${s})" fill="${C.CLOUD}">
+    <ellipse cx="0" cy="0" rx="94" ry="44"/><ellipse cx="-62" cy="12" rx="54" ry="31"/>
+    <ellipse cx="62" cy="14" rx="60" ry="33"/><ellipse cx="20" cy="-28" rx="54" ry="36"/>
+    <ellipse cx="-26" cy="-24" rx="46" ry="31"/></g>`;
+}
+function sky(horizon) {
+  return `<rect x="0" y="0" width="1080" height="${horizon}" fill="${C.SKY}"/>
+    ${cloud(180, 210, 1.0)}${cloud(830, 150, .8)}${cloud(560, 330, .55)}
+    ${cloud(980, 420, .5)}`;
+}
+/* speckled asphalt, generated deterministically so it never flickers */
+const _spk = {};
+function speckle(horizon) {
+  if (_spk[horizon]) return _spk[horizon];
+  let s = "", seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let i = 0; i < 240; i++) {
+    s += `<circle cx="${(rnd() * 1080) | 0}" cy="${(horizon + 8 + rnd() * (1912 - horizon)) | 0}" r="${
+      (rnd() * 2.6 + .8).toFixed(1)}" fill="#5E5E5E" opacity="${(rnd() * .5 + .2).toFixed(2)}"/>`;
+  }
+  return (_spk[horizon] = s);
+}
+function ground(horizon) {
+  return `<rect x="0" y="${horizon}" width="1080" height="${1920 - horizon}" fill="${C.ASPHALT}"/>
+    <rect x="0" y="${horizon}" width="1080" height="26" fill="${C.ASPHALT_D}"/>${speckle(horizon)}
+    <g fill="${C.LINE}" opacity=".78">
+      <polygon points="120,1160 150,1160 92,1400 46,1400"/>
+      <polygon points="420,1160 450,1160 434,1400 388,1400"/>
+      <polygon points="700,1120 726,1120 764,1300 720,1300"/>
+      <polygon points="854,1092 876,1092 906,1210 868,1210"/>
+    </g>`;
+}
+/* the ALERT_RED NO-PARKING zone — the seed. Held in the same lower-right
+   screen position across C1/C6/C7/C8 (file 02 continuity lock). Pulled up
+   so the lettering ends by ~1560px per the wallpaper safe-zone rule.      */
+const ZONE_WIDE = { outer: "612,1286 1080,1286 1080,1622 448,1622",
+                    inner: "646,1316 1052,1316 1052,1592 492,1592",
+                    tx: 812, ty: 1548, fs: 82 };
+const ZONE_LOW  = { outer: "690,1606 1080,1606 1080,1816 586,1816",
+                    inner: "718,1630 1056,1630 1056,1792 626,1792",
+                    tx: 856, ty: 1762, fs: 60 };
+function redZone(z) {
+  z = z || ZONE_WIDE;
+  return `<g>
+    <polygon points="${z.outer}" fill="${C.RED}"/>
+    <polygon points="${z.outer}" fill="none" stroke="${C.REDIN}" stroke-width="9"/>
+    <polygon points="${z.inner}" fill="none" stroke="${C.REDIN}" stroke-width="7" opacity=".8"/>
+    ${/* skew must be applied about the text's own origin — a bare skewX(-7) shifts
+          x by -tan(7deg)*y, which at y=1548 drags the label ~190px out of the zone */""}
+    <g transform="translate(${z.tx},${z.ty}) skewX(-7)">
+      <text x="0" y="0" text-anchor="middle" fill="${C.PAPER}" opacity=".62"
+        font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="${z.fs}"
+        font-weight="900" letter-spacing="2">NO PARKING</text></g></g>`;
+}
+function meter(x, y, s) {
+  return `<g transform="translate(${x},${y}) scale(${s})">
+    <rect x="-10" y="-300" width="20" height="300" fill="#3A3A38" ${IK(6)}/>
+    <rect x="-42" y="-32" width="84" height="30" rx="9" fill="#3A3A38" ${IK(6)}/>
+    <rect x="-54" y="-412" width="108" height="124" rx="20" fill="#3A3A38" ${IK(7)}/>
+    <circle cx="0" cy="-374" r="35" fill="${C.OFFW}" ${IK(6)}/>
+    <path d="M0,-374 L17,-397" ${IKC(6, C.RED)}/>
+    <circle cx="0" cy="-374" r="6" fill="${C.INK}"/>
+    <rect x="-17" y="-326" width="34" height="15" rx="6" fill="${C.INK}"/></g>`;
+}
+
+/* ======================================================================
+   2. Props
+   ====================================================================== */
+/* PROP_chief_scooter_v2 — classic Vespa side profile, drawn facing +x.
+   Tall rear cowl + stepped floorboard + vertical front leg shield + raised
+   handlebars, so the silhouette reads "scooter" and not "small car".        */
+function vespa(x, y, s, flip) {
+  return `<g transform="translate(${x},${y}) scale(${flip ? -s : s},${s})">
+    <circle cx="-100" cy="-44" r="44" fill="${C.INK}"/>
+    <circle cx="-100" cy="-44" r="18" fill="${C.CHROME}" ${IK(5)}/>
+    <circle cx="108" cy="-44" r="44" fill="${C.INK}"/>
+    <circle cx="108" cy="-44" r="18" fill="${C.CHROME}" ${IK(5)}/>
+    <path d="M126,-236 C150,-232 156,-190 154,-96 L60,-88 L60,-140
+             C86,-146 96,-206 126,-236 Z" fill="${C.TEAL}" ${IK(7)}/>
+    <path d="M-158,-98 C-166,-158 -140,-196 -74,-204 C-30,-208 -18,-176 -22,-146
+             L-24,-88 L-150,-84 Z" fill="${C.TEAL}" ${IK(7)}/>
+    <path d="M-26,-146 L62,-142 L62,-86 L-26,-86 Z" fill="${C.TEAL}" ${IK(7)}/>
+    <path d="M-74,-204 C-32,-208 -18,-176 -22,-146 L-22,-88 L-64,-86 Z"
+          fill="${C.TEALD}" opacity=".38"/>
+    <path d="M126,-236 C150,-232 156,-190 154,-96 L124,-92 L124,-224 Z"
+          fill="${C.TEALD}" opacity=".38"/>
+    <rect x="-146" y="-244" width="126" height="42" rx="20" fill="${C.TRO}" ${IK(6)}/>
+    <path d="M134,-232 L152,-306" ${IKC(14, C.CHROME_D)}/>
+    <path d="M114,-310 L192,-302" ${IKC(14, C.TRO)}/>
+    <path d="M182,-306 L176,-346" ${IKC(8, C.CHROME_D)}/>
+    <circle cx="174" cy="-354" r="15" fill="${C.CHROME}" ${IK(5)}/>
+    <circle cx="150" cy="-246" r="23" fill="${C.OFFW}" ${IK(6)}/>
+    <path d="M96,-186 l24,0 l0,28 l-12,15 l-12,-15 z" fill="${C.GOLD}" ${IK(4)}/>
+  </g>`;
+}
+function kickScooter(x, y, s, flip) {                 // PROP_pip_scooter_v2
+  return `<g transform="translate(${x},${y}) scale(${flip ? -s : s},${s})">
+    <circle cx="-74" cy="-22" r="24" fill="${C.INK}"/>
+    <circle cx="-74" cy="-22" r="9" fill="${C.CHROME}"/>
+    <circle cx="72" cy="-22" r="24" fill="${C.INK}"/>
+    <circle cx="72" cy="-22" r="9" fill="${C.CHROME}"/>
+    <path d="M-78,-44 L64,-52" ${IKC(20, C.TEAL)}/>
+    <path d="M64,-52 L84,-188" ${IKC(15, C.TEAL)}/>
+    <path d="M40,-192 L128,-192" ${IKC(15, C.TRO)}/>
+  </g>`;
+}
+function boot(x, y, s) {                              // PROP_boot_v2 (yellow hero)
+  return `<g transform="translate(${x},${y}) scale(${s})">
+    <path d="M-40,-52 C-72,-52 -76,4 -40,6 L-16,6 L-16,-16 L-34,-16 C-46,-18 -46,-32 -34,-34 L-16,-34
+             L-16,-52 Z" fill="${C.GOLD}" ${IK(6)}/>
+    <path d="M40,-52 C72,-52 76,4 40,6 L16,6 L16,-16 L34,-16 C46,-18 46,-32 34,-34 L16,-34
+             L16,-52 Z" fill="${C.GOLD}" ${IK(6)}/>
+    <rect x="-22" y="-40" width="44" height="34" rx="8" fill="${C.GOLDD}" ${IK(6)}/>
+    <circle cx="-40" cy="-24" r="5" fill="${C.WOOD_D}"/><circle cx="40" cy="-24" r="5" fill="${C.WOOD_D}"/>
+  </g>`;
+}
+function stamp(x, y, s, rot) {                        // PROP_stamp_v2
+  return `<g transform="translate(${x},${y}) rotate(${rot || 0}) scale(${s})">
+    <rect x="-46" y="-14" width="92" height="42" rx="7" fill="${C.WOOD}" ${IK(6)}/>
+    <rect x="-46" y="14" width="92" height="16" rx="5" fill="${C.WOOD_D}" ${IK(6)}/>
+    <rect x="-15" y="-58" width="30" height="48" rx="10" fill="${C.GOLDD}" ${IK(6)}/>
+    <ellipse cx="0" cy="-70" rx="30" ry="18" fill="${C.GOLD}" ${IK(6)}/>
+    <path d="M0,-78 l5,10 l11,1 l-8,8 l2,11 l-10,-6 l-10,6 l2,-11 l-8,-8 l11,-1 z" fill="${C.GOLDD}"/>
+  </g>`;
+}
+function ticket(x, y, s, rot, big) {                  // PROP_ticket_v2
+  const w = big ? 96 : 74, h = big ? 128 : 98;
+  return `<g transform="translate(${x},${y}) rotate(${rot || 0}) scale(${s})">
+    <rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="5" fill="${C.PAPER}" ${IK(5)}/>
+    <text x="0" y="${-h / 2 + 24}" text-anchor="middle" fill="${C.INK}"
+      font-family="Arial,Helvetica,sans-serif" font-size="${big ? 13 : 11}" font-weight="700">PARKING</text>
+    <text x="0" y="${-h / 2 + 40}" text-anchor="middle" fill="${C.INK}"
+      font-family="Arial,Helvetica,sans-serif" font-size="${big ? 13 : 11}" font-weight="700">TICKET</text>
+    <g stroke="${C.INK}" stroke-width="3" opacity=".45">
+      <path d="M${-w / 2 + 12},${-h / 2 + 56} H${w / 2 - 12}"/>
+      <path d="M${-w / 2 + 12},${-h / 2 + 70} H${w / 2 - 18}"/></g>
+    <text x="0" y="${h / 2 - 14}" text-anchor="middle" fill="${C.RED}"
+      font-family="Arial Black,Arial,sans-serif" font-size="${big ? 22 : 18}" font-weight="900">$$$</text>
+  </g>`;
+}
+function clipboard(x, y, s, rot, cm) {                // PROP_ticketpad_v2
+  return `<g transform="translate(${x},${y}) rotate(${rot || 0}) scale(${cm ? -s : s},${s})">
+    <rect x="-52" y="-70" width="104" height="146" rx="7" fill="${C.PAPER}" ${IK(6)}/>
+    <rect x="-20" y="-82" width="40" height="20" rx="6" fill="${C.CHROME_D}" ${IK(5)}/>
+    <text x="0" y="-40" text-anchor="middle" fill="${C.INK}"
+      font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700">PARKING</text>
+    <text x="0" y="-22" text-anchor="middle" fill="${C.INK}"
+      font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700">TICKET</text>
+    <g stroke="${C.INK}" stroke-width="3.5" opacity=".45">
+      <path d="M-36,0 H36"/><path d="M-36,18 H26"/><path d="M-36,36 H32"/></g>
+    <text x="0" y="66" text-anchor="middle" fill="${C.RED}"
+      font-family="Arial Black,Arial,sans-serif" font-size="26" font-weight="900">$$$</text>
+  </g>`;
+}
+function podium(x, y, s) {                            // PROP_podium_v2
+  return `<g transform="translate(${x},${y}) scale(${s})">
+    <rect x="-170" y="-96" width="340" height="96" rx="8" fill="#E4DCC4" ${IK(7)}/>
+    <rect x="-140" y="-176" width="280" height="84" rx="8" fill="${C.PAPER}" ${IK(7)}/>
+    <circle cx="0" cy="-134" r="34" fill="none" stroke="${C.GOLD}" stroke-width="8"/>
+    <path d="M-46,-134 C-40,-160 -26,-172 -16,-176" ${IKC(7, C.GOLD)} fill="none"/>
+    <path d="M46,-134 C40,-160 26,-172 16,-176" ${IKC(7, C.GOLD)} fill="none"/>
+    <text x="0" y="-120" text-anchor="middle" fill="${C.GOLDD}"
+      font-family="Arial Black,Arial,sans-serif" font-size="42" font-weight="900">P</text>
+  </g>`;
+}
+function flag(x, y, s) {                              // PROP_flag_v2
+  return `<g transform="translate(${x},${y}) scale(${s})">
+    <path d="M0,0 L0,-300" ${IKC(11, C.CHROME_D)}/>
+    <circle cx="0" cy="-306" r="11" fill="${C.CHROME}" ${IK(4)}/>
+    <path d="M6,-292 L126,-286 L126,-186 L6,-192 Z" fill="${C.GOLD}" ${IK(6)}/>
+  </g>`;
+}
+function towTruck(x, y, s, flip) {                    // PROP_towtruck_v2
+  const f = flip ? -1 : 1;
+  return `<g transform="translate(${x},${y}) scale(${f * s},${s})">
+    <rect x="-330" y="-190" width="330" height="122" rx="12" fill="#E9E4D8" ${IK(8)}/>
+    <g class="anim hazard">
+      <rect x="-326" y="-152" width="322" height="34" fill="${C.GOLD}"/>
+      <g fill="${C.INK}">
+        <polygon points="-326,-152 -292,-152 -318,-118 -326,-118"/>
+        <polygon points="-258,-152 -224,-152 -250,-118 -284,-118"/>
+        <polygon points="-190,-152 -156,-152 -182,-118 -216,-118"/>
+        <polygon points="-122,-152 -88,-152 -114,-118 -148,-118"/>
+        <polygon points="-54,-152 -20,-152 -46,-118 -80,-118"/></g>
+      <rect x="-326" y="-152" width="322" height="34" fill="none" ${IK(5)}/>
+    </g>
+    <rect x="-8" y="-330" width="230" height="262" rx="14" fill="${C.OFFW}" ${IK(8)}/>
+    <path d="M28,-306 h150 a10,10 0 0 1 10,10 v78 h-170 v-78 a10,10 0 0 1 10,-10 z"
+          fill="#8FD3EE" ${IK(7)}/>
+    <rect x="42" y="-356" width="150" height="26" rx="10" fill="${C.ORANGE}" ${IK(6)}/>
+    <circle cx="60" cy="-56" r="60" fill="${C.INK}"/><circle cx="60" cy="-56" r="25" fill="${C.CHROME}" ${IK(6)}/>
+    <circle cx="-236" cy="-56" r="60" fill="${C.INK}"/><circle cx="-236" cy="-56" r="25" fill="${C.CHROME}" ${IK(6)}/>
+    <path d="M-116,-186 L-200,-380" ${IKC(26, C.TRO)}/>
+    <path d="M-200,-380 L-230,-420" ${IKC(18, C.TRO)}/>
+    <circle cx="-116" cy="-186" r="20" fill="${C.CHROME_D}" ${IK(6)}/>
+  </g>`;
+}
+function hook(x, y, s) {
+  return `<g transform="translate(${x},${y}) scale(${s})">
+    <path d="M0,-210 L0,-30" ${IKC(7, C.CHROME_D)}/>
+    <path d="M0,-30 C-34,-30 -40,26 -6,30 C14,32 22,20 20,6" ${IKC(15, C.CHROME)} fill="none"/>
+    <rect x="-16" y="-46" width="32" height="20" rx="6" fill="${C.CHROME_D}" ${IK(5)}/>
+  </g>`;
+}
+function towedStamp(x, y, s, rot) {                   // UI_towed_v2 — only narrative text
+  return `<g transform="translate(${x},${y}) rotate(${rot}) scale(${s})">
+    <rect x="-250" y="-92" width="500" height="184" rx="14" fill="${C.PAPER}" opacity=".93"/>
+    <rect x="-250" y="-92" width="500" height="184" rx="14" fill="none" stroke="${C.RED}" stroke-width="16"/>
+    <rect x="-224" y="-68" width="448" height="136" rx="8" fill="none" stroke="${C.RED}" stroke-width="8"/>
+    <text x="0" y="38" text-anchor="middle" fill="${C.RED}"
+      font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="112"
+      font-weight="900" letter-spacing="4">TOWED</text>
+  </g>`;
+}
+
+/* ======================================================================
+   3. FX
+   ====================================================================== */
+/* NOTE: a CSS transform animation REPLACES an element's SVG transform attribute.
+   Every animated FX therefore needs an outer <g> holding the translate and an
+   inner <g> (no transform attr) carrying the animation. Without this split the
+   FX snap to the viewBox origin mid-animation. */
+const sparkle = (x, y, s, d) =>
+  `<g transform="translate(${x},${y}) scale(${s})"><g class="anim twinkle"
+      data-d="${d || 0}" style="animation-delay:${d || 0}s" fill="${C.GOLD}">
+     <path d="M0,-26 L6,-6 L26,0 L6,6 L0,26 L-6,6 L-26,0 L-6,-6 Z"/></g></g>`;
+const puff = (x, y, s, d) =>
+  `<g transform="translate(${x},${y}) scale(${s})"><g class="anim puffOut"
+      data-d="${d}" style="animation-delay:${d}s" fill="${C.OFFW}" opacity=".9">
+     <circle cx="-20" cy="4" r="17"/><circle cx="16" cy="8" r="14"/>
+     <circle cx="0" cy="-14" r="19"/></g></g>`;
+const motionArcs = (x, y, s, flip) =>
+  `<g transform="translate(${x},${y}) scale(${flip ? -s : s},${s})" fill="none"
+      stroke="${C.INK}" stroke-width="7" stroke-linecap="round" opacity=".75">
+     <path d="M0,0 C-22,-14 -22,14 0,0"/><path d="M24,-20 C-2,-36 -2,-4 24,-20"/>
+     <path d="M24,22 C-2,6 -2,38 24,22"/></g>`;
+const impactStar = (x, y, s) =>
+  `<g transform="translate(${x},${y}) scale(${s})"><g class="anim burst">
+     <polygon fill="${C.GOLD}" points="0,-200 34,-74 150,-130 82,-24 210,0 82,24 150,130
+       34,74 0,200 -34,74 -150,130 -82,24 -210,0 -82,-24 -150,-130 -34,-74"/>
+     <polygon fill="${C.OFFW}" opacity=".55" points="0,-120 22,-46 92,-80 50,-14 128,0
+       50,14 92,80 22,46 0,120 -22,46 -92,80 -50,14 -128,0 -50,-14 -92,-80 -22,-46"/></g></g>`;
+const sweat = (x, y, s, d) =>
+  `<g transform="translate(${x},${y}) scale(${s})"><g class="anim popTiny"
+      data-d="${d || 0}" style="animation-delay:${d || 0}s">
+     <path d="M0,-22 C12,-6 14,4 6,12 C-2,20 -14,16 -16,4 C-18,-6 -10,-12 0,-22 Z"
+       fill="${C.TEAR}" ${IK(5)}/></g></g>`;
+const tear = (x, y, s) =>
+  `<g transform="translate(${x},${y}) scale(${s})">
+     <path d="M0,-20 C11,-5 13,5 5,12 C-3,19 -14,15 -15,4 C-16,-5 -9,-11 0,-20 Z"
+       fill="${C.TEAR}" ${IK(4)}/></g>`;
+const exclaim = (x, y, s, d) =>
+  `<g transform="translate(${x},${y}) scale(${s})"><g class="anim popTiny"
+      data-d="${d}" style="animation-delay:${d}s" fill="${C.INK}">
+     <rect x="-8" y="-40" width="16" height="42" rx="7"/><circle cx="0" cy="18" r="9"/></g></g>`;
+const note = (x, y, s) =>
+  `<g transform="translate(${x},${y}) scale(${s})" fill="${C.INK}">
+     <ellipse cx="-10" cy="16" rx="15" ry="11" transform="rotate(-20 -10 16)"/>
+     <rect x="2" y="-34" width="7" height="48" rx="3"/>
+     <path d="M9,-34 C28,-30 30,-16 24,-8 C26,-22 18,-24 9,-22 Z"/></g>`;
+const radial = (x, y, s) => {
+  let p = "";
+  for (let i = 0; i < 18; i++) {
+    const a = (i * 20) * Math.PI / 180, r0 = 132, r1 = 236;
+    p += `<path d="M${Math.cos(a) * r0},${Math.sin(a) * r0} L${Math.cos(a) * r1},${Math.sin(a) * r1}"
+      stroke="${C.GOLD}" stroke-width="13" stroke-linecap="round" opacity=".62"/>`;
+  }
+  return `<g transform="translate(${x},${y}) scale(${s})">${p}</g>`;
+};
+const thought = (x, y, s) =>
+  `<g transform="translate(${x},${y}) scale(${s})">
+     <circle cx="-176" cy="128" r="13" fill="${C.OFFW}" ${IK(5)}/>
+     <circle cx="-146" cy="94" r="20" fill="${C.OFFW}" ${IK(5)}/>
+     <ellipse cx="0" cy="0" rx="176" ry="112" fill="${C.OFFW}" ${IK(7)}/>
+     <g transform="translate(-4,10) scale(.30)">
+       ${vespa(120, 44, 1, true)}${chief({ x: -80, y: 40, s: .82, face: "smug", arm: "presentR" })}
+       ${sparkle(180, -110, 1.7, 0)}${sparkle(-190, -74, 1.3, .35)}</g></g>`;
+
+/* ======================================================================
+   4. CHIEF  (CHAR_CHIEF_v2)
+   ====================================================================== */
+const limb = (x1, y1, x2, y2, w, col) =>
+  `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${C.INK}" stroke-width="${w + 12}"
+    stroke-linecap="round"/><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"
+    stroke="${col || C.TEAL}" stroke-width="${w}" stroke-linecap="round"/>`;
+const glove = (x, y, r) =>
+  `<circle cx="${x}" cy="${y}" r="${r || 31}" fill="${C.OFFW}" ${IK(7)}/>`;
+
+function chiefFace(face) {
+  const brow = (dy, ang) => `
+    <path d="M-64,${-440 + dy} c16,${-10 - ang} 38,${-10 - ang} 52,-2" ${IK(15)} fill="none"/>
+    <path d="M12,${-442 + dy} c14,-8 36,-8 52,${2 + ang}" ${IK(15)} fill="none"/>`;
+  const eyeOpen = (r, pr) => `
+    <ellipse cx="-34" cy="-404" rx="${r}" ry="${r * 1.15}" fill="${C.OFFW}" ${IK(5)}/>
+    <ellipse cx="36" cy="-404" rx="${r}" ry="${r * 1.15}" fill="${C.OFFW}" ${IK(5)}/>
+    <circle cx="-32" cy="-400" r="${pr}" fill="${C.INK}"/>
+    <circle cx="38" cy="-400" r="${pr}" fill="${C.INK}"/>`;
+  const eyeSlit = () => `
+    <path d="M-52,-404 c12,9 28,9 40,0" ${IK(10)} fill="none"/>
+    <path d="M14,-404 c12,9 28,9 40,0" ${IK(10)} fill="none"/>`;
+  const must = `<path d="M-46,-368 C-26,-384 -9,-377 0,-368 C9,-377 26,-384 46,-368
+    C26,-358 9,-361 0,-366 C-9,-361 -26,-358 -46,-368 Z" fill="${C.INK}"/>`;
+  switch (face) {
+    case "smug":
+      return brow(0, 4) + eyeSlit() + must +
+        `<path d="M-24,-340 c18,11 42,9 56,-7" ${IK(10)} fill="none"/>`;
+    case "gloating":
+      return brow(-4, 8) + eyeOpen(15, 8) + must +
+        `<path d="M-40,-344 C-14,-316 34,-316 58,-346 C34,-330 -14,-330 -40,-344 Z"
+          fill="${C.INK}"/><path d="M-40,-344 C-14,-316 34,-316 58,-346" ${IK(8)} fill="none"/>`;
+    case "triumphant":
+      return brow(-8, 6) + eyeOpen(17, 9) +
+        `<circle cx="-38" cy="-410" r="5" fill="${C.OFFW}"/>` + must +
+        `<path d="M-44,-346 C-16,-310 38,-310 62,-348 C36,-326 -16,-326 -44,-346 Z" fill="${C.INK}"/>`;
+    case "oblivious":
+      return brow(-2, 3) +
+        `<path d="M-54,-406 c13,11 29,11 42,0" ${IK(10)} fill="none"/>
+         <path d="M12,-406 c13,11 29,11 42,0" ${IK(10)} fill="none"/>` + must +
+        `<path d="M-22,-338 c18,12 42,10 56,-8" ${IK(10)} fill="none"/>`;
+    case "shocked":
+      return `<path d="M-66,-458 c16,-14 38,-14 52,-4" ${IK(15)} fill="none"/>
+        <path d="M12,-462 c14,-10 36,-10 52,4" ${IK(15)} fill="none"/>` + eyeOpen(25, 9) + must +
+        `<ellipse cx="8" cy="-334" rx="26" ry="30" fill="${C.INK}"/>`;
+    case "panicked":
+      return `<path d="M-70,-464 c16,-16 40,-16 54,-4" ${IK(15)} fill="none"/>
+        <path d="M12,-468 c14,-12 38,-12 54,4" ${IK(15)} fill="none"/>` + eyeOpen(30, 8) + must +
+        `<ellipse cx="8" cy="-330" rx="34" ry="38" fill="${C.INK}"/>
+         <ellipse cx="8" cy="-318" rx="17" ry="12" fill="${C.PINK}"/>`;
+    default: return chiefFace("smug");
+  }
+}
+function chiefArms(arm, flip) {
+  switch (arm) {
+    case "none": return "";
+    case "strut":
+      return limb(-88, -326, -150, -230, 34) + glove(-160, -216) +
+             limb(88, -326, 146, -252, 34) + glove(156, -240);
+    case "pointStamp":                                   // C2: stamp up + accusing point
+      return limb(-88, -322, -146, -424, 34) + glove(-158, -444) +
+             stamp(-168, -508, .92, -14) +
+             limb(88, -318, 168, -248, 34) + glove(182, -236, 27) +
+             `<path d="M196,-234 L242,-218" ${IKC(15, C.OFFW)}/>`;
+    case "stampPad":                                     // C3/C4: stamp up + clipboard
+      return limb(-88, -322, -140, -430, 34) + glove(-152, -450) +
+             `<g class="anim stampSlam">${stamp(-160, -496, .95, -10)}</g>` +
+             limb(88, -318, 156, -264, 34) + glove(168, -252) +
+             clipboard(216, -248, .92, 8, flip);
+    case "victory":                                      // C5: stamp to sky + hand on hip
+      return limb(88, -334, 132, -520, 34) + glove(140, -548) +
+             stamp(148, -598, 1.12, 6) +
+             limb(-88, -320, -148, -244, 34) + glove(-150, -216);
+    case "fingerUp":                                     // C6: oblivious, finger raised
+      return limb(88, -326, 154, -444, 34) + glove(166, -466) +
+             `<path d="M170,-486 L176,-540" ${IKC(17, C.OFFW)}/>` +
+             limb(-88, -320, -146, -240, 34) + glove(-156, -226);
+    case "presentR":                                     // thought-bubble mini pose
+      return limb(88, -326, 158, -280, 34) + glove(170, -272) +
+             limb(-88, -320, -146, -246, 34) + glove(-156, -234);
+    case "flail":
+      return limb(-88, -326, -172, -430, 34) + glove(-188, -454) +
+             limb(88, -326, 172, -430, 34) + glove(188, -454);
+    default:
+      return limb(-88, -322, -132, -212, 34) + glove(-140, -196) +
+             limb(88, -322, 132, -212, 34) + glove(140, -196);
+  }
+}
+function chief(o) {
+  const { x, y, s = 1, face = "smug", arm = "down", flip = false, cap = true, rot = 0 } = o;
+  return `<g transform="translate(${x},${y}) rotate(${rot}) scale(${flip ? -s : s},${s})">
+    <ellipse cx="0" cy="6" rx="128" ry="20" fill="${C.INK}" opacity=".16"/>
+    <ellipse cx="-54" cy="-16" rx="56" ry="26" fill="${C.INK}"/>
+    <ellipse cx="48" cy="-16" rx="56" ry="26" fill="${C.INK}"/>
+    <path d="M-86,-168 h62 v144 h-62 z" fill="${C.TRO}" ${IK(7)}/>
+    <path d="M22,-168 h62 v144 h-62 z" fill="${C.TRO}" ${IK(7)}/>
+    <path d="M-120,-156 C-132,-266 -106,-336 -86,-354 L86,-354 C106,-336 132,-266 120,-156 Z"
+          fill="${C.TEAL}" ${IK(8)}/>
+    <path d="M58,-352 C104,-334 130,-266 120,-156 L58,-156 Z" fill="${C.TEALD}" opacity=".45"/>
+    <path d="M-42,-352 L0,-300 L42,-352 Z" fill="${C.OFFW}" ${IK(6)}/>
+    <path d="M-7,-306 L7,-306 L15,-244 L0,-230 L-15,-244 Z" fill="#2B2724" ${IK(5)}/>
+    <path d="M-94,-348 L-40,-356 L120,-186 L96,-148 Z" fill="${C.GOLD}" ${IK(6)}/>
+    <g>
+      <circle cx="-72" cy="-286" r="13" fill="${C.GOLD}" ${IK(4)}/>
+      <rect x="-96" y="-268" width="17" height="26" fill="${C.RED}" ${IK(3)}/>
+      <rect x="-74" y="-268" width="17" height="26" fill="#3B72B8" ${IK(3)}/>
+      <rect x="-52" y="-268" width="17" height="26" fill="#3C9A57" ${IK(3)}/>
+      <path d="M-88,-232 l6,13 l14,2 l-10,10 l3,14 l-13,-8 l-13,8 l3,-14 l-10,-10 l14,-2 z" fill="${C.GOLD}" ${IK(3)}/>
+      <path d="M-48,-224 l6,13 l14,2 l-10,10 l3,14 l-13,-8 l-13,8 l3,-14 l-10,-10 l14,-2 z" fill="${C.GOLD}" ${IK(3)}/>
+    </g>
+    <g fill="${C.GOLD}" ${IK(4)}>
+      <circle cx="26" cy="-286" r="9"/><circle cx="34" cy="-244" r="9"/><circle cx="42" cy="-202" r="9"/>
+    </g>
+    ${/* arms drawn AFTER the jacket so they read outside the body silhouette */""}
+    ${chiefArms(arm, flip)}
+    <rect x="-26" y="-368" width="52" height="26" fill="${C.SKIN}" ${IK(7)}/>
+    <ellipse cx="-94" cy="-420" rx="17" ry="24" fill="${C.SKIN}" ${IK(6)}/>
+    <ellipse cx="94" cy="-420" rx="17" ry="24" fill="${C.SKIN}" ${IK(6)}/>
+    <circle cx="0" cy="-424" r="94" fill="${C.SKIN}" ${IK(8)}/>
+    <path d="M-94,-452 C-90,-528 -42,-548 0,-544 C50,-540 94,-512 94,-452
+             C60,-482 30,-492 0,-490 C-42,-488 -72,-474 -94,-452 Z" fill="${C.INK}"/>
+    ${chiefFace(face)}
+    ${cap ? `<g class="capgrp" transform="translate(0,-40)">
+      <path d="M-112,-502 C-112,-548 -62,-572 0,-572 C62,-572 112,-548 112,-502 Z"
+            fill="${C.TEAL}" ${IK(8)}/>
+      <path d="M44,-568 C90,-556 112,-534 112,-502 L58,-502 Z" fill="${C.TEALD}" opacity=".45"/>
+      <ellipse cx="2" cy="-476" rx="126" ry="19" fill="${C.INK}"/>
+      <rect x="-116" y="-506" width="232" height="26" rx="13" fill="${C.TEALD}" ${IK(7)}/>
+      <path d="M-18,-556 h36 l7,34 h-50 z" fill="${C.GOLD}" ${IK(5)}/>
+    </g>` : ""}
+  </g>`;
+}
+
+/* ======================================================================
+   5. PIP  (CHAR_PIP_v2)
+   ====================================================================== */
+function pipFace(face) {
+  const eyes = (rx, ry) => `
+    <ellipse cx="-27" cy="-182" rx="${rx}" ry="${ry}" fill="${C.INK}"/>
+    <ellipse cx="27" cy="-182" rx="${rx}" ry="${ry}" fill="${C.INK}"/>
+    <circle cx="-33" cy="-191" r="8" fill="${C.OFFW}"/>
+    <circle cx="21" cy="-191" r="8" fill="${C.OFFW}"/>`;
+  const blush = `<ellipse cx="-52" cy="-158" rx="14" ry="9" fill="${C.PINK}" opacity=".7"/>
+    <ellipse cx="52" cy="-158" rx="14" ry="9" fill="${C.PINK}" opacity=".7"/>`;
+  const wbrow = `<path d="M-44,-214 c9,-8 22,-8 30,-2" ${IK(7)} fill="none"/>
+    <path d="M14,-216 c8,-6 21,-6 30,2" ${IK(7)} fill="none"/>`;
+  switch (face) {
+    case "worried":
+      return wbrow + eyes(19, 24) + blush +
+        `<path d="M-13,-140 c8,-7 18,-7 26,0" ${IK(6)} fill="none"/>`;
+    case "teary":
+      return wbrow + eyes(21, 26) + blush + tear(-46, -152, 1) + tear(48, -148, .9) +
+        `<path d="M-16,-138 c9,-9 23,-9 32,0" ${IK(6)} fill="none"/>`;
+    case "hopeful":
+      return `<path d="M-44,-218 c9,-9 22,-9 30,-3" ${IK(7)} fill="none"/>
+        <path d="M14,-220 c8,-7 21,-7 30,3" ${IK(7)} fill="none"/>` + eyes(21, 27) + blush +
+        `<ellipse cx="0" cy="-136" rx="11" ry="9" fill="${C.INK}"/>`;
+    case "gleeful":
+      return eyes(20, 25) + blush + tear(-50, -150, .85) +
+        `<path d="M-22,-142 C-10,-118 12,-118 24,-142 Z" fill="${C.INK}"/>
+         <path d="M-22,-142 C-10,-118 12,-118 24,-142" ${IK(6)} fill="none"/>`;
+    case "relieved":
+      return eyes(20, 25) + blush +
+        `<path d="M-20,-142 C-8,-120 10,-120 22,-142 Z" fill="${C.INK}"/>`;
+    default: return pipFace("worried");
+  }
+}
+function pipArms(pose) {
+  switch (pose) {
+    case "idle":                                        // fumbling the coin purse
+      return `<g class="anim fumble" style="transform-origin:0px -96px">
+        <ellipse cx="-34" cy="-94" rx="20" ry="17" fill="${C.IVORY}" ${IK(6)}/>
+        <ellipse cx="34" cy="-94" rx="20" ry="17" fill="${C.IVORY}" ${IK(6)}/>
+        <ellipse cx="0" cy="-84" rx="27" ry="22" fill="${C.WOOD}" ${IK(6)}/>
+        <path d="M-16,-100 c8,-9 24,-9 32,0" ${IK(6)} fill="none" stroke="${C.WOOD_D}"/>
+        <circle cx="16" cy="-116" r="12" fill="${C.GOLD}" ${IK(5)}/></g>`;
+    case "shrink":
+      return `<ellipse cx="-30" cy="-104" rx="19" ry="16" fill="${C.IVORY}" ${IK(6)}/>
+        <ellipse cx="30" cy="-104" rx="19" ry="16" fill="${C.IVORY}" ${IK(6)}/>`;
+    case "slump":
+      return `<ellipse cx="-46" cy="-70" rx="19" ry="17" fill="${C.IVORY}" ${IK(6)}/>
+        <ellipse cx="46" cy="-70" rx="19" ry="17" fill="${C.IVORY}" ${IK(6)}/>`;
+    case "clutch":                                      // hands at the mouth
+      return `<ellipse cx="-24" cy="-126" rx="19" ry="16" fill="${C.IVORY}" ${IK(6)}/>
+        <ellipse cx="24" cy="-126" rx="19" ry="16" fill="${C.IVORY}" ${IK(6)}/>`;
+    case "wave":
+      return `<ellipse cx="-40" cy="-78" rx="19" ry="17" fill="${C.IVORY}" ${IK(6)}/>`;
+    default: return "";
+  }
+}
+/* raised arms render on top of the head */
+function pipArmsOver(pose) {
+  switch (pose) {
+    case "celebrate":
+      return `<path d="M-46,-104 L-78,-186" ${IKC(19, C.IVORY)}/>
+        <path d="M46,-104 L78,-186" ${IKC(19, C.IVORY)}/>
+        <ellipse cx="-84" cy="-200" rx="21" ry="19" fill="${C.IVORY}" ${IK(6)}/>
+        <ellipse cx="84" cy="-200" rx="21" ry="19" fill="${C.IVORY}" ${IK(6)}/>`;
+    case "wave":
+      return `<g class="anim waveArm" style="transform-origin:46px -100px">
+          <path d="M48,-100 L86,-182" ${IKC(19, C.IVORY)}/>
+          <ellipse cx="94" cy="-198" rx="21" ry="19" fill="${C.IVORY}" ${IK(6)}/></g>`;
+    default: return "";
+  }
+}
+function pip(o) {
+  const { x, y, s = 1, face = "worried", pose = "idle", flip = false, tilt = 0 } = o;
+  return `<g transform="translate(${x},${y}) rotate(${tilt}) scale(${flip ? -s : s},${s})">
+    <ellipse cx="0" cy="4" rx="72" ry="14" fill="${C.INK}" opacity=".16"/>
+    <ellipse cx="-31" cy="-13" rx="27" ry="19" fill="${C.IVORY}" ${IK(7)}/>
+    <ellipse cx="31" cy="-13" rx="27" ry="19" fill="${C.IVORY}" ${IK(7)}/>
+    <ellipse cx="0" cy="-74" rx="67" ry="63" fill="${C.IVORY}" ${IK(7)}/>
+    <path d="M-54,-42 C-42,-6 42,-6 54,-42 C40,-24 -40,-24 -54,-42 Z" fill="${C.OFFW}" ${IK(6)}/>
+    ${pipArms(pose)}
+    <path d="M-60,-120 C-32,-98 32,-98 60,-120 C60,-99 32,-79 0,-79 C-32,-79 -60,-99 -60,-120 Z"
+          fill="${C.TEAL}" ${IK(6)}/>
+    <path d="M36,-106 l32,56 l-27,11 l-23,-52 z" fill="${C.TEAL}" ${IK(6)}/>
+    <circle cx="0" cy="-180" r="75" fill="${C.IVORY}" ${IK(7)}/>
+    <path d="M-4,-250 C-2,-276 16,-286 26,-278 C14,-272 8,-260 8,-248 Z"
+          fill="${C.IVORY}" ${IK(6)}/>
+    ${pipFace(face)}
+    ${pipArmsOver(pose)}
+  </g>`;
+}
+
+/* ======================================================================
+   6. Shots  (each returns the inner SVG for one clip)
+   ====================================================================== */
+const HZ = 772;                                  // shared horizon (C1/C6/C7/C8 plate)
+const cap1 = `<g class="anim capFade" data-d="0.8" style="animation-delay:.8s">
+  <rect x="300" y="1690" width="480" height="86" rx="43" fill="${C.INK}" opacity=".82"/>
+  <text x="540" y="1748" text-anchor="middle" fill="${C.OFFW}"
+    font-family="Arial,Helvetica,sans-serif" font-size="40" font-weight="700">watch the red zone</text></g>`;
+const cap8 = `<g class="anim capFade" data-d="0.2" style="animation-delay:.2s">
+  <rect x="330" y="1690" width="420" height="86" rx="43" fill="${C.INK}" opacity=".82"/>
+  <text x="540" y="1748" text-anchor="middle" fill="${C.OFFW}"
+    font-family="Arial,Helvetica,sans-serif" font-size="40" font-weight="700">rules are rules</text></g>`;
+
+/* ---- C1 0:00-0:02 · WIDE.EYE.STATIC · hook + seed --------------------- */
+function shot1() {
+  return sky(HZ) + ground(HZ) +
+    meter(392, 1250, .95) +
+    kickScooter(612, 1238, .76) +
+    pip({ x: 492, y: 1242, s: 1.06, face: "worried", pose: "idle" }) +
+    `<g class="anim strutIn"><g class="anim strutBob" style="transform-origin:248px 1255px">
+       ${chief({ x: 248, y: 1258, s: 1.12, face: "smug", arm: "strut" })}</g></g>` +
+    redZone() + vespa(880, 1436, .92, true) +
+    (CAPTIONS ? cap1 : "");
+}
+/* ---- C2 0:02-0:06 · MED.EYE.PUSHIN · setup ---------------------------- */
+function shot2() {
+  return `<g transform="translate(-32,-160) scale(1.06)">
+    ${sky(HZ)}${ground(HZ)}${meter(130, 1250, .92)}
+    ${pip({ x: 330, y: 1250, s: 1.06, face: "worried", pose: "shrink" })}
+    ${kickScooter(452, 1246, .80)}
+    <g class="anim grinGrow" style="transform-origin:660px 1000px">
+      ${chief({ x: 660, y: 1264, s: 1.16, face: "gloating", arm: "none", flip: true })}
+      <g class="anim drawOut" style="transform-origin:660px 1040px">
+        ${chiefArmsWrap(660, 1264, 1.16, "pointStamp", true)}</g></g>
+    ${glintAt(614, 862, 1.5)}
+    ${redZone()}${vespa(880, 1436, .92, true)}
+  </g>`;
+}
+/* helper: draw only the arm rig at a character's transform (for the draw flourish) */
+function chiefArmsWrap(x, y, s, arm, flip) {
+  return `<g transform="translate(${x},${y}) scale(${flip ? -s : s},${s})">${chiefArms(arm, flip)}</g>`;
+}
+const glintAt = (x, y, s) =>
+  `<g transform="translate(${x},${y}) scale(${s})"><g class="anim glint" data-d="0"
+      fill="${C.OFFW}"><path d="M0,-30 L7,-7 L30,0 L7,7 L0,30 L-7,7 L-30,0 L-7,-7 Z"/></g></g>`;
+
+/* ---- C3 0:06-0:11 · MED.EYE.STATIC · escalation 1 -------------------- */
+function shot3() {
+  return `<g transform="translate(-32,-160) scale(1.06)">
+    ${sky(HZ)}${ground(HZ)}${meter(140, 1250, .92)}
+    ${pip({ x: 300, y: 1252, s: 1.06, face: "teary", pose: "slump" })}
+    ${kickScooter(468, 1250, .86)}
+    <g class="anim bootSnap" style="transform-origin:416px 1234px">
+      ${boot(416, 1234, .88)}</g>
+    ${puff(416, 1234, 1.5, 1.7)}
+    <g class="anim popIn" data-d="1.1" style="animation-delay:1.1s;transform-origin:520px 1138px">
+      ${ticket(520, 1138, .96, 9)}</g>
+    ${chief({ x: 716, y: 1266, s: 1.16, face: "smug", arm: "stampPad", flip: true })}
+    ${motionArcs(566, 950, 1.2, true)}
+    ${redZone()}${vespa(880, 1436, .92, true)}
+  </g>`;
+}
+/* ---- C4 0:11-0:16 · MED-WIDE.EYE.PUSHIN(slight) · escalation 2 -------- */
+function shot4() {
+  const pile = [
+    [536, 1188, -14, 0.00], [600, 1206, 11, 0.13], [478, 1214, 22, 0.27],
+    [566, 1132, 5, 0.40], [508, 1146, -25, 0.53], [630, 1150, 18, 0.66],
+    [452, 1170, -8, 0.80], [576, 1252, -19, 0.93], [496, 1262, 14, 1.06]
+  ].map(([x, y, r, d]) =>
+    `<g class="anim popIn" data-d="${d}" style="animation-delay:${d}s;transform-origin:${x}px ${y}px">
+       ${ticket(x, y, 1.0, r)}</g>${puff(x, y, 1.1, d + .1)}`).join("");
+  const strays = [[380, 1330, -34], [650, 1322, 26], [336, 1276, 12]]
+    .map(([x, y, r]) => ticket(x, y, .84, r)).join("");
+  return `<g transform="translate(-32,-160) scale(1.06)">
+    ${sky(HZ)}${ground(HZ)}${meter(150, 1250, .92)}
+    ${pip({ x: 246, y: 1264, s: 1.04, face: "teary", pose: "slump" })}
+    ${kickScooter(540, 1262, .88)}${boot(488, 1246, .9)}
+    ${strays}${pile}
+    ${chief({ x: 736, y: 1274, s: 1.16, face: "triumphant", arm: "stampPad", flip: true })}
+    <g class="anim polish" style="transform-origin:660px 1012px">
+      ${sparkle(666, 1000, 1.5, 0)}</g>
+    ${glintAt(680, 968, 1.3)}
+    ${redZone()}${vespa(880, 1436, .92, true)}
+  </g>`;
+}
+/* ---- C5 0:16-0:22 · FULL.LOW.PUSHIN -> HOLD · peak overconfidence ----- */
+function shot5() {
+  const HZ5 = 918;                                  // horizon drops = looking up (LOW angle)
+  const stacks = [];
+  for (let i = 0; i < 14; i++) {
+    const x = 872 + (i % 4) * 46 - 60, y = 1476 - Math.floor(i / 4) * 52;
+    stacks.push(ticket(x, y, .86, (i * 37) % 40 - 20));
+  }
+  return sky(HZ5) + ground(HZ5) +
+    meter(120, 1330, .82) +
+    `${radial(540, 900, 1.0)}` +
+    podium(540, 1462, 1.0) +
+    `<g class="anim flagPlant" style="transform-origin:760px 1290px">${flag(760, 1290, 1.0)}</g>` +
+    `<g class="anim podiumHop" style="transform-origin:540px 1286px">
+       ${chief({ x: 540, y: 1288, s: 1.24, face: "triumphant", arm: "victory" })}</g>` +
+    stacks.join("") +
+    sparkle(700, 700, 2.0, 0) + sparkle(824, 812, 1.5, .28) + sparkle(600, 636, 1.6, .55) +
+    sparkle(432, 742, 1.4, .8) + sparkle(760, 940, 1.2, 1.05) +
+    pip({ x: 208, y: 1560, s: .96, face: "teary", pose: "slump" }) +
+    redZone(ZONE_LOW);
+}
+/* ---- C6 0:22-0:27 · WIDE.EYE.STATIC · pattern break ------------------ */
+function shot6() {
+  return sky(HZ) + ground(HZ) + meter(120, 1250, .92) +
+    kickScooter(300, 1244, .82) + boot(252, 1232, .8) +
+    `<g class="anim truckIn">
+       ${towTruck(1000, 1330, .72, false)}
+       <g class="anim hookSwing" style="transform-origin:840px 830px">
+         ${hook(840, 1046, 1.15)}</g></g>` +
+    redZone() + vespa(880, 1436, .92, true) +
+    chief({ x: 596, y: 1276, s: 1.2, face: "oblivious", arm: "fingerUp" }) +
+    note(742, 806, 1.1) + note(806, 872, .85) +
+    thought(320, 620, 1.0) +
+    pip({ x: 152, y: 1250, s: 1.02, face: "hopeful", pose: "clutch", tilt: -4 }) +
+    exclaim(222, 1006, 1.2, 3.0) +
+    sweat(88, 1050, 1.0, 3.4);
+}
+/* ---- C7 0:27-0:31 · WIDE.EYE.PUNCHIN · the twist --------------------- */
+function shot7() {
+  return sky(HZ) + ground(HZ) + meter(120, 1250, .92) +
+    kickScooter(300, 1244, .82) +
+    towTruck(1000, 1330, .72, false) +
+    `<g class="anim hoist" style="transform-origin:880px 1436px">
+       ${hook(840, 1046, 1.15)}${vespa(880, 1436, .92, true)}
+       ${motionArcs(700, 1180, 1.0, true)}</g>` +
+    redZone() +
+    podium(392, 1508, .9) +
+    `<g class="anim flung" style="transform-origin:486px 960px">
+       ${chief({ x: 486, y: 1336, s: 1.18, face: "panicked", arm: "flail", cap: false })}
+       ${sweat(376, 906, 1.3, 2.1)}${sweat(606, 942, 1.15, 2.25)}</g>
+     <g class="anim capFly" style="transform-origin:486px 910px">
+       <g transform="translate(486,1336) scale(1.18)">
+         <path d="M-106,-500 C-106,-562 -60,-594 0,-594 C60,-594 106,-562 106,-500 Z"
+               fill="${C.TEAL}" ${IK(8)}/>
+         <rect x="-114" y="-506" width="228" height="22" rx="11" fill="${C.TEALD}" ${IK(7)}/>
+         <path d="M-116,-486 C-60,-462 78,-462 142,-494 C146,-476 132,-452 104,-444
+                  C44,-428 -62,-432 -104,-452 Z" fill="${C.INK}"/>
+         <path d="M-19,-568 h38 l7,38 h-52 z" fill="${C.GOLD}" ${IK(5)}/></g></g>` +
+    `${impactStar(672, 1462, 1.12)}` +
+    `<g class="anim stampSmack" style="transform-origin:672px 1462px">
+       ${towedStamp(672, 1462, .96, -9)}</g>` +
+    pip({ x: 168, y: 1256, s: 1.06, face: "gleeful", pose: "celebrate" }) +
+    sparkle(74, 992, 1.6, 0) + sparkle(280, 950, 1.35, .3) + sparkle(176, 880, 1.2, .6) +
+    `<rect class="anim flash1" x="0" y="0" width="1080" height="1920" fill="${C.OFFW}"/>`;
+}
+/* ---- C8 0:31-0:32 · WIDE.EYE.STATIC (== C1 framing) · payoff / loop --- */
+function shot8() {
+  return sky(HZ) + ground(HZ) + meter(392, 1250, .95) +
+    kickScooter(612, 1238, .76) +
+    `<g class="anim bootPop" style="transform-origin:556px 1228px">${boot(556, 1228, .8)}</g>` +
+    puff(556, 1228, 1.3, 0) +
+    `<g class="anim haulOff" style="transform-origin:800px 1080px">
+       ${towTruck(1040, 1310, .74, false)}
+       ${hook(772, 902, 1.0)}
+       ${vespa(786, 1104, .84, true)}
+       ${chief({ x: 742, y: 1004, s: .9, face: "panicked", arm: "flail", cap: false, rot: 18 })}
+       ${sweat(636, 790, 1.1, 0)}${motionArcs(628, 892, 1.0, true)}</g>` +
+    redZone() +
+    pip({ x: 492, y: 1242, s: 1.06, face: "relieved", pose: "wave" }) +
+    sparkle(346, 1010, 1.4, 0) + sparkle(586, 986, 1.2, .25) +
+    (CAPTIONS ? cap8 : "");
+}
+
+/* ======================================================================
+   7. Timeline driver
+   ====================================================================== */
+const SHOTS = [
+  { id: 1, start: 0,  end: 2,  build: shot1 },
+  { id: 2, start: 2,  end: 6,  build: shot2 },
+  { id: 3, start: 6,  end: 11, build: shot3 },
+  { id: 4, start: 11, end: 16, build: shot4 },
+  { id: 5, start: 16, end: 22, build: shot5 },
+  { id: 6, start: 22, end: 27, build: shot6 },
+  { id: 7, start: 27, end: 31, build: shot7 },
+  { id: 8, start: 31, end: 32, build: shot8 }
+];
+const DUR = 32;
+const stage = document.getElementById("stage");
+const els = SHOTS.map(s => {
+  const d = document.createElement("div");
+  d.className = "shot s" + s.id;
+  d.innerHTML = `<svg viewBox="0 0 1080 1920" preserveAspectRatio="xMidYMid slice">
+    <g class="cam">${s.build()}</g></svg>`;
+  stage.insertBefore(d, document.getElementById("grid"));
+  return d;
+});
+
+function clearSeek(el) {
+  el.querySelectorAll(".anim, .cam").forEach(n => {
+    const b = n.dataset.d;
+    n.style.animationDelay = b ? b + "s" : "";
+    n.style.animationPlayState = "";
+  });
+}
+function applySeek(el, off) {
+  el.querySelectorAll(".anim, .cam").forEach(n => {
+    const b = parseFloat(n.dataset.d || 0);
+    n.style.animationDelay = (b + off) + "s";
+    n.style.animationPlayState = "paused";
+  });
+}
+let cur = -1;
+function activate(i, seekOff) {
+  const el = els[i];
+  els.forEach(e => { if (e !== el) e.classList.remove("on"); });
+  el.classList.remove("on");
+  void el.offsetWidth;                 // force reflow => restart every animation
+  if (seekOff == null) clearSeek(el); else applySeek(el, seekOff);
+  el.classList.add("on");
+  cur = i;
+}
+function shotAt(t) {
+  for (let i = 0; i < SHOTS.length; i++) if (t >= SHOTS[i].start && t < SHOTS[i].end) return i;
+  return SHOTS.length - 1;
+}
+
+/* fit the 1080x1920 stage to whatever surface we're painted on */
+function fit() {
+  const k = FIT === "cover"
+    ? Math.max(innerWidth / 1080, innerHeight / 1920)
+    : Math.min(innerWidth / 1080, innerHeight / 1920);
+  stage.style.transform = "translate(-50%,-50%) scale(" + k + ")";
+}
+/* ?raw=1 — QA mode: lay the stage out at native 1080x1920 with no scaling so a
+   full-page screenshot captures true resolution. Not used for wallpaper duty. */
+if (Q.get("raw") === "1") {
+  document.documentElement.style.cssText = "overflow:visible;height:auto";
+  document.body.style.cssText = "margin:0;overflow:visible;height:auto;width:1080px";
+  document.getElementById("wrap").style.cssText = "position:static;overflow:visible";
+  stage.style.cssText += ";position:relative;left:0;top:0;transform:none";
+} else {
+  addEventListener("resize", fit); fit();
+}
+if (Q.get("grid") === "1") document.getElementById("grid").classList.add("on");
+
+if (SEEK != null) {
+  const t = Math.max(0, Math.min(DUR - .001, SEEK));
+  const i = shotAt(t);
+  activate(i, -(t - SHOTS[i].start));
+} else {
+  const t0 = performance.now();
+  let raf = () => {
+    const t = ((performance.now() - t0) / 1000) % DUR;
+    const i = shotAt(t);
+    if (i !== cur) activate(i, null);
+    requestAnimationFrame(raf);
+  };
+  requestAnimationFrame(raf);
+  document.addEventListener("visibilitychange", () => {           // battery friendly
+    if (!document.hidden && cur >= 0) { /* animations resume natively */ }
+  });
+}
+</script>
+</body>
+</html>
