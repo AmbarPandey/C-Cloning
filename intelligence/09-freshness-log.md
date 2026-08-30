@@ -41,12 +41,20 @@ was a Mode B exploration and took `B1`, which is why `v6` is `A5` and not `A6`.
 | v15 | `A15` ⚠ | A | Shorts | The Last Dryer | shipped, metadata unverified |
 | v16 | `A16` ⚠ | A | Shorts | The Book Tower | shipped, metadata unverified |
 | v17 | `A17` ⚠ | A | Shorts | The Biggest Kite | shipped, metadata unverified |
+| v18 | `A18` | A | Shorts | The Last Drop | shipped |
+| v19 | `A19` | A | Shorts | The Deep End | shipped |
+| v20 | `A20` | A | Shorts | The Inspection | shipped |
+| v21 | `A21` | A | Shorts | The Upgrade | shipped |
+| v22 | `B2` | **B** | Shorts | The Shortcut | shipped |
+| v23 | `B3` | **B** | Shorts | The Evidence | shipped |
+| v24 | `A22` | A | Shorts | The Fast Lane | shipped |
+| v25 | `A23` | A | Shorts | The Tie-Breaker | shipped |
 
 ⚠ **Ledger break:** `A7` was never issued. The `v8`–`v17` batch set `idea = video number`, which
 skipped `A7` and destroyed the offset that `B1` created. Next Mode A idea is **`A18`**; `A7` stays
 permanently unissued so the ledger and the git history keep agreeing.
 
-**Next available:** Mode A → `A18` · Mode B → `B2`.
+**Next available:** Mode A → `A24` · Mode B → `B4`.
 
 ---
 
@@ -73,6 +81,14 @@ Every `pattern × scenario` pair ever spent. A new package must not match a row 
 | v15 | `NP3` Overreach Collapse | **unresolved** | `CM-C4` (mislabelled) | `TW3` Instant Karma | 8.4 | ❌ |
 | v16 | `NP3` Overreach Collapse | **unresolved** | `CM-C4` (mislabelled) | `TW3` Instant Karma | 8.5 | ❌ |
 | v17 | `NP3` Overreach Collapse | **unresolved** | `CM-C4` (mislabelled) | `TW3` Instant Karma | 8.6 | ❌ |
+| v18 | `NP5` Escalating Disaster | `SC4` Family/Domestic | `CM-A3` Delayed Realization | `TW10` Chain-Reaction Payoff | 7.2 | ✅ |
+| v19 | `NP8` Ironic Backfire | `SC7` Danger/Survival | `CM-B3` Absurd Logic | `TW9` Literal Outcome | 6.1 | ✅ |
+| v20 | `NP2` Underdog Reversal | `SC1` Authority | `CM-C1` Role Reversal | `TW4` False Victory | 8.1 | ✅ |
+| v21 | `NP1` Comeuppance | `SC2` Service Exchange | `CM-C2` Overconfidence Collapse | `TW7` Visual Transformation | 7.9 | ✅ |
+| v22 | `NP7` Bait-and-Switch | `SC10` Animals-as-People | `CM-A2` Misdirection | `TW6` Perspective Shift + `TM3` | 7.1 | ✅ |
+| v23 | `NP5` Escalating Disaster | `SC6` Crime & Justice | `CM-B1` Irony | `TW5` Hidden Cause + `TM3` | 6.0 | ✅ |
+| v24 | `NP2` Underdog Reversal | `SC8` Everyday Friction | `CM-E1` Escalation | `TW1` Role Reversal | 8.8 | ✅ |
+| v25 | `NP1` Comeuppance | `SC3` Competition | `CM-E2` Chain Reaction | `TW2` Irony Reversal | 8.4 | ✅ |
 
 **unresolved** = the package cites a scenario ID that does not exist in
 [Library 4](04-scenario-intelligence-library.md) at all (`SC11`, `SC13`, `SC16`, `SC17`, `SC19`,
@@ -150,3 +166,52 @@ seeds and closing on a loop.
 5. If the premise plants a seed and loops, the goal is **`Replay`**, not `Reach` — say so, and attach
    `TM3` explicitly.
 6. Verify the pair against the combination register above **before** writing a word of script.
+
+
+---
+
+## Batch note — v18–v25 (added with those packages)
+
+Eight packages were computed together to repair the rotation failure recorded above, where `NP3` held
+**9 of 17** episodes and half the pattern library had never been used.
+
+**Nodes opened for the first time in this batch:** `NP5` Escalating Disaster · `NP7` Bait-and-Switch ·
+`NP8` Ironic Backfire · `SC4` Family/Domestic · `SC7` Danger/Survival · `CM-A3` Delayed Realization ·
+`CM-B3` Absurd Logic · `CM-C1` Role Reversal · `CM-E2` Chain Reaction · `TW6` Perspective Shift ·
+`TW7` Visual Transformation · `TW9` Literal Outcome · `TW10` Chain-Reaction Payoff. **Thirteen.**
+
+**`NP3` was rested completely** — it appears in none of the eight.
+
+**Scenario spread:** all eight use a **different** scenario (`SC4`, `SC7`, `SC1`, `SC2`, `SC10`, `SC6`,
+`SC8`, `SC3`), so no `pattern × scenario` pair repeats inside the batch or against v1–v17.
+
+**Twist spread:** all eight use a **different** twist core (`TW10`, `TW9`, `TW4`, `TW7`, `TW6`, `TW5`,
+`TW1`, `TW2`).
+
+**Mode B ratio restored.** The catalogue held 16 Mode A to 1 Mode B. Adding `B2` (v22) and `B3` (v23)
+brings it to 22 A : 3 B — approximately the 1-in-5 the generator specifies. Both state a hypothesis and a
+kill condition.
+
+**Score profile, and why it is lower than v1–v17.** Opening unused regions of the matrix costs points
+honestly, because the unproven tiers carry Medium confidence and higher difficulty:
+
+| Video | Score | Confidence_avg |
+|---|---|---|
+| v24 | 8.8 | 1.000 |
+| v25 | 8.4 | 0.925 |
+| v20 | 8.1 | 0.925 |
+| v21 | 7.9 | 0.925 |
+| v18 | 7.2 | 0.850 |
+| v22 | 7.1 | 0.850 |
+| v19 | 6.1 | 0.775 |
+| v23 | 6.0 | 0.775 |
+
+No edge was rounded up to flatter a score. `v19`'s `CM-B3↔TW9` and `v23`'s `NP5↔SC6` are both recorded at
+**4/5** because they are genuinely loose joins. `v24` is the full-confidence workhorse that funds the batch.
+
+**Comedy core ≠ twist core** was verified on all eight — the defect found on `v7`, `v8`, `v10` and `v13`
+does not recur.
+
+**Ledger note:** `A7` remains permanently unissued. This batch continues the sequence from `A18`, and
+because `v22` and `v23` took `B2` and `B3`, the video and idea numbers are offset again from `v24` onward —
+which is the intended behaviour, not a fault.
