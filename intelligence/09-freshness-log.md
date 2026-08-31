@@ -49,12 +49,14 @@ was a Mode B exploration and took `B1`, which is why `v6` is `A5` and not `A6`.
 | v23 | `B3` | **B** | Shorts | The Evidence | shipped |
 | v24 | `A22` | A | Shorts | The Fast Lane | shipped |
 | v25 | `A23` | A | Shorts | The Tie-Breaker | shipped |
+| v26 | `A24` | A | Shorts | The Ferry | shipped |
+| v27 | `A25` | A | Shorts | The Chock | shipped |
 
 ⚠ **Ledger break:** `A7` was never issued. The `v8`–`v17` batch set `idea = video number`, which
 skipped `A7` and destroyed the offset that `B1` created. Next Mode A idea is **`A18`**; `A7` stays
 permanently unissued so the ledger and the git history keep agreeing.
 
-**Next available:** Mode A → `A24` · Mode B → `B4`.
+**Next available:** Mode A → `A26` · Mode B → `B4`.
 
 ---
 
@@ -89,6 +91,8 @@ Every `pattern × scenario` pair ever spent. A new package must not match a row 
 | v23 | `NP5` Escalating Disaster | `SC6` Crime & Justice | `CM-B1` Irony | `TW5` Hidden Cause + `TM3` | 6.0 | ✅ |
 | v24 | `NP2` Underdog Reversal | `SC8` Everyday Friction | `CM-E1` Escalation | `TW1` Role Reversal | 8.8 | ✅ |
 | v25 | `NP1` Comeuppance | `SC3` Competition | `CM-E2` Chain Reaction | `TW2` Irony Reversal | 8.4 | ✅ |
+| v26 | `NP8` Ironic Backfire | `SC10` Animals-as-People | `CM-C2` Overconfidence Collapse | `TW1` Role Reversal | 8.7 | ✅ |
+| v27 | `NP2` Underdog Reversal | `SC2` Service Exchange | `CM-E1` Escalation | `TW4` False Victory | 9.0 | ✅ |
 
 **unresolved** = the package cites a scenario ID that does not exist in
 [Library 4](04-scenario-intelligence-library.md) at all (`SC11`, `SC13`, `SC16`, `SC17`, `SC19`,
@@ -215,3 +219,62 @@ does not recur.
 **Ledger note:** `A7` remains permanently unissued. This batch continues the sequence from `A18`, and
 because `v22` and `v23` took `B2` and `B3`, the video and idea numbers are offset again from `v24` onward —
 which is the intended behaviour, not a fault.
+
+
+---
+
+## Batch note — v26–v27
+
+Built to the v24/v25 profile after those two were identified as the strongest of the v18–v25 batch. Both are
+**Confidence 1.00 with all four chain edges at 5/5** — the first time two consecutive episodes have achieved
+that.
+
+| Video | Pair | Score | Confidence | Weakest edge |
+|---|---|---|---|---|
+| v26 | `NP8 × SC10` | 8.7 | 1.00 | none (all 5/5) |
+| v27 | `NP2 × SC2` | 9.0 | 1.00 | none (all 5/5) |
+
+**v27's 9.0 is the highest score since v2**, from the least exotic combination available. That confirms the
+v24 lesson: score comes from **proven nodes plus a legible mechanism**, not from novelty. v19 (6.1) and v23
+(6.0) are the counter-evidence.
+
+### ⚠ Structural finding — F-1 runway is exhausted on `NP1`
+
+Measured against this register, **`NP1 Comeuppance` now has no unused pairing left against any
+daily-or-support scenario** (`SC1`, `SC2`, `SC3`, `SC8`, `SC10` are all spent). Remaining
+high-confidence fresh pairs after v27:
+
+| Pattern | Free daily/support scenarios |
+|---|---|
+| `NP1` | **none — exhausted** |
+| `NP2` | `SC10` |
+| `NP3` | `SC1`, `SC8`, `SC10` *(but `NP3` holds 9 uses and is on rotation rest)* |
+| `NP8` | `SC1`, `SC2`, `SC3`, `SC8` |
+
+Everything else free is a Medium-confidence tier (`NP4`, `NP5`, `NP7`) or a Variety/Rare scenario
+(`SC4`–`SC7`, `SC9`). **All ten twist cores are now used**, so twist reuse is unavoidable from here and
+should be selected for *semantic distance from the mechanic* rather than for novelty.
+
+**Recommendation for v28+:** either accept lower-confidence scenarios and be honest about the score, or
+raise the question of amending the Scenario Library through `intelligence/04` as the standards allow —
+**not** by minting IDs inside an episode package, which is what produced the v8–v17 drift.
+
+### Corrections to earlier records
+
+1. **`NP5` confidence was inconsistent in my own scoring.** v18 rated it `H(1.0)`; v23 rated it `M(0.7)`.
+   Library 6 places `NP5 Escalating Disaster` in the **Variety** tier, so **`M(0.7)` is correct** and v18's
+   figure was too generous. v18's honest score is therefore **≈6.7, not 7.2.** The package is otherwise
+   sound; the header is optimistic by ~0.5 and this row is the authoritative record.
+2. **`TW8 Identity Reveal` is formally parked, not pending.** It is the only twist core never used, and it
+   was attempted twice during v20 and v22 design. With a **locked two-person cast** an identity reveal
+   requires either a third character with a concealed role — which the recurring-cast rule resists — or a
+   contrivance of the kind the base audit warns about. **Decision: `TW8` is reserved for long form**, where
+   a Guest-class character can be established properly, and is excluded from the Shorts queue. It should not
+   be counted as an outstanding freshness gap for Shorts.
+
+### Near-collapse avoided in v26 — worth recording as a pattern
+The intuitive container for `NP8 Ironic Backfire` is `TW2 Irony Reversal`, and that pairing is **one core
+wearing two hats** — the same defect found on v7, v8, v10 and v13. v26 uses `TW1 Role Reversal` instead.
+**Check for this whenever a pattern name and a twist name share a root word** (`Ironic`/`Irony`,
+`Overreach`/`Collapse`, `Hidden`/`Hidden`); it passes the letter of the comedy-core check while failing its
+intent, because the collision is between *pattern* and *twist* rather than *comedy* and *twist*.
